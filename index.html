@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takahiro Shiraishi — 麻酔科医 × アプリ開発者</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #f8f9fb;
+      --color-white: #ffffff;
+      --color-text: #1a1a2e;
+      --color-text-secondary: #5a5a7a;
+      --color-primary: #2563eb;
+      --color-primary-light: #dbeafe;
+      --color-primary-dark: #1d4ed8;
+      --color-accent: #0ea5e9;
+      --color-border: #e2e8f0;
+      --color-badge-beta: #8b5cf6;
+      --color-badge-dev: #f59e0b;
+      --color-badge-soon: #94a3b8;
+      --color-badge-ready: #10b981;
+      --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
+      --max-width: 960px;
+      --section-padding: 80px 24px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 100;
+      padding: 0 24px;
+    }
+
+    nav .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    nav .nav-links a {
+      text-decoration: none;
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav .nav-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .lang-switch {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      border: 1px solid var(--color-border);
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .lang-switch:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 140px 24px 80px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--color-white) 0%, var(--color-bg) 100%);
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Section common */
+    section {
+      padding: var(--section-padding);
+    }
+
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-text-secondary);
+      margin-bottom: 48px;
+      font-size: 1rem;
+    }
+
+    /* App Cards */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .app-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .app-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background: var(--color-primary-light);
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-beta {
+      background: #ede9fe;
+      color: var(--color-badge-beta);
+    }
+
+    .badge-dev {
+      background: #fef3c7;
+      color: var(--color-badge-dev);
+    }
+
+    .badge-soon {
+      background: #f1f5f9;
+      color: var(--color-badge-soon);
+    }
+
+    .badge-ready {
+      background: #d1fae5;
+      color: var(--color-badge-ready);
+    }
+
+    .app-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .app-card p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .app-card .btn-detail {
+      display: inline-block;
+      text-align: center;
+      padding: 10px 20px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--color-text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .app-card .btn-detail:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+    }
+
+    /* Profile */
+    .profile-section {
+      background: var(--color-white);
+    }
+
+    .profile-content {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .profile-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary-light), #c7d2fe);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      flex-shrink: 0;
+    }
+
+    .profile-text h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .profile-text .profile-role {
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .profile-text p {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .profile-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .profile-tag {
+      background: var(--color-bg);
+      color: var(--color-text-secondary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* SNS Links */
+    .sns-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .sns-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      color: var(--color-white);
+    }
+
+    .sns-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .sns-x { background: #000000; }
+    .sns-instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .sns-youtube { background: #ff0000; }
+
+    /* Legal */
+    .legal-section {
+      background: var(--color-white);
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .legal-block h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--color-text);
+    }
+
+    .legal-block p, .legal-block ul {
+      color: var(--color-text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.8;
+    }
+
+    .legal-block ul {
+      padding-left: 20px;
+    }
+
+    .legal-block li {
+      margin-bottom: 4px;
+    }
+
+    /* Contact */
+    .contact-section {
+      text-align: center;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 14px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .contact-btn:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: var(--color-text-secondary);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav .nav-links {
+        display: none;
+      }
+
+      .profile-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-tags {
+        justify-content: center;
+      }
+
+      .legal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">T.Shiraishi</a>
+      <ul class="nav-links">
+        <li><a href="#apps">アプリ</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#sns">SNS</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+      <a href="/en" class="lang-switch">EN</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-label">Anesthesiologist × Developer</div>
+      <h1>デンマークでClinical Fellowとして<br>挑戦する日本人医師が作る<br><span>臨床を変えるアプリ</span></h1>
+      <p>臨床現場で感じた「あったらいいな」を、自らの手でアプリに。<br>麻酔科の日常をもっとスマートに。</p>
+      <a href="#apps" class="hero-cta">アプリを見る</a>
+    </div>
+  </section>
+
+  <!-- Apps -->
+  <section id="apps">
+    <div class="section-inner">
+      <h2 class="section-title">アプリポートフォリオ</h2>
+      <p class="section-subtitle">臨床経験から生まれたWebアプリケーション</p>
+
+      <div class="app-grid">
+        <!-- App 1 -->
+        <div class="app-card">
+          <div class="app-card-header">
+            <div class="app-icon">🤖</div>
+            <span class="badge badge-beta">β準備中</span>
+          </div>
+          <h3>Your AI Senere Assistant</h3>
+          <p>研修医・専攻医向けの麻酔関連AIリファレンスアプリ。薬剤情報、手技ガイド、プロトコルを瞬時に検索・確認できます。</p>
+          <a href="#" class="btn-detail">詳細を見る</a>
+        </div>
+
+        <!-- App 2 -->
+        <div class="app-card">
+          <div class="app-card-header">
+            <div class="app-icon">💻</div>
+            <span class="badge badge-dev">開発中</span>
+          </div>
+          <h3>Online Preoperative Consultant App</h3>
+          <p>麻酔科医向けの術前リモート診察アプリ。遠隔で術前評価を行い、効率的な周術期管理を実現します。</p>
+          <a href="#" class="btn-detail">詳細を見る</a>
+        </div>
+
+        <!-- App 3 -->
+        <div class="app-card">
+          <div class="app-card-header">
+            <div class="app-icon">😂</div>
+            <span class="badge badge-ready">ほぼ完成</span>
+          </div>
+          <h3>Humorous Anesthesiologist</h3>
+          <p>麻酔科医のためのジョークアプリ。疲れた当直の息抜きに、麻酔科ならではのユーモアをお届けします。</p>
+          <a href="#" class="btn-detail">詳細を見る</a>
+        </div>
+
+        <!-- App 4 -->
+        <div class="app-card">
+          <div class="app-card-header">
+            <div class="app-icon">📋</div>
+            <span class="badge badge-soon">Coming Soon</span>
+          </div>
+          <h3>Pre-operative Anesthetic Summary App</h3>
+          <p>術前サマリ作成・周術期管理支援アプリ。患者情報の整理から麻酔計画の立案までをサポートします。</p>
+          <a href="#" class="btn-detail">Coming Soon</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile -->
+  <section id="profile" class="profile-section">
+    <div class="section-inner">
+      <h2 class="section-title">開発者プロフィール</h2>
+      <p class="section-subtitle">About the Developer</p>
+
+      <div class="profile-content">
+        <div class="profile-avatar">👨‍⚕️</div>
+        <div class="profile-text">
+          <h3>白石 貴大 / Takahiro Shiraishi</h3>
+          <div class="profile-role">MD, PhD — Rigshospitalet Clinical Fellow</div>
+          <p>日本で麻酔科専門医を取得後、デンマークに渡り麻酔科Clinical Fellowとして臨床に挑戦中。北欧の医療システムの中で日々診療にあたりながら、臨床課題を解決するアプリを開発しています。</p>
+          <p>臨床現場で感じた課題を解決するため、独学でプログラミングを学び、医療者向けWebアプリの開発をスタート。「臨床を知る医師だからこそ作れるアプリ」をモットーに、現場の声を形にしています。</p>
+          <div class="profile-tags">
+            <span class="profile-tag">麻酔科専門医</span>
+            <span class="profile-tag">デンマーク在住</span>
+            <span class="profile-tag">Webアプリ開発</span>
+            <span class="profile-tag">臨床×テクノロジー</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNS -->
+  <section id="sns">
+    <div class="section-inner">
+      <h2 class="section-title">SNS</h2>
+      <p class="section-subtitle">最新情報はSNSで発信中</p>
+
+      <div class="sns-links">
+        <a href="#" class="sns-btn sns-x">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X (Twitter)
+        </a>
+        <a href="#" class="sns-btn sns-instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instagram
+        </a>
+        <a href="#" class="sns-btn sns-youtube">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal -->
+  <section id="legal" class="legal-section">
+    <div class="section-inner">
+      <div class="legal-grid">
+        <div class="legal-block">
+          <h3>免責事項</h3>
+          <p>本サイトおよび掲載アプリで提供される情報は、一般的な参考情報を目的としたものであり、医学的助言に代わるものではありません。</p>
+          <ul>
+            <li>診断・治療の判断は必ず担当医にご相談ください</li>
+            <li>アプリの使用により生じたいかなる損害についても、開発者は責任を負いません</li>
+            <li>情報の正確性には最善を尽くしていますが、完全性を保証するものではありません</li>
+          </ul>
+        </div>
+        <div class="legal-block">
+          <h3>プライバシーポリシー</h3>
+          <p>各アプリにおけるユーザーデータの取り扱いについて：</p>
+          <ul>
+            <li>個人情報は、サービス提供に必要な範囲でのみ収集・利用します</li>
+            <li>第三者への無断提供は行いません</li>
+            <li>データは適切なセキュリティ対策のもとで管理します</li>
+            <li>各アプリの詳細なプライバシーポリシーは、アプリ内に記載しています</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <div class="section-inner">
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-subtitle">ご質問・ご要望・コラボレーションのご相談はお気軽にどうぞ</p>
+      <a href="mailto:contact@example.com" class="contact-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        メールで問い合わせる
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Takahiro Shiraishi. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
