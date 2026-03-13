@@ -453,6 +453,152 @@
       border-top: 1px solid var(--color-border);
     }
 
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 200;
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+    }
+
+    .modal {
+      background: var(--color-white);
+      border-radius: 20px;
+      max-width: 640px;
+      width: calc(100% - 32px);
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 40px 36px;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s;
+    }
+
+    .modal-backdrop.active .modal {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: var(--color-bg);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-secondary);
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--color-border);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .modal-header .app-icon {
+      width: 56px;
+      height: 56px;
+      font-size: 1.8rem;
+    }
+
+    .modal-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .modal-header .badge {
+      margin-left: 8px;
+    }
+
+    .modal-intro {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+
+    .modal-feature {
+      margin-bottom: 24px;
+    }
+
+    .modal-feature h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-feature p,
+    .modal-feature ul {
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .modal-feature ul {
+      padding-left: 20px;
+    }
+
+    .modal-feature li {
+      margin-bottom: 4px;
+    }
+
+    .modal-cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .modal-cta .btn-primary {
+      display: inline-block;
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .modal-cta .btn-primary:hover {
+      background: var(--color-primary-dark);
+    }
+
+    .app-card .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .app-card .btn-group .btn-detail {
+      flex: 1;
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       nav .nav-links {
@@ -474,6 +620,23 @@
 
       .app-grid {
         grid-template-columns: 1fr;
+      }
+
+      .modal {
+        padding: 32px 24px;
+        max-height: 90vh;
+      }
+
+      .modal-cta {
+        flex-direction: column;
+      }
+
+      .modal-cta .btn-primary {
+        text-align: center;
+      }
+
+      .app-card .btn-group {
+        flex-direction: column;
       }
     }
   </style>
@@ -541,7 +704,10 @@
           </div>
           <h3>TOFun — Humorous Anesthesiologist</h3>
           <p>A joke app by anesthesiologists, for anesthesiologists. 102 curated jokes, voting system, and user submissions. Take a break during long shifts with humor only we understand.</p>
-          <a href="https://joke-app-production.up.railway.app/" class="btn-detail" target="_blank">Open App</a>
+          <div class="btn-group">
+            <a href="https://joke-app-production.up.railway.app/" class="btn-detail" target="_blank">Open App</a>
+            <button class="btn-detail" onclick="document.getElementById('modal-tofun').classList.add('active')">Learn More</button>
+          </div>
         </div>
 
         <!-- App 4 -->
@@ -643,6 +809,72 @@
       </a>
     </div>
   </section>
+
+  <!-- TOFun Detail Modal -->
+  <div id="modal-tofun" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('modal-tofun').classList.remove('active')">&times;</button>
+
+      <div class="modal-header">
+        <div class="app-icon">😂</div>
+        <div>
+          <h2>TOFun <span class="badge badge-live">Live</span></h2>
+          <span style="color:var(--color-text-secondary);font-size:0.85rem">Humorous Anesthesiologist v3.0</span>
+        </div>
+      </div>
+
+      <p class="modal-intro">
+        TOFun is named after <strong>TOF = Train-of-Four = 102</strong> — a joke app built by anesthesiologists, for anesthesiologists. Free, no sign-up required. Works right in your browser.
+      </p>
+
+      <div class="modal-feature">
+        <h3>🎭 102 Curated Jokes</h3>
+        <p>OR humor, drug puns, and anesthesia-specific jokes that only we truly get. Press the button and the character delivers each joke in a speech bubble.</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>👍 Voting System</h3>
+        <p>Rate every joke with three options:</p>
+        <ul>
+          <li><strong>👍 Good</strong> — Solid joke (+2 pts)</li>
+          <li><strong>🤩 Great</strong> — Love it! (+3 pts)</li>
+          <li><strong>😐 Meh</strong> — Not my thing (-1 pt)</li>
+        </ul>
+        <p style="margin-top:8px">Scores auto-rank jokes so the best ones keep appearing.</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>✏️ User Submissions</h3>
+        <p>Submit your own original jokes to the app.</p>
+        <ul>
+          <li>Simple text input (5–200 characters)</li>
+          <li>Immediately enters the joke rotation</li>
+          <li>Other users vote on your joke</li>
+          <li>Duplicate check and validation built in</li>
+        </ul>
+      </div>
+
+      <div class="modal-feature">
+        <h3>🏆 Curation System</h3>
+        <p>An automatic quality control system keeps the joke pool fresh.</p>
+        <ul>
+          <li>20 official jokes are always guaranteed to appear</li>
+          <li>82 remaining slots are competed for by official and user jokes based on score</li>
+          <li>Low-rated jokes are automatically rotated out</li>
+          <li>The app improves over time through community votes</li>
+        </ul>
+      </div>
+
+      <div class="modal-feature">
+        <h3>🫧 Character Animations</h3>
+        <p>The TOFun character changes through 10 stages as you read jokes. Each new expression makes you want to see the next one.</p>
+      </div>
+
+      <div class="modal-cta">
+        <a href="https://joke-app-production.up.railway.app/" class="btn-primary" target="_blank">Open TOFun</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
