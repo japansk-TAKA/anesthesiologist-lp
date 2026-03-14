@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Takahiro Shiraishi — Anesthesiologist × App Developer</title>
+  <title>Takahiro Shiraishi — Anesthesiologist × AI Innovator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --color-bg: #f8f9fb;
-      --color-white: #ffffff;
-      --color-text: #1a1a2e;
-      --color-text-secondary: #5a5a7a;
-      --color-primary: #2563eb;
-      --color-primary-light: #dbeafe;
-      --color-primary-dark: #1d4ed8;
-      --color-accent: #0ea5e9;
-      --color-border: #e2e8f0;
-      --color-badge-beta: #8b5cf6;
-      --color-badge-dev: #f59e0b;
-      --color-badge-soon: #94a3b8;
-      --color-badge-ready: #10b981;
-      --color-badge-live: #3b82f6;
+      --color-bg: #0a0e1a;
+      --color-white: #111827;
+      --color-text: #e2e8f0;
+      --color-text-secondary: #94a3b8;
+      --color-primary: #3b82f6;
+      --color-primary-light: rgba(59, 130, 246, 0.12);
+      --color-primary-dark: #60a5fa;
+      --color-accent: #06b6d4;
+      --color-border: rgba(148, 163, 184, 0.15);
+      --color-badge-beta: #a78bfa;
+      --color-badge-dev: #fbbf24;
+      --color-badge-soon: #64748b;
+      --color-badge-ready: #34d399;
+      --color-badge-live: #60a5fa;
+      --color-glow: rgba(59, 130, 246, 0.3);
       --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
       --max-width: 960px;
       --section-padding: 80px 24px;
@@ -52,8 +53,8 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(10, 14, 26, 0.85);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--color-border);
       z-index: 100;
       padding: 0 24px;
@@ -71,8 +72,9 @@
     nav .logo {
       font-weight: 700;
       font-size: 1.1rem;
-      color: var(--color-primary);
+      color: #60a5fa;
       text-decoration: none;
+      text-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
     }
 
     nav .nav-links {
@@ -90,7 +92,8 @@
     }
 
     nav .nav-links a:hover {
-      color: var(--color-primary);
+      color: #60a5fa;
+      text-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
     }
 
     .lang-switch {
@@ -104,15 +107,34 @@
     }
 
     .lang-switch:hover {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
+      border-color: #60a5fa;
+      color: #60a5fa;
     }
 
     /* Hero */
     .hero {
       padding: 140px 24px 80px;
       text-align: center;
-      background: linear-gradient(180deg, var(--color-white) 0%, var(--color-bg) 100%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.15) 0%, var(--color-bg) 70%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+      animation: nebula 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes nebula {
+      0% { transform: rotate(0deg) scale(1); }
+      100% { transform: rotate(3deg) scale(1.05); }
     }
 
     .hero-inner {
@@ -122,13 +144,14 @@
 
     .hero-label {
       display: inline-block;
-      background: var(--color-primary-light);
-      color: var(--color-primary);
+      background: rgba(59, 130, 246, 0.12);
+      color: #60a5fa;
       font-size: 0.85rem;
       font-weight: 600;
       padding: 6px 16px;
       border-radius: 20px;
       margin-bottom: 24px;
+      border: 1px solid rgba(59, 130, 246, 0.25);
     }
 
     .hero h1 {
@@ -140,10 +163,11 @@
     }
 
     .hero h1 span {
-      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      background: linear-gradient(135deg, #60a5fa, #06b6d4, #a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.4));
     }
 
     .hero p {
@@ -155,19 +179,53 @@
 
     .hero-cta {
       display: inline-block;
-      background: var(--color-primary);
-      color: var(--color-white);
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: #ffffff;
       padding: 14px 32px;
       border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
-      transition: background 0.2s, transform 0.2s;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      position: relative;
     }
 
     .hero-cta:hover {
-      background: var(--color-primary-dark);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+
+    .hero-video {
+      margin-top: 48px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+    }
+
+    .video-caption {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
     }
 
     /* Section common */
@@ -185,6 +243,7 @@
       font-weight: 700;
       text-align: center;
       margin-bottom: 12px;
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
     }
 
     .section-subtitle {
@@ -192,6 +251,36 @@
       color: var(--color-text-secondary);
       margin-bottom: 48px;
       font-size: 1rem;
+    }
+
+    /* Cross effect - behind subtitle text */
+    .section-subtitle-cross {
+      position: relative;
+      display: inline-block;
+      padding: 8px 16px;
+      z-index: 1;
+    }
+
+    .section-subtitle-cross::before,
+    .section-subtitle-cross::after {
+      content: '';
+      position: absolute;
+      width: 130%;
+      height: 3px;
+      bottom: -16px;
+      left: -15%;
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .section-subtitle-cross::before {
+      background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 30%, rgba(59, 130, 246, 0.5) 50%, rgba(59, 130, 246, 0.3) 70%, transparent 100%);
+      transform: rotate(3deg);
+    }
+
+    .section-subtitle-cross::after {
+      background: linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.3) 30%, rgba(6, 182, 212, 0.5) 50%, rgba(6, 182, 212, 0.3) 70%, transparent 100%);
+      transform: rotate(-3deg);
     }
 
     /* App Cards */
@@ -202,18 +291,21 @@
     }
 
     .app-card {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(59, 130, 246, 0.12);
       border-radius: 16px;
       padding: 32px 28px;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
       display: flex;
       flex-direction: column;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.05);
     }
 
     .app-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.2), 0 0 50px rgba(6, 182, 212, 0.1);
+      border-color: rgba(59, 130, 246, 0.4);
     }
 
     .app-card-header {
@@ -231,7 +323,8 @@
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
-      background: var(--color-primary-light);
+      background: rgba(59, 130, 246, 0.12);
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
     }
 
     .badge {
@@ -244,27 +337,27 @@
     }
 
     .badge-beta {
-      background: #ede9fe;
+      background: rgba(167, 139, 250, 0.15);
       color: var(--color-badge-beta);
     }
 
     .badge-dev {
-      background: #fef3c7;
+      background: rgba(251, 191, 36, 0.15);
       color: var(--color-badge-dev);
     }
 
     .badge-soon {
-      background: #f1f5f9;
+      background: rgba(100, 116, 139, 0.2);
       color: var(--color-badge-soon);
     }
 
     .badge-ready {
-      background: #d1fae5;
+      background: rgba(52, 211, 153, 0.15);
       color: var(--color-badge-ready);
     }
 
     .badge-live {
-      background: #dbeafe;
+      background: rgba(96, 165, 250, 0.15);
       color: var(--color-badge-live);
     }
 
@@ -296,13 +389,13 @@
 
     .app-card .btn-detail:hover {
       border-color: var(--color-primary);
-      color: var(--color-primary);
-      background: var(--color-primary-light);
+      color: #60a5fa;
+      background: rgba(59, 130, 246, 0.1);
     }
 
     /* Profile */
     .profile-section {
-      background: var(--color-white);
+      background: rgba(17, 24, 39, 0.6);
     }
 
     .profile-content {
@@ -311,16 +404,23 @@
       align-items: center;
     }
 
-    .profile-avatar {
+    .profile-avatar-wrap {
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--color-primary-light), #c7d2fe);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
+      border: 2px solid rgba(59, 130, 246, 0.3);
       flex-shrink: 0;
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
+      overflow: hidden;
+    }
+
+    .profile-avatar {
+      width: 130%;
+      height: 130%;
+      object-fit: cover;
+      object-position: center 20%;
+      margin-top: -10%;
+      margin-left: -15%;
     }
 
     .profile-text h3 {
@@ -330,10 +430,11 @@
     }
 
     .profile-text .profile-role {
-      color: var(--color-primary);
+      color: #60a5fa;
       font-weight: 600;
       font-size: 0.95rem;
       margin-bottom: 16px;
+      text-shadow: 0 0 12px rgba(96, 165, 250, 0.3);
     }
 
     .profile-text p {
@@ -350,12 +451,13 @@
     }
 
     .profile-tag {
-      background: var(--color-bg);
-      color: var(--color-text-secondary);
+      background: rgba(59, 130, 246, 0.1);
+      color: #94a3b8;
       font-size: 0.8rem;
       font-weight: 500;
       padding: 6px 14px;
       border-radius: 20px;
+      border: 1px solid rgba(59, 130, 246, 0.15);
     }
 
     /* SNS Links */
@@ -376,21 +478,25 @@
       font-weight: 600;
       font-size: 0.9rem;
       transition: transform 0.2s, box-shadow 0.2s;
-      color: var(--color-white);
+      color: #e8eaed;
     }
 
     .sns-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     }
 
-    .sns-x { background: #000000; }
-    .sns-instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-    .sns-youtube { background: #ff0000; }
+    .sns-x { background: linear-gradient(145deg, #3a3a50, #1a1a2e, #2a2a40); border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08); }
+    .sns-x:hover { box-shadow: 0 4px 25px rgba(255,255,255,0.15), inset 0 1px 0 rgba(255,255,255,0.1); }
+    .sns-instagram { background: linear-gradient(145deg, #f9a03f, #e6683c, #dc2743, #cc2366, #8a2387); box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
+    .sns-instagram:hover { box-shadow: 0 4px 25px rgba(220, 39, 67, 0.5), inset 0 1px 0 rgba(255,255,255,0.25); }
+    .sns-youtube { background: linear-gradient(145deg, #ff4444, #cc0000, #aa0000); box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
+    .sns-youtube:hover { box-shadow: 0 4px 25px rgba(255, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.25); }
+    .sns-note { background: linear-gradient(145deg, #5de0cc, #41c9b4, #2ea89a); box-shadow: 0 4px 15px rgba(65, 201, 180, 0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
+    .sns-note:hover { box-shadow: 0 4px 25px rgba(65, 201, 180, 0.5), inset 0 1px 0 rgba(255,255,255,0.25); }
 
     /* Legal */
     .legal-section {
-      background: var(--color-white);
+      background: rgba(17, 24, 39, 0.6);
     }
 
     .legal-grid {
@@ -429,19 +535,20 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--color-primary);
-      color: var(--color-white);
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: #ffffff;
       padding: 14px 36px;
       border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
-      transition: background 0.2s, transform 0.2s;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
     }
 
     .contact-btn:hover {
-      background: var(--color-primary-dark);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
     }
 
     /* Footer */
@@ -451,6 +558,7 @@
       color: var(--color-text-secondary);
       font-size: 0.85rem;
       border-top: 1px solid var(--color-border);
+      background: var(--color-bg);
     }
 
     /* Modal */
@@ -473,7 +581,8 @@
     }
 
     .modal {
-      background: var(--color-white);
+      background: #111827;
+      border: 1px solid rgba(59, 130, 246, 0.2);
       border-radius: 20px;
       max-width: 640px;
       width: calc(100% - 32px);
@@ -496,7 +605,7 @@
       width: 36px;
       height: 36px;
       border: none;
-      background: var(--color-bg);
+      background: rgba(148, 163, 184, 0.1);
       border-radius: 50%;
       font-size: 1.2rem;
       cursor: pointer;
@@ -508,7 +617,7 @@
     }
 
     .modal-close:hover {
-      background: var(--color-border);
+      background: rgba(148, 163, 184, 0.2);
     }
 
     .modal-header {
@@ -576,18 +685,267 @@
 
     .modal-cta .btn-primary {
       display: inline-block;
-      background: var(--color-primary);
-      color: var(--color-white);
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: #ffffff;
       padding: 12px 28px;
       border-radius: 10px;
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
-      transition: background 0.2s;
+      transition: all 0.3s;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
     }
 
     .modal-cta .btn-primary:hover {
-      background: var(--color-primary-dark);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .modal-cta .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #60a5fa;
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      transition: all 0.2s;
+    }
+
+    .modal-cta .btn-secondary:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: #60a5fa;
+    }
+
+    /* AI Section */
+    .ai-section {
+      position: relative;
+      overflow: hidden;
+      background: #060a14;
+      padding: var(--section-padding);
+    }
+
+    .ai-section-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(6, 182, 212, 0.10) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+      animation: aiPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes aiPulse {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .ai-section-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .ai-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .ai-feature-card {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.15);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), rgba(6, 182, 212, 0.5), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .ai-feature-card:hover {
+      border-color: rgba(59, 130, 246, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+    }
+
+    .ai-feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .ai-feature-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+    }
+
+    .ai-feature-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #e2e8f0;
+    }
+
+    .ai-feature-card p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .ai-feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Beta Banner */
+    .beta-banner {
+      background: linear-gradient(160deg, #0f1b35 0%, #132347 40%, #0c2a4a 70%, #0a1e3d 100%);
+      border-top: 1px solid rgba(59, 130, 246, 0.25);
+      border-bottom: 1px solid rgba(59, 130, 246, 0.25);
+      color: #e2e8f0;
+      padding: 60px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .beta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 25% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 75% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
+    }
+
+    .beta-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+        linear-gradient(45deg, transparent 48%, rgba(6, 182, 212, 0.04) 49%, rgba(6, 182, 212, 0.04) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(59, 130, 246, 0.04) 49%, rgba(59, 130, 246, 0.04) 51%, transparent 52%);
+      background-size: 40px 40px, 40px 40px, 80px 80px, 80px 80px;
+    }
+
+    .beta-banner-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .beta-banner-label {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+    }
+
+    .beta-banner h2 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #f1f5f9;
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .beta-banner p {
+      font-size: 1rem;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto 12px;
+      line-height: 1.8;
+    }
+
+    .beta-banner-details {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .beta-banner-detail {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #cbd5e1;
+    }
+
+    .beta-banner-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .beta-btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: #ffffff;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .beta-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+
+    .beta-btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: #60a5fa;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      transition: all 0.3s;
+    }
+
+    .beta-btn-secondary:hover {
+      border-color: #60a5fa;
+      background: rgba(59, 130, 246, 0.1);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
     }
 
     .app-card .btn-group {
@@ -646,24 +1004,34 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-inner">
-      <a href="#" class="logo">T.Shiraishi</a>
+      <a href="#" class="logo">Spectra AI</a>
       <ul class="nav-links">
         <li><a href="#apps">Apps</a></li>
+        <li><a href="#beta-test" style="color:var(--color-badge-beta);font-weight:600">Beta Test</a></li>
         <li><a href="#profile">Profile</a></li>
         <li><a href="#sns">Social</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <a href="index_ja.html" class="lang-switch">JP</a>
+      <a href="/" class="lang-switch">JP</a>
     </div>
   </nav>
 
   <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
-      <div class="hero-label">Anesthesiologist × Developer</div>
-      <h1>Built by a Clinician,<br><span>for Clinicians</span></h1>
-      <p>The first Japanese anesthesiologist in Denmark, building web apps that solve real problems in the operating room.</p>
-      <a href="#apps" class="hero-cta">View Apps</a>
+      <div class="hero-label">Anesthesiologist × AI Innovator</div>
+      <h1>"Hey, are you there?"<br><span>That future is already here.</span></h1>
+      <p>Control AI with your voice — write code, build apps, create everything.<br>A voice-powered AI development system, built by an anesthesiologist studying in Denmark.</p>
+      <a href="#ai-system" class="hero-cta">What is Voice AI System?</a>
+      <a href="#apps" class="hero-cta" style="background: transparent; border: 1px solid rgba(59, 130, 246, 0.4); color: #60a5fa; box-shadow: none; margin-left: 12px;">Apps Beyond Clinical Limits</a>
+
+      <!-- Demo Video -->
+      <div class="hero-video">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="AI Content System Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="video-caption">Voice-Powered AI Development — Controlling AI with voice alone</p>
+      </div>
     </div>
   </section>
 
@@ -671,18 +1039,21 @@
   <section id="apps">
     <div class="section-inner">
       <h2 class="section-title">App Portfolio</h2>
-      <p class="section-subtitle">Web applications born from clinical experience</p>
+      <p class="section-subtitle"><span class="section-subtitle-cross">Where clinical experience and AI intersect — a new generation of web applications</span></p>
 
       <div class="app-grid">
         <!-- App 1 -->
         <div class="app-card">
           <div class="app-card-header">
             <div class="app-icon">🤖</div>
-            <span class="badge badge-beta">Pre-Beta</span>
+            <span class="badge badge-beta">Beta Testing</span>
           </div>
           <h3>Your AI Senere Assistant</h3>
-          <p>An AI-powered anesthesia reference app for residents and trainees. Instantly search drug information, procedure guides, and clinical protocols.</p>
-          <a href="#" class="btn-detail">Learn More</a>
+          <p>An AI-powered anesthesia reference app for residents and fellows. Instantly search and access drug information, procedure guides, and protocols.</p>
+          <div class="btn-group">
+            <a href="#beta-test" class="btn-detail">Join Beta</a>
+            <button class="btn-detail" onclick="document.getElementById('modal-senere').classList.add('active')">Learn More</button>
+          </div>
         </div>
 
         <!-- App 2 -->
@@ -692,7 +1063,7 @@
             <span class="badge badge-dev">In Development</span>
           </div>
           <h3>Online Preoperative Consultant App</h3>
-          <p>A remote preoperative assessment tool for anesthesiologists. Conduct pre-surgical evaluations efficiently from anywhere.</p>
+          <p>A remote preoperative assessment app for anesthesiologists. Conduct preoperative evaluations remotely and streamline perioperative management.</p>
           <a href="#" class="btn-detail">Learn More</a>
         </div>
 
@@ -703,7 +1074,7 @@
             <span class="badge badge-live">Live</span>
           </div>
           <h3>TOFun — Humorous Anesthesiologist</h3>
-          <p>A joke app by anesthesiologists, for anesthesiologists. 102 curated jokes, voting system, and user submissions. Take a break during long shifts with humor only we understand.</p>
+          <p>A joke app by anesthesiologists, for anesthesiologists. Featuring 102 jokes, a voting system, and user submissions. Take a break during your on-call shift with humor only anesthesiologists would appreciate.</p>
           <div class="btn-group">
             <a href="https://joke-app-production.up.railway.app/" class="btn-detail" target="_blank">Open App</a>
             <button class="btn-detail" onclick="document.getElementById('modal-tofun').classList.add('active')">Learn More</button>
@@ -717,9 +1088,92 @@
             <span class="badge badge-soon">Coming Soon</span>
           </div>
           <h3>Pre-operative Anesthetic Summary App</h3>
-          <p>A perioperative management tool that streamlines patient data organization and anesthetic planning.</p>
+          <p>A preoperative summary and perioperative management support app. Assists with organizing patient information and formulating anesthesia plans.</p>
           <a href="#" class="btn-detail">Coming Soon</a>
         </div>
+
+        <!-- App 5: AI Content System -->
+        <div class="app-card" style="border-color: rgba(59, 130, 246, 0.4); border-width: 2px; box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: linear-gradient(135deg, #dbeafe, #ede9fe);">🧠</div>
+            <span class="badge badge-live">Active</span>
+          </div>
+          <h3>Voice-Powered AI Dev System</h3>
+          <p>A custom-built system for full voice control of Claude Code. Just speak and it handles coding, app development, and documentation — everything completed by voice alone.</p>
+          <a href="#ai-system" class="btn-detail">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI System Section -->
+  <section id="ai-system" class="ai-section">
+    <div class="ai-section-bg"></div>
+    <div class="section-inner" style="position: relative; z-index: 1;">
+      <h2 class="section-title" style="color: #f1f5f9;">Voice-Powered AI Development</h2>
+      <p class="section-subtitle" style="color: #94a3b8;">A world where AI moves by voice alone</p>
+
+      <div style="max-width: 680px; margin: 0 auto 48px; text-align: center;">
+        <p style="color: #94a3b8; font-size: 1rem; line-height: 1.8;">
+          A custom-built system for full voice control of Claude Code.<br>
+          From coding, app development, documentation to content creation —<br>
+          everything is completed by voice alone.
+        </p>
+      </div>
+
+      <div class="ai-feature-grid">
+        <div class="ai-feature-card">
+          <div class="ai-feature-icon">🎙️</div>
+          <h3>Voice AI Control</h3>
+          <p>No keyboard needed. Just speak and AI writes code, edits files, and builds systems for you.</p>
+        </div>
+        <div class="ai-feature-card">
+          <div class="ai-feature-icon">🤖</div>
+          <h3>Multi-Agent</h3>
+          <p>Multiple AI agents work in parallel, processing complex tasks simultaneously.</p>
+        </div>
+        <div class="ai-feature-card">
+          <div class="ai-feature-icon">🔧</div>
+          <h3>Custom Skills</h3>
+          <p>Build custom skills and workflows. Extend AI capabilities to fit your specific needs.</p>
+        </div>
+        <div class="ai-feature-card">
+          <div class="ai-feature-icon">⚡</div>
+          <h3>Real-time Execution</h3>
+          <p>Results appear in real time as you speak. A zero-latency development experience.</p>
+        </div>
+        <div class="ai-feature-card">
+          <div class="ai-feature-icon">🌐</div>
+          <h3>High Versatility</h3>
+          <p>From research to app development to social media management. A universal AI development environment for every domain.</p>
+        </div>
+        <div class="ai-feature-card">
+          <div class="ai-feature-icon">💬</div>
+          <h3>Natural Language, Natural Control</h3>
+          <p>No programming knowledge required. Just speak naturally and AI understands your intent and executes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beta Test Banner -->
+  <section id="beta-test" class="beta-banner">
+    <div class="beta-banner-inner">
+      <div class="beta-banner-label">🧪 Beta Test in Progress</div>
+      <h2>Your AI Senere Assistant — Beta Testers Wanted</h2>
+      <p>Calling all residents and fellows — join the beta test for our anesthesia AI consult app.<br>Try it free for one week and help us improve the app.</p>
+
+      <div class="beta-banner-details">
+        <div class="beta-banner-detail">📅 Duration: 1 week (free)</div>
+        <div class="beta-banner-detail">📝 Survey (approx. 3–5 min)</div>
+        <div class="beta-banner-detail">💻 Instant access via browser</div>
+      </div>
+
+      <p>Experience 3 features: 💬 Chat Consultation / ⚡ Quick Consult (8 scenarios) / 💊 Drug Dose Calculator (16 drugs)</p>
+
+      <div class="beta-banner-actions">
+        <a href="#" class="beta-btn-primary" target="_blank">Try the App</a>
+        <a href="#" class="beta-btn-secondary" target="_blank">Take the Survey</a>
       </div>
     </div>
   </section>
@@ -728,19 +1182,21 @@
   <section id="profile" class="profile-section">
     <div class="section-inner">
       <h2 class="section-title">About the Developer</h2>
-      <p class="section-subtitle">Bridging clinical practice and technology</p>
+      <p class="section-subtitle">Profile</p>
 
       <div class="profile-content">
-        <div class="profile-avatar">👨‍⚕️</div>
+        <div class="profile-avatar-wrap"><img src="profile.JPG" alt="Takahiro Shiraishi" class="profile-avatar"></div>
         <div class="profile-text">
           <h3>Takahiro Shiraishi</h3>
-          <div class="profile-role">MD, PhD — Rigshospitalet Clinical Fellow</div>
-          <p>After becoming a board-certified anesthesiologist in Japan, I moved to Denmark to practice medicine — becoming the first Japanese anesthesiologist to work in the country.</p>
-          <p>Driven by challenges I encounter daily in the operating room, I taught myself programming and began developing web applications for medical professionals. My motto: "Only a clinician can build truly useful clinical tools."</p>
+          <div class="profile-role">MD, PhD — Rigshospitalet Clinical Fellow / AI Innovator</div>
+          <p>After earning board certification in anesthesiology in Japan, I moved to Denmark where I currently work as a Clinical Fellow in anesthesia. While practicing medicine within the Nordic healthcare system, I develop AI-powered medical applications and build AI-driven content creation systems.</p>
+          <p>Self-taught in programming and AI development, I built a proprietary AI system that automatically generates SNS content from voice input alone. As a physician who understands clinical practice firsthand, I create apps that bridge medicine and technology — pushing the boundaries of what AI can do.</p>
           <div class="profile-tags">
             <span class="profile-tag">Board-Certified Anesthesiologist</span>
             <span class="profile-tag">Based in Denmark</span>
-            <span class="profile-tag">Web App Developer</span>
+            <span class="profile-tag">AI Development</span>
+            <span class="profile-tag">Web App Development</span>
+            <span class="profile-tag">AI Content Creation</span>
             <span class="profile-tag">Clinical × Technology</span>
           </div>
         </div>
@@ -751,21 +1207,25 @@
   <!-- SNS -->
   <section id="sns">
     <div class="section-inner">
-      <h2 class="section-title">Follow Me</h2>
-      <p class="section-subtitle">Stay updated on the latest news and releases</p>
+      <h2 class="section-title">Follow</h2>
+      <p class="section-subtitle">Stay updated with the latest news</p>
 
       <div class="sns-links">
-        <a href="#" class="sns-btn sns-x">
+        <a href="https://x.com/dk_anes_doctor" class="sns-btn sns-x" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           X (Twitter)
         </a>
-        <a href="#" class="sns-btn sns-instagram">
+        <a href="https://instagram.com/dk_anes_doctor" class="sns-btn sns-instagram" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           Instagram
         </a>
         <a href="#" class="sns-btn sns-youtube">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           YouTube
+        </a>
+        <a href="https://note.com/dk_anes_doctor" class="sns-btn sns-note" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.195 3.64c-.735-.059-3.039-.089-4.719.42a7.346 7.346 0 00-2.202 1.217c-.392.327-.559.522-.763.857-.205.334-.26.703-.323 1.168-.064.465-.017 1.14-.017 1.14s-.395-.382-.852-.63c-.457-.247-1.009-.382-1.009-.382s.521.635.652 1.027c.13.393.136.78.136.78s-.387-.245-.86-.379c-.474-.134-.967-.131-.967-.131s.384.434.609.836c.225.401.361.849.361.849s-.317-.133-.698-.215c-.381-.082-.755-.082-.755-.082s.308.375.539.739c.231.365.383.755.383.755H8.235c-1.009 0-2.394.091-3.593.472C3.444 12.001 2.5 12.69 1.805 13.6v6.6c0 .69.561 1.2 1.2 1.2h18c.639 0 1.2-.51 1.2-1.2V4.8c0-.63-.47-1.1-1.01-1.16zM20.4 19.2H3.6v-4.8c.5-.656 1.2-1.128 2.1-1.38.9-.252 1.974-.324 2.88-.324h9.42c.84 0 1.62.036 2.4.036V19.2z"/></svg>
+          note
         </a>
       </div>
     </div>
@@ -777,21 +1237,24 @@
       <div class="legal-grid">
         <div class="legal-block">
           <h3>Disclaimer</h3>
-          <p>The information provided on this site and in the listed applications is intended for general reference purposes only and does not constitute medical advice.</p>
+          <p>The information provided on this website and its associated applications is intended for general reference purposes only and does not constitute medical advice.</p>
           <ul>
             <li>Always consult your attending physician for diagnosis and treatment decisions</li>
             <li>The developer assumes no liability for any damages arising from the use of these applications</li>
-            <li>While every effort is made to ensure accuracy, completeness is not guaranteed</li>
+            <li>While every effort is made to ensure accuracy, completeness of information is not guaranteed</li>
+            <li>AI-generated content (text, video, etc.) published on this site may include AI output and its accuracy is not guaranteed</li>
+            <li>Systems shown in demo videos are under development and may differ from actual functionality</li>
           </ul>
         </div>
         <div class="legal-block">
           <h3>Privacy Policy</h3>
           <p>Regarding the handling of user data in each application:</p>
           <ul>
-            <li>Personal information is collected and used only to the extent necessary for service delivery</li>
-            <li>Data will not be shared with third parties without consent</li>
-            <li>All data is managed with appropriate security measures</li>
-            <li>Detailed privacy policies for each app are available within the respective applications</li>
+            <li>Personal information is collected and used only to the extent necessary for providing services</li>
+            <li>No unauthorized sharing of data with third parties</li>
+            <li>Data is managed with appropriate security measures</li>
+            <li>This site embeds external services such as YouTube, and the privacy policies of those services apply</li>
+            <li>Detailed privacy policies for each app are provided within the respective applications</li>
           </ul>
         </div>
       </div>
@@ -810,6 +1273,60 @@
     </div>
   </section>
 
+  <!-- Senere Assistant Detail Modal -->
+  <div id="modal-senere" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('modal-senere').classList.remove('active')">&times;</button>
+
+      <div class="modal-header">
+        <div class="app-icon">🤖</div>
+        <div>
+          <h2>Your AI Senere Assistant <span class="badge badge-beta">Beta Testing</span></h2>
+          <span style="color:var(--color-text-secondary);font-size:0.85rem">Anesthesia AI Senior Consult v0.1-beta</span>
+        </div>
+      </div>
+
+      <p class="modal-intro">
+        Senere means "later" in Danish. For those moments when you think "Wait, I'll ask about that later" — AI has you covered right away. An anesthesia AI consult app designed for residents and fellows.
+      </p>
+
+      <div class="modal-feature">
+        <h3>💬 Chat Consultation</h3>
+        <p>Ask any question about anesthesia management and the AI senior consultant responds in a structured format with "key points" and "details." Emergency keywords are automatically detected and trigger emergency mode.</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>⚡ Quick Consult</h3>
+        <p>8 preset emergency scenarios. Access protocols instantly with a single tap.</p>
+        <ul>
+          <li>🚨 Anaphylaxis</li>
+          <li>🔥 Malignant Hyperthermia</li>
+          <li>😮 Difficult Airway</li>
+          <li>💉 Local Anesthetic Systemic Toxicity (LAST)</li>
+          <li>📉 Intraoperative Hypotension</li>
+          <li>💓 Bradycardia</li>
+          <li>🤢 PONV (Postoperative Nausea and Vomiting)</li>
+          <li>💊 Postoperative Pain Management</li>
+        </ul>
+      </div>
+
+      <div class="modal-feature">
+        <h3>💊 Drug Dose Calculator</h3>
+        <p>Automatic weight-based dose calculation for 16 commonly used anesthesia drugs. Enter patient information and see dosages at a glance.</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>🛡️ Safety Considerations</h3>
+        <p>A disclaimer and consent screen is displayed on first use. In emergency mode, a persistent reminder to "also contact your attending/supervising physician" is always shown. AI is positioned strictly as a supplementary tool.</p>
+      </div>
+
+      <div class="modal-cta">
+        <a href="#" class="btn-primary" target="_blank">Join the Beta Test</a>
+        <a href="#" class="btn-secondary" target="_blank">Take the Survey</a>
+      </div>
+    </div>
+  </div>
+
   <!-- TOFun Detail Modal -->
   <div id="modal-tofun" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
     <div class="modal">
@@ -824,50 +1341,50 @@
       </div>
 
       <p class="modal-intro">
-        TOFun is named after <strong>TOF = Train-of-Four = 102</strong> — a joke app built by anesthesiologists, for anesthesiologists. Free, no sign-up required. Works right in your browser.
+        TOFun is named after <strong>TOF = Train-of-Four = 102</strong> — a joke app by anesthesiologists, for anesthesiologists. No registration required. Free to use right in your browser.
       </p>
 
       <div class="modal-feature">
         <h3>🎭 102 Curated Jokes</h3>
-        <p>OR humor, drug puns, and anesthesia-specific jokes that only we truly get. Press the button and the character delivers each joke in a speech bubble.</p>
+        <p>From OR daily life and surgery room clichés to drug humor — 102 jokes that will make any anesthesiologist smirk. Press the button and a character delivers the joke in a speech bubble.</p>
       </div>
 
       <div class="modal-feature">
         <h3>👍 Voting System</h3>
-        <p>Rate every joke with three options:</p>
+        <p>Rate every joke on a 3-point scale.</p>
         <ul>
-          <li><strong>👍 Good</strong> — Solid joke (+2 pts)</li>
-          <li><strong>🤩 Great</strong> — Love it! (+3 pts)</li>
-          <li><strong>😐 Meh</strong> — Not my thing (-1 pt)</li>
+          <li><strong>👍 Good</strong> — Like it (+2 points)</li>
+          <li><strong>🤩 Great</strong> — Love it! (+3 points)</li>
+          <li><strong>😐 Meh</strong> — Not great (-1 point)</li>
         </ul>
-        <p style="margin-top:8px">Scores auto-rank jokes so the best ones keep appearing.</p>
+        <p style="margin-top:8px">Jokes are automatically ranked by vote score, so the best ones rise to the top.</p>
       </div>
 
       <div class="modal-feature">
         <h3>✏️ User Submissions</h3>
-        <p>Submit your own original jokes to the app.</p>
+        <p>Submit your own original jokes.</p>
         <ul>
           <li>Simple text input (5–200 characters)</li>
-          <li>Immediately enters the joke rotation</li>
-          <li>Other users vote on your joke</li>
-          <li>Duplicate check and validation built in</li>
+          <li>Immediately added to the joke rotation after submission</li>
+          <li>Rated by other users through voting</li>
+          <li>Duplicate checks and validation included for peace of mind</li>
         </ul>
       </div>
 
       <div class="modal-feature">
         <h3>🏆 Curation System</h3>
-        <p>An automatic quality control system keeps the joke pool fresh.</p>
+        <p>An automated system to maintain joke quality.</p>
         <ul>
           <li>20 official jokes are always guaranteed to appear</li>
-          <li>82 remaining slots are competed for by official and user jokes based on score</li>
-          <li>Low-rated jokes are automatically rotated out</li>
-          <li>The app improves over time through community votes</li>
+          <li>The remaining 82 slots are competed for by official and user-submitted jokes based on vote scores</li>
+          <li>Low-rated jokes are automatically replaced, keeping only the funniest ones</li>
+          <li>The app evolves and improves through user voting</li>
         </ul>
       </div>
 
       <div class="modal-feature">
-        <h3>🫧 Character Animations</h3>
-        <p>The TOFun character changes through 10 stages as you read jokes. Each new expression makes you want to see the next one.</p>
+        <h3>🫧 Character Expressions</h3>
+        <p>The TOFun character changes through 10 stages. Its expression changes with each joke you read, making you want to keep going for the next one.</p>
       </div>
 
       <div class="modal-cta">
