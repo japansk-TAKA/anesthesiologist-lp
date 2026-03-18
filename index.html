@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Takahiro Shiraishi — 麻酔科医 × AI Innovator</title>
+  <title>麻酔科医X — 麻酔科医 × AI Innovator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -957,6 +957,52 @@
       flex: 1;
     }
 
+    /* Coming Soon Overlay */
+    .app-card-disabled {
+      position: relative;
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .app-card-disabled::after {
+      content: '近日公開';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 14, 26, 0.55);
+      border-radius: 16px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .app-card-disabled .btn-detail,
+    .app-card-disabled .btn-group {
+      visibility: hidden;
+    }
+
+    .beta-disabled {
+      pointer-events: none;
+      opacity: 0.5;
+      filter: grayscale(0.3);
+    }
+
+    .beta-disabled .beta-btn-primary,
+    .beta-disabled .beta-btn-secondary,
+    .beta-disabled .btn-primary,
+    .beta-disabled .btn-secondary {
+      cursor: not-allowed;
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       nav .nav-links {
@@ -1044,7 +1090,7 @@
 
       <div class="app-grid">
         <!-- App 1 -->
-        <div class="app-card">
+        <div class="app-card app-card-disabled">
           <div class="app-card-header">
             <div class="app-icon">🤖</div>
             <span class="badge badge-beta">βテスト中</span>
@@ -1058,7 +1104,7 @@
         </div>
 
         <!-- App 2 -->
-        <div class="app-card">
+        <div class="app-card app-card-disabled">
           <div class="app-card-header">
             <div class="app-icon">💻</div>
             <span class="badge badge-dev">開発中</span>
@@ -1069,7 +1115,7 @@
         </div>
 
         <!-- App 3 -->
-        <div class="app-card">
+        <div class="app-card app-card-disabled">
           <div class="app-card-header">
             <div class="app-icon">😂</div>
             <span class="badge badge-live">リリース済み</span>
@@ -1083,7 +1129,7 @@
         </div>
 
         <!-- App 4 -->
-        <div class="app-card">
+        <div class="app-card app-card-disabled">
           <div class="app-card-header">
             <div class="app-icon">📋</div>
             <span class="badge badge-soon">Coming Soon</span>
@@ -1158,10 +1204,10 @@
   </section>
 
   <!-- Beta Test Banner -->
-  <section id="beta-test" class="beta-banner">
+  <section id="beta-test" class="beta-banner beta-disabled">
     <div class="beta-banner-inner">
       <div class="beta-banner-label">🧪 βテスト開催中</div>
-      <h2>Your AI Senare Assistant βテスター募集</h2>
+      <h2>Your AI Senere Assistant βテスター募集</h2>
       <p>研修医・専攻医の先生方へ — 麻酔科AIコンサルトアプリのβテストに参加しませんか？<br>1週間の無料利用で、アプリの改善にご協力ください。</p>
 
       <div class="beta-banner-details">
@@ -1186,9 +1232,9 @@
       <p class="section-subtitle">About the Developer</p>
 
       <div class="profile-content">
-        <div class="profile-avatar-wrap"><img src="profile.JPG" alt="Takahiro Shiraishi" class="profile-avatar"></div>
+        <div class="profile-avatar-wrap"><img src="profile.JPG" alt="麻酔科医X" class="profile-avatar"></div>
         <div class="profile-text">
-          <h3>Takahiro Shiraishi</h3>
+          <h3>麻酔科医X</h3>
           <div class="profile-role">MD, PhD — Rigshospitalet Clinical Fellow / AI Innovator</div>
           <p>日本で麻酔科専門医を取得後、デンマークに渡り麻酔科Clinical Fellowとして臨床に挑戦中。北欧の医療システムの中で日々診療にあたりながら、AIを活用した医療アプリの開発と、AI駆動のコンテンツ制作システムの構築に取り組んでいます。</p>
           <p>独学でプログラミングとAI開発を学び、「話すだけでSNSコンテンツが自動生成される」独自のAIシステムを構築。臨床を知る医師だからこそ作れるアプリと、AIの可能性を最前線で切り拓いています。</p>
@@ -1321,7 +1367,7 @@
         <p>免責事項・利用同意画面を初回表示時に確認。緊急モードでは「上級医・指導医への連絡も並行して行ってください」と常時表示。AIはあくまで補助ツールとして位置づけています。</p>
       </div>
 
-      <div class="modal-cta">
+      <div class="modal-cta beta-disabled">
         <a href="#" class="btn-primary" target="_blank">βテストに参加する</a>
         <a href="#" class="btn-secondary" target="_blank">アンケートに回答する</a>
       </div>
@@ -1396,7 +1442,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Takahiro Shiraishi. All rights reserved.</p>
+    <p>&copy; 2026 麻酔科医X. All rights reserved.</p>
   </footer>
 
 </body>

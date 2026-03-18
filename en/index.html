@@ -957,6 +957,52 @@
       flex: 1;
     }
 
+    /* Coming Soon Overlay */
+    .app-card-disabled {
+      position: relative;
+      pointer-events: none;
+      opacity: 0.65;
+    }
+
+    .app-card-disabled::after {
+      content: 'Coming Soon';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 14, 26, 0.55);
+      border-radius: 16px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .app-card-disabled .btn-detail,
+    .app-card-disabled .btn-group {
+      visibility: hidden;
+    }
+
+    .beta-disabled {
+      pointer-events: none;
+      opacity: 0.5;
+      filter: grayscale(0.3);
+    }
+
+    .beta-disabled .beta-btn-primary,
+    .beta-disabled .beta-btn-secondary,
+    .beta-disabled .btn-primary,
+    .beta-disabled .btn-secondary {
+      cursor: not-allowed;
+    }
+
     /* Mobile */
     @media (max-width: 768px) {
       nav .nav-links {
@@ -1043,7 +1089,7 @@
 
       <div class="app-grid">
         <!-- App 1 -->
-        <div class="app-card">
+        <div class="app-card app-card-disabled">
           <div class="app-card-header">
             <div class="app-icon">🤖</div>
             <span class="badge badge-beta">Beta Testing</span>
@@ -1057,7 +1103,7 @@
         </div>
 
         <!-- App 2 -->
-        <div class="app-card">
+        <div class="app-card app-card-disabled">
           <div class="app-card-header">
             <div class="app-icon">💻</div>
             <span class="badge badge-dev">In Development</span>
@@ -1068,7 +1114,7 @@
         </div>
 
         <!-- App 3 -->
-        <div class="app-card">
+        <div class="app-card app-card-disabled">
           <div class="app-card-header">
             <div class="app-icon">😂</div>
             <span class="badge badge-live">Live</span>
@@ -1082,7 +1128,7 @@
         </div>
 
         <!-- App 4 -->
-        <div class="app-card">
+        <div class="app-card app-card-disabled">
           <div class="app-card-header">
             <div class="app-icon">📋</div>
             <span class="badge badge-soon">Coming Soon</span>
@@ -1157,7 +1203,7 @@
   </section>
 
   <!-- Beta Test Banner -->
-  <section id="beta-test" class="beta-banner">
+  <section id="beta-test" class="beta-banner beta-disabled">
     <div class="beta-banner-inner">
       <div class="beta-banner-label">🧪 Beta Test in Progress</div>
       <h2>Your AI Senere Assistant — Beta Testers Wanted</h2>
@@ -1320,7 +1366,7 @@
         <p>A disclaimer and consent screen is displayed on first use. In emergency mode, a persistent reminder to "also contact your attending/supervising physician" is always shown. AI is positioned strictly as a supplementary tool.</p>
       </div>
 
-      <div class="modal-cta">
+      <div class="modal-cta beta-disabled">
         <a href="#" class="btn-primary" target="_blank">Join the Beta Test</a>
         <a href="#" class="btn-secondary" target="_blank">Take the Survey</a>
       </div>

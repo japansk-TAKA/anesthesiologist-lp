@@ -590,6 +590,120 @@
       background: var(--color-primary-dark);
     }
 
+    .modal-cta .btn-secondary {
+      display: inline-block;
+      background: var(--color-white);
+      color: var(--color-primary);
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--color-primary);
+      transition: background 0.2s;
+    }
+
+    .modal-cta .btn-secondary:hover {
+      background: var(--color-primary-light);
+    }
+
+    /* Beta Banner */
+    .beta-banner {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: var(--color-white);
+      padding: 60px 24px;
+      text-align: center;
+    }
+
+    .beta-banner-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .beta-banner-label {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--color-white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .beta-banner h2 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .beta-banner p {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 12px;
+      line-height: 1.8;
+    }
+
+    .beta-banner-details {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .beta-banner-detail {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .beta-banner-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .beta-btn-primary {
+      display: inline-block;
+      background: var(--color-white);
+      color: #7c3aed;
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .beta-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .beta-btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--color-white);
+      padding: 14px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.2s;
+    }
+
+    .beta-btn-secondary:hover {
+      border-color: var(--color-white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     .app-card .btn-group {
       display: flex;
       gap: 8px;
@@ -649,11 +763,12 @@
       <a href="#" class="logo">T.Shiraishi</a>
       <ul class="nav-links">
         <li><a href="#apps">アプリ</a></li>
+        <li><a href="#beta-test" style="color:var(--color-badge-beta);font-weight:600">βテスト</a></li>
         <li><a href="#profile">プロフィール</a></li>
         <li><a href="#sns">SNS</a></li>
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
-      <a href="index_en.html" class="lang-switch">EN</a>
+      <a href="/en" class="lang-switch">EN</a>
     </div>
   </nav>
 
@@ -678,11 +793,14 @@
         <div class="app-card">
           <div class="app-card-header">
             <div class="app-icon">🤖</div>
-            <span class="badge badge-beta">β準備中</span>
+            <span class="badge badge-beta">βテスト中</span>
           </div>
           <h3>Your AI Senere Assistant</h3>
           <p>研修医・専攻医向けの麻酔関連AIリファレンスアプリ。薬剤情報、手技ガイド、プロトコルを瞬時に検索・確認できます。</p>
-          <a href="#" class="btn-detail">詳細を見る</a>
+          <div class="btn-group">
+            <a href="#beta-test" class="btn-detail">βテスト参加</a>
+            <button class="btn-detail" onclick="document.getElementById('modal-senere').classList.add('active')">詳しく見る</button>
+          </div>
         </div>
 
         <!-- App 2 -->
@@ -724,6 +842,28 @@
     </div>
   </section>
 
+  <!-- Beta Test Banner -->
+  <section id="beta-test" class="beta-banner">
+    <div class="beta-banner-inner">
+      <div class="beta-banner-label">🧪 βテスト開催中</div>
+      <h2>Your AI Senare Assistant βテスター募集</h2>
+      <p>研修医・専攻医の先生方へ — 麻酔科AIコンサルトアプリのβテストに参加しませんか？<br>1週間の無料利用で、アプリの改善にご協力ください。</p>
+
+      <div class="beta-banner-details">
+        <div class="beta-banner-detail">📅 期間：1週間（無料）</div>
+        <div class="beta-banner-detail">📝 アンケート回答（約3〜5分）</div>
+        <div class="beta-banner-detail">💻 ブラウザで即利用可能</div>
+      </div>
+
+      <p>3つの機能を体験できます：💬 チャット相談 / ⚡ クイックコンサルト（8シナリオ） / 💊 薬剤用量計算機（16薬剤）</p>
+
+      <div class="beta-banner-actions">
+        <a href="#" class="beta-btn-primary" target="_blank">アプリを試す</a>
+        <a href="#" class="beta-btn-secondary" target="_blank">アンケートに回答する</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Profile -->
   <section id="profile" class="profile-section">
     <div class="section-inner">
@@ -755,11 +895,11 @@
       <p class="section-subtitle">最新情報はSNSで発信中</p>
 
       <div class="sns-links">
-        <a href="#" class="sns-btn sns-x">
+        <a href="https://x.com/dk_anes_doctor" class="sns-btn sns-x" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           X (Twitter)
         </a>
-        <a href="#" class="sns-btn sns-instagram">
+        <a href="https://instagram.com/dk_anes_doctor" class="sns-btn sns-instagram" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           Instagram
         </a>
@@ -809,6 +949,60 @@
       </a>
     </div>
   </section>
+
+  <!-- Senere Assistant Detail Modal -->
+  <div id="modal-senere" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('modal-senere').classList.remove('active')">&times;</button>
+
+      <div class="modal-header">
+        <div class="app-icon">🤖</div>
+        <div>
+          <h2>Your AI Senere Assistant <span class="badge badge-beta">βテスト中</span></h2>
+          <span style="color:var(--color-text-secondary);font-size:0.85rem">麻酔科AI上級医コンサルト v0.1-beta</span>
+        </div>
+      </div>
+
+      <p class="modal-intro">
+        Senere（セネレ）はデンマーク語で「後で」の意味。「ちょっと待って、後で聞こう」と思った疑問を、AIがすぐにサポート。研修医・専攻医のための麻酔科AIコンサルトアプリです。
+      </p>
+
+      <div class="modal-feature">
+        <h3>💬 チャット相談</h3>
+        <p>麻酔管理に関するあらゆる質問に、AI上級医が「要点」と「詳細」の構造化された形式で回答。緊急キーワードを検知すると自動で緊急モードに切り替わります。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>⚡ クイックコンサルト</h3>
+        <p>よくある緊急シナリオを8つプリセット。ワンタップで即座にプロトコルを確認できます。</p>
+        <ul>
+          <li>🚨 アナフィラキシー</li>
+          <li>🔥 悪性高熱症</li>
+          <li>😮 困難気道</li>
+          <li>💉 局所麻酔薬中毒（LAST）</li>
+          <li>📉 術中低血圧</li>
+          <li>💓 徐脈</li>
+          <li>🤢 PONV（術後悪心嘔吐）</li>
+          <li>💊 術後疼痛管理</li>
+        </ul>
+      </div>
+
+      <div class="modal-feature">
+        <h3>💊 薬剤用量計算機</h3>
+        <p>麻酔でよく使う16薬剤の体重別用量を自動計算。患者情報を入力すれば、投与量がひと目でわかります。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>🛡️ 安全への配慮</h3>
+        <p>免責事項・利用同意画面を初回表示時に確認。緊急モードでは「上級医・指導医への連絡も並行して行ってください」と常時表示。AIはあくまで補助ツールとして位置づけています。</p>
+      </div>
+
+      <div class="modal-cta">
+        <a href="#" class="btn-primary" target="_blank">βテストに参加する</a>
+        <a href="#" class="btn-secondary" target="_blank">アンケートに回答する</a>
+      </div>
+    </div>
+  </div>
 
   <!-- TOFun Detail Modal -->
   <div id="modal-tofun" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
