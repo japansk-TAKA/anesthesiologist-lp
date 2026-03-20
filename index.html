@@ -1135,7 +1135,7 @@
           </div>
           <h3>Pre-operative Anesthetic Summary App</h3>
           <p>術前サマリ作成・周術期管理支援アプリ。患者情報の整理から麻酔計画の立案までをサポートします。</p>
-          <a class="btn-detail" href="https://preop-chart-dist.vercel.app" target="_blank" rel="noopener">詳しく見る</a>
+          <button class="btn-detail" onclick="document.getElementById('modal-preop').classList.add('active')">詳しく見る</button>
         </div>
 
       </div>
@@ -1432,6 +1432,44 @@
 
       <div class="modal-cta">
         <a href="https://joke-app-production.up.railway.app/" class="btn-primary" target="_blank">TOFunを開く</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Pre-operative Anesthetic Summary -->
+  <div id="modal-preop" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('modal-preop').classList.remove('active')">&times;</button>
+
+      <div class="modal-header">
+        <div class="app-icon">📋</div>
+        <div>
+          <h2>Pre-operative Anesthetic Summary <span class="badge badge-beta">βテスト中</span></h2>
+          <span style="color:var(--color-text-secondary);font-size:0.85rem">術前サマリ作成・周術期管理支援アプリ</span>
+        </div>
+      </div>
+
+      <p class="modal-intro">
+        術前の患者情報を整理し、麻酔計画の立案をサポートするWebアプリです。登録不要・無料でブラウザからすぐに使えます。
+      </p>
+
+      <div class="modal-feature">
+        <h3>📝 術前サマリの作成</h3>
+        <p>患者の基本情報、既往歴、内服薬、アレルギー、気道評価などを入力し、見やすいサマリを自動生成します。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>⚡ 周術期リスク評価</h3>
+        <p>入力された情報から周術期のリスクを整理し、麻酔計画の立案をサポートします。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>📊 一覧性の高いレイアウト</h3>
+        <p>必要な情報がひと目で把握できるチャート形式。手術室でもすぐに確認できるシンプルなデザインです。</p>
+      </div>
+
+      <div class="modal-cta">
+        <a href="https://preop-chart-dist.vercel.app" class="btn-primary" target="_blank">アプリを開く</a>
       </div>
     </div>
   </div>
