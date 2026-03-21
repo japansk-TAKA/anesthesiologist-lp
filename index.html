@@ -1195,6 +1195,17 @@
           <button class="btn-detail" onclick="document.getElementById('modal-preop').classList.add('active')">詳しく見る</button>
         </div>
 
+        <!-- App 5 -->
+        <div class="app-card app-card-disabled">
+          <div class="app-card-header">
+            <div class="app-icon">📞</div>
+            <span class="badge badge-dev">βテスト準備中</span>
+          </div>
+          <h3>ToughCall — AI上級医コンサルト</h3>
+          <p>術中トラブル発生時にAI上級医へ電話コンサルトするシミュレーション。不整脈・血圧低下・気道トラブルなど、あの緊張の電話を安全に練習できます。</p>
+          <button class="btn-detail" onclick="document.getElementById('modal-toughcall').classList.add('active')">詳しく見る</button>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1268,6 +1279,11 @@
           <h3 style="margin:0 0 8px;font-size:1rem;">📋 Pre-operative Anesthetic Summary</h3>
           <p style="margin:0 0 8px;font-size:0.85rem;opacity:0.85;">術前サマリ作成・周術期管理支援アプリ</p>
           <span style="font-size:0.75rem;opacity:0.6;">※誰でも利用可能</span>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:16px;opacity:0.6;">
+          <h3 style="margin:0 0 8px;font-size:1rem;">📞 ToughCall</h3>
+          <p style="margin:0 0 8px;font-size:0.85rem;opacity:0.85;">AI上級医コンサルト・シミュレーター</p>
+          <span style="font-size:0.75rem;opacity:0.6;">※準備中</span>
         </div>
       </div>
 
@@ -1438,6 +1454,7 @@
           <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
           <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
           <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
+          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
         </div>
         <button class="modal-close-bottom" onclick="document.getElementById('modal-senere').classList.remove('active')">閉じる</button>
       </div>
@@ -1515,6 +1532,7 @@
           <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
           <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
           <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
+          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
         </div>
         <button class="modal-close-bottom" onclick="document.getElementById('modal-tofun').classList.remove('active')">閉じる</button>
       </div>
@@ -1570,6 +1588,7 @@
           <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
           <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
           <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
+          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
         </div>
         <button class="modal-close-bottom" onclick="document.getElementById('modal-preop').classList.remove('active')">閉じる</button>
       </div>
@@ -1629,8 +1648,69 @@
           <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
           <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
           <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
+          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
         </div>
         <button class="modal-close-bottom" onclick="document.getElementById('modal-previsit').classList.remove('active')">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ToughCall Modal -->
+  <div id="modal-toughcall" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('modal-toughcall').classList.remove('active')">&times;</button>
+
+      <div class="modal-header">
+        <div class="app-icon">📞</div>
+        <div>
+          <h2>ToughCall <span class="badge badge-dev">βテスト準備中</span></h2>
+          <span style="color:var(--color-text-secondary);font-size:0.85rem">AI上級医コンサルト・シミュレーター v0.1-beta</span>
+        </div>
+      </div>
+
+      <p class="modal-intro">
+        ToughCall（タフコール）は、術中トラブル発生時にAI上級医へ電話コンサルトするシミュレーションアプリです。「あの怖い上級医への電話」を、安全な環境で何度でも練習できます。
+      </p>
+
+      <div class="modal-feature">
+        <h3>📞 リアルなコンサルト体験</h3>
+        <p>PHSで上級医に電話するところから始まる、臨場感のあるシミュレーション。状況報告→質問→指示のやり取りを、チャット形式で体験できます。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>🫀 術中トラブルシナリオ</h3>
+        <p>血圧低下・不整脈・気道トラブル・出血・アナフィラキシーなど、麻酔科で遭遇する主要な術中トラブルを網羅。各シナリオで適切な対応を学べます。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>🎯 分岐型学習</h3>
+        <p>あなたの回答に応じて上級医の指示が変化。正しい判断も間違った判断も、安全に経験できます。シナリオ完了後には振り返りポイントも表示。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>📊 学習進捗管理</h3>
+        <p>経験済みシナリオを自動記録。全シナリオの制覇を目指して、繰り返し学習できます。</p>
+      </div>
+
+      <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px;border-left:3px solid #f59e0b;">
+        <p style="font-size:0.8rem;color:#94a3b8;margin:0;line-height:1.7;">
+          <strong style="color:#f59e0b;">免責事項：</strong>本アプリは教育・トレーニング目的のプロトタイプです。医療的な正確性は保証されません。実際の臨床判断は必ず実際の上級医に相談してください。
+        </p>
+      </div>
+
+      <div class="modal-cta">
+        <p style="color:#94a3b8;font-size:0.9rem;">βテスト準備中 — 近日公開予定</p>
+      </div>
+
+      <div class="modal-footer">
+        <p class="modal-footer-label">他のアプリを見る</p>
+        <div class="modal-nav">
+          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
+          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
+          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
+          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
+        </div>
+        <button class="modal-close-bottom" onclick="document.getElementById('modal-toughcall').classList.remove('active')">閉じる</button>
       </div>
     </div>
   </div>
