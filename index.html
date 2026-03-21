@@ -724,6 +724,62 @@
       border-color: #60a5fa;
     }
 
+    .modal-footer {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .modal-footer-label {
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .modal-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .modal-nav button {
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .modal-nav button:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.4);
+      color: #60a5fa;
+    }
+
+    .modal-close-bottom {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: rgba(148, 163, 184, 0.08);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .modal-close-bottom:hover {
+      background: rgba(148, 163, 184, 0.15);
+      color: var(--color-text);
+    }
+
     /* AI Section */
     .ai-section {
       position: relative;
@@ -1374,6 +1430,15 @@
         <a href="https://your-ai-senere-consultant-production.up.railway.app/" class="btn-primary" target="_blank">βテストに参加する</a>
         <a href="https://forms.gle/2de4mpsCqeEJzLXG9" class="btn-secondary" target="_blank">アンケートに回答する</a>
       </div>
+
+      <div class="modal-footer">
+        <p class="modal-footer-label">他のアプリを見る</p>
+        <div class="modal-nav">
+          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
+          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
+        </div>
+        <button class="modal-close-bottom" onclick="document.getElementById('modal-senere').classList.remove('active')">閉じる</button>
+      </div>
     </div>
   </div>
 
@@ -1441,6 +1506,15 @@
         <a href="https://joke-app-production.up.railway.app/" class="btn-primary" target="_blank">TOFunを開く</a>
         <a href="https://forms.gle/XjVxTJ3z5tMCk6X78" class="btn-secondary" target="_blank">アンケートに回答する</a>
       </div>
+
+      <div class="modal-footer">
+        <p class="modal-footer-label">他のアプリを見る</p>
+        <div class="modal-nav">
+          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
+          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
+        </div>
+        <button class="modal-close-bottom" onclick="document.getElementById('modal-tofun').classList.remove('active')">閉じる</button>
+      </div>
     </div>
   </div>
 
@@ -1485,6 +1559,15 @@
       <div class="modal-cta">
         <a href="https://preop-chart-dist.vercel.app" class="btn-primary" target="_blank">アプリを開く</a>
         <a href="https://forms.gle/V8dwNPpuq7F1EqbX9" class="btn-secondary" target="_blank">アンケートに回答する</a>
+      </div>
+
+      <div class="modal-footer">
+        <p class="modal-footer-label">他のアプリを見る</p>
+        <div class="modal-nav">
+          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
+          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
+        </div>
+        <button class="modal-close-bottom" onclick="document.getElementById('modal-preop').classList.remove('active')">閉じる</button>
       </div>
     </div>
   </div>
