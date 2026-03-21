@@ -1163,13 +1163,14 @@
         </div>
 
         <!-- App 2 -->
-        <div class="app-card app-card-disabled">
+        <div class="app-card">
           <div class="app-card-header">
-            <div class="app-icon">💻</div>
-            <span class="badge badge-dev">公開予定</span>
+            <div class="app-icon">🩺</div>
+            <span class="badge badge-beta">βテスト中</span>
           </div>
-          <h3>Online Preoperative Consultant App</h3>
-          <p>麻酔科医向けの術前リモート診察アプリ。遠隔で術前評価を行い、効率的な周術期管理を実現します。</p>
+          <h3>PreVisit — 術前リモート診察</h3>
+          <p>麻酔科医向けの術前リモート診察アプリ。WebRTCによるセキュアなビデオ通話で、遠隔での術前評価を実現します。</p>
+          <button class="btn-detail" onclick="document.getElementById('modal-previsit').classList.add('active')">詳しく見る</button>
         </div>
 
         <!-- App 3 -->
@@ -1435,6 +1436,7 @@
         <p class="modal-footer-label">他のアプリを見る</p>
         <div class="modal-nav">
           <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
+          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
           <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
         </div>
         <button class="modal-close-bottom" onclick="document.getElementById('modal-senere').classList.remove('active')">閉じる</button>
@@ -1511,6 +1513,7 @@
         <p class="modal-footer-label">他のアプリを見る</p>
         <div class="modal-nav">
           <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
+          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
           <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
         </div>
         <button class="modal-close-bottom" onclick="document.getElementById('modal-tofun').classList.remove('active')">閉じる</button>
@@ -1566,8 +1569,68 @@
         <div class="modal-nav">
           <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
           <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
+          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
         </div>
         <button class="modal-close-bottom" onclick="document.getElementById('modal-preop').classList.remove('active')">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PreVisit Modal -->
+  <div id="modal-previsit" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="modal">
+      <button class="modal-close" onclick="document.getElementById('modal-previsit').classList.remove('active')">&times;</button>
+
+      <div class="modal-header">
+        <div class="app-icon">🩺</div>
+        <div>
+          <h2>PreVisit <span class="badge badge-beta">βテスト中</span></h2>
+          <span style="color:var(--color-text-secondary);font-size:0.85rem">術前リモート診察システム</span>
+        </div>
+      </div>
+
+      <p class="modal-intro">
+        PreVisitは、麻酔科医が術前診察をリモートで行うためのビデオ通話アプリです。WebRTCによるP2P通信で、映像はサーバーに保存されません。
+      </p>
+
+      <div class="modal-feature">
+        <h3>📹 セキュアなビデオ通話</h3>
+        <p>WebRTC（P2P）による直接通信で、映像・音声データはサーバーを経由しません。患者のプライバシーを最大限に保護します。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>💬 チャット機能</h3>
+        <p>ビデオ通話と同時にテキストチャットが可能。薬剤名や指示内容をテキストで正確に伝えられます。テンプレート機能で定型的な説明も効率的に。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>🔗 かんたん接続</h3>
+        <p>医師がルームを作成し、患者にURLを共有するだけ。アプリのインストールや会員登録は不要です。</p>
+      </div>
+
+      <div class="modal-feature">
+        <h3>🗑️ 自動ログ削除</h3>
+        <p>チャットログは診察終了後、設定した時間で自動削除。カルテへの転記用にコピー機能も搭載しています。</p>
+      </div>
+
+      <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px;border-left:3px solid #f59e0b;">
+        <p style="font-size:0.8rem;color:#94a3b8;margin:0;line-height:1.7;">
+          <strong style="color:#f59e0b;">免責事項：</strong>本アプリは臨床業務を補助する目的で提供されており、医学的判断の代替となるものではありません。映像・音声の品質はネットワーク環境に依存します。本アプリの使用により生じたいかなる損害についても、開発者は一切の責任を負いません。
+        </p>
+      </div>
+
+      <div class="modal-cta">
+        <a href="https://online-preop-consultation-production.up.railway.app" class="btn-primary" target="_blank">PreVisitを開く</a>
+      </div>
+
+      <div class="modal-footer">
+        <p class="modal-footer-label">他のアプリを見る</p>
+        <div class="modal-nav">
+          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
+          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
+          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
+        </div>
+        <button class="modal-close-bottom" onclick="document.getElementById('modal-previsit').classList.remove('active')">閉じる</button>
       </div>
     </div>
   </div>
