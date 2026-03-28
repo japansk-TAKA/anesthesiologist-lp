@@ -1,1801 +1,1714 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>麻酔科医X — 麻酔科医 × AI Innovator</title>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0V2NKXPPV"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-F0V2NKXPPV');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --color-bg: #0a0e1a;
-      --color-white: #111827;
-      --color-text: #e2e8f0;
-      --color-text-secondary: #94a3b8;
-      --color-primary: #3b82f6;
-      --color-primary-light: rgba(59, 130, 246, 0.12);
-      --color-primary-dark: #60a5fa;
-      --color-accent: #06b6d4;
-      --color-border: rgba(148, 163, 184, 0.15);
-      --color-badge-beta: #a78bfa;
-      --color-badge-dev: #fbbf24;
-      --color-badge-soon: #64748b;
-      --color-badge-ready: #34d399;
-      --color-badge-live: #60a5fa;
-      --color-glow: rgba(59, 130, 246, 0.3);
-      --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
-      --max-width: 960px;
-      --section-padding: 80px 24px;
-    }
-
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(10, 14, 26, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--color-border);
-      z-index: 100;
-      padding: 0 24px;
-    }
-
-    nav .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-
-    nav .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #60a5fa;
-      text-decoration: none;
-      text-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
-    }
-
-    nav .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    nav .nav-links a {
-      text-decoration: none;
-      color: var(--color-text-secondary);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    nav .nav-links a:hover {
-      color: #60a5fa;
-      text-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
-    }
-
-    .lang-switch {
-      font-size: 0.85rem;
-      color: var(--color-text-secondary);
-      text-decoration: none;
-      border: 1px solid var(--color-border);
-      padding: 4px 12px;
-      border-radius: 6px;
-      transition: all 0.2s;
-    }
-
-    .lang-switch:hover {
-      border-color: #60a5fa;
-      color: #60a5fa;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 140px 24px 80px;
-      text-align: center;
-      background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.15) 0%, var(--color-bg) 70%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle at 30% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
-      animation: nebula 20s ease-in-out infinite alternate;
-    }
-
-    @keyframes nebula {
-      0% { transform: rotate(0deg) scale(1); }
-      100% { transform: rotate(3deg) scale(1.05); }
-    }
-
-    .hero-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
-    .hero-label {
-      display: inline-block;
-      background: rgba(59, 130, 246, 0.12);
-      color: #60a5fa;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 24px;
-      border: 1px solid rgba(59, 130, 246, 0.25);
-    }
-
-    .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 700;
-      line-height: 1.3;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(135deg, #60a5fa, #06b6d4, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.4));
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--color-text-secondary);
-      max-width: 600px;
-      margin: 0 auto 32px;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
-      color: #ffffff;
-      padding: 14px 32px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s;
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-      position: relative;
-    }
-
-    .hero-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-    }
-
-    .hero-video {
-      margin-top: 48px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 16px;
-    }
-
-    .video-caption {
-      margin-top: 16px;
-      font-size: 0.9rem;
-      color: var(--color-text-secondary);
-    }
-
-    /* Section common */
-    section {
-      padding: var(--section-padding);
-    }
-
-    .section-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 12px;
-      text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: var(--color-text-secondary);
-      margin-bottom: 48px;
-      font-size: 1rem;
-    }
-
-    /* Cross effect - behind subtitle text */
-    .section-subtitle-cross {
-      position: relative;
-      display: inline-block;
-      padding: 8px 16px;
-      z-index: 1;
-    }
-
-    .section-subtitle-cross::before,
-    .section-subtitle-cross::after {
-      content: '';
-      position: absolute;
-      width: 130%;
-      height: 3px;
-      bottom: -16px;
-      left: -15%;
-      border-radius: 2px;
-      z-index: -1;
-    }
-
-    .section-subtitle-cross::before {
-      background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 30%, rgba(59, 130, 246, 0.5) 50%, rgba(59, 130, 246, 0.3) 70%, transparent 100%);
-      transform: rotate(3deg);
-    }
-
-    .section-subtitle-cross::after {
-      background: linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.3) 30%, rgba(6, 182, 212, 0.5) 50%, rgba(6, 182, 212, 0.3) 70%, transparent 100%);
-      transform: rotate(-3deg);
-    }
-
-    /* App Cards */
-    .app-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .app-card {
-      background: rgba(17, 24, 39, 0.8);
-      border: 1px solid rgba(59, 130, 246, 0.12);
-      border-radius: 16px;
-      padding: 32px 28px;
-      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-      display: flex;
-      flex-direction: column;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.05);
-    }
-
-    .app-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 25px rgba(59, 130, 246, 0.2), 0 0 50px rgba(6, 182, 212, 0.1);
-      border-color: rgba(59, 130, 246, 0.4);
-    }
-
-    .app-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .app-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      background: rgba(59, 130, 246, 0.12);
-      box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
-    }
-
-    .badge {
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .badge-beta {
-      background: rgba(167, 139, 250, 0.15);
-      color: var(--color-badge-beta);
-    }
-
-    .badge-dev {
-      background: rgba(251, 191, 36, 0.15);
-      color: var(--color-badge-dev);
-    }
-
-    .badge-soon {
-      background: rgba(100, 116, 139, 0.2);
-      color: var(--color-badge-soon);
-    }
-
-    .badge-ready {
-      background: rgba(52, 211, 153, 0.15);
-      color: var(--color-badge-ready);
-    }
-
-    .badge-live {
-      background: rgba(96, 165, 250, 0.15);
-      color: var(--color-badge-live);
-    }
-
-    .app-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .app-card p {
-      color: var(--color-text-secondary);
-      font-size: 0.95rem;
-      flex: 1;
-      margin-bottom: 20px;
-    }
-
-    .app-card .btn-detail {
-      display: inline-block;
-      text-align: center;
-      padding: 10px 20px;
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--color-text);
-      background: transparent;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-    }
-
-    .app-card .btn-detail:hover {
-      border-color: var(--color-primary);
-      color: #60a5fa;
-      background: rgba(59, 130, 246, 0.1);
-    }
-
-    /* Profile */
-    .profile-section {
-      background: rgba(17, 24, 39, 0.6);
-    }
-
-    .profile-content {
-      display: flex;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .profile-avatar-wrap {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 2px solid rgba(59, 130, 246, 0.3);
-      flex-shrink: 0;
-      box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
-      overflow: hidden;
-    }
-
-    .profile-avatar {
-      width: 130%;
-      height: 130%;
-      object-fit: cover;
-      object-position: center 20%;
-      margin-top: -10%;
-      margin-left: -15%;
-    }
-
-    .profile-text h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .profile-text .profile-role {
-      color: #60a5fa;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 16px;
-      text-shadow: 0 0 12px rgba(96, 165, 250, 0.3);
-    }
-
-    .profile-text p {
-      color: var(--color-text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-    }
-
-    .profile-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
-    }
-
-    .profile-tag {
-      background: rgba(59, 130, 246, 0.1);
-      color: #94a3b8;
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 20px;
-      border: 1px solid rgba(59, 130, 246, 0.15);
-    }
-
-    /* SNS Links */
-    .sns-links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .sns-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-      color: #e8eaed;
-    }
-
-    .sns-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .sns-x { background: linear-gradient(145deg, #3a3a50, #1a1a2e, #2a2a40); border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08); }
-    .sns-x:hover { box-shadow: 0 4px 25px rgba(255,255,255,0.15), inset 0 1px 0 rgba(255,255,255,0.1); }
-    .sns-instagram { background: linear-gradient(145deg, #f9a03f, #e6683c, #dc2743, #cc2366, #8a2387); box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
-    .sns-instagram:hover { box-shadow: 0 4px 25px rgba(220, 39, 67, 0.5), inset 0 1px 0 rgba(255,255,255,0.25); }
-    .sns-youtube { background: linear-gradient(145deg, #ff4444, #cc0000, #aa0000); box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
-    .sns-youtube:hover { box-shadow: 0 4px 25px rgba(255, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.25); }
-    .sns-note { background: linear-gradient(145deg, #5de0cc, #41c9b4, #2ea89a); box-shadow: 0 4px 15px rgba(65, 201, 180, 0.3), inset 0 1px 0 rgba(255,255,255,0.2); }
-    .sns-note:hover { box-shadow: 0 4px 25px rgba(65, 201, 180, 0.5), inset 0 1px 0 rgba(255,255,255,0.25); }
-
-    /* Legal */
-    .legal-section {
-      background: rgba(17, 24, 39, 0.6);
-    }
-
-    .legal-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-
-    .legal-block h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--color-text);
-    }
-
-    .legal-block p, .legal-block ul {
-      color: var(--color-text-secondary);
-      font-size: 0.88rem;
-      line-height: 1.8;
-    }
-
-    .legal-block ul {
-      padding-left: 20px;
-    }
-
-    .legal-block li {
-      margin-bottom: 4px;
-    }
-
-    /* Contact */
-    .contact-section {
-      text-align: center;
-    }
-
-    .contact-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
-      color: #ffffff;
-      padding: 14px 36px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s;
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-    }
-
-    .contact-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      color: var(--color-text-secondary);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--color-border);
-      background: var(--color-bg);
-    }
-
-    /* Modal */
-    .modal-backdrop {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 200;
-      backdrop-filter: blur(4px);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .modal-backdrop.active {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 1;
-    }
-
-    .modal {
-      background: #111827;
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      border-radius: 20px;
-      max-width: 640px;
-      width: calc(100% - 32px);
-      max-height: 85vh;
-      overflow-y: auto;
-      padding: 40px 36px;
-      position: relative;
-      transform: translateY(20px);
-      transition: transform 0.3s;
-    }
-
-    .modal-backdrop.active .modal {
-      transform: translateY(0);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 36px;
-      height: 36px;
-      border: none;
-      background: rgba(148, 163, 184, 0.1);
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-text-secondary);
-      transition: background 0.2s;
-    }
-
-    .modal-close:hover {
-      background: rgba(148, 163, 184, 0.2);
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .modal-header .app-icon {
-      width: 56px;
-      height: 56px;
-      font-size: 1.8rem;
-    }
-
-    .modal-header h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .modal-header .badge {
-      margin-left: 8px;
-    }
-
-    .modal-intro {
-      color: var(--color-text-secondary);
-      font-size: 0.95rem;
-      margin-bottom: 28px;
-      line-height: 1.8;
-    }
-
-    .modal-feature {
-      margin-bottom: 24px;
-    }
-
-    .modal-feature h3 {
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .modal-feature p,
-    .modal-feature ul {
-      color: var(--color-text-secondary);
-      font-size: 0.9rem;
-      line-height: 1.8;
-    }
-
-    .modal-feature ul {
-      padding-left: 20px;
-    }
-
-    .modal-feature li {
-      margin-bottom: 4px;
-    }
-
-    .modal-cta {
-      display: flex;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .modal-cta .btn-primary {
-      display: inline-block;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
-      color: #ffffff;
-      padding: 12px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-    }
-
-    .modal-cta .btn-primary:hover {
-      box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
-      transform: translateY(-1px);
-    }
-
-    .modal-cta .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: #60a5fa;
-      padding: 12px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      border: 1px solid rgba(59, 130, 246, 0.4);
-      transition: all 0.2s;
-    }
-
-    .modal-cta .btn-secondary:hover {
-      background: rgba(59, 130, 246, 0.1);
-      border-color: #60a5fa;
-    }
-
-    .modal-footer {
-      margin-top: 36px;
-      padding-top: 24px;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .modal-footer-label {
-      font-size: 0.8rem;
-      color: var(--color-text-secondary);
-      margin-bottom: 12px;
-    }
-
-    .modal-nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-
-    .modal-nav button {
-      background: rgba(148, 163, 184, 0.08);
-      border: 1px solid var(--color-border);
-      color: var(--color-text);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-family: var(--font-sans);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .modal-nav button:hover {
-      background: rgba(59, 130, 246, 0.1);
-      border-color: rgba(59, 130, 246, 0.4);
-      color: #60a5fa;
-    }
-
-    .modal-close-bottom {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      background: rgba(148, 163, 184, 0.08);
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      color: var(--color-text-secondary);
-      font-size: 0.9rem;
-      font-family: var(--font-sans);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .modal-close-bottom:hover {
-      background: rgba(148, 163, 184, 0.15);
-      color: var(--color-text);
-    }
-
-    /* AI Section */
-    .ai-section {
-      position: relative;
-      overflow: hidden;
-      background: #060a14;
-      padding: var(--section-padding);
-    }
-
-    .ai-section-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 50%, rgba(6, 182, 212, 0.10) 0%, transparent 60%),
-        radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
-      animation: aiPulse 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes aiPulse {
-      0% { opacity: 0.7; }
-      100% { opacity: 1; }
-    }
-
-    .ai-section-bg::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .ai-feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .ai-feature-card {
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(59, 130, 246, 0.15);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      backdrop-filter: blur(8px);
-      transition: all 0.4s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ai-feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), rgba(6, 182, 212, 0.5), transparent);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .ai-feature-card:hover {
-      border-color: rgba(59, 130, 246, 0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
-    }
-
-    .ai-feature-card:hover::before {
-      opacity: 1;
-    }
-
-    .ai-feature-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-      filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
-    }
-
-    .ai-feature-card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: #e2e8f0;
-    }
-
-    .ai-feature-card p {
-      color: #94a3b8;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .ai-feature-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Beta Banner */
-    .beta-banner {
-      background: linear-gradient(160deg, #0f1b35 0%, #132347 40%, #0c2a4a 70%, #0a1e3d 100%);
-      border-top: 1px solid rgba(59, 130, 246, 0.25);
-      border-bottom: 1px solid rgba(59, 130, 246, 0.25);
-      color: #e2e8f0;
-      padding: 60px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .beta-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 25% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 75% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
-    }
-
-    .beta-banner::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(59, 130, 246, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.07) 1px, transparent 1px),
-        linear-gradient(45deg, transparent 48%, rgba(6, 182, 212, 0.04) 49%, rgba(6, 182, 212, 0.04) 51%, transparent 52%),
-        linear-gradient(-45deg, transparent 48%, rgba(59, 130, 246, 0.04) 49%, rgba(59, 130, 246, 0.04) 51%, transparent 52%);
-      background-size: 40px 40px, 40px 40px, 80px 80px, 80px 80px;
-    }
-
-    .beta-banner-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .beta-banner-label {
-      display: inline-block;
-      background: rgba(59, 130, 246, 0.15);
-      color: #60a5fa;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
-    }
-
-    .beta-banner h2 {
-      font-size: clamp(1.4rem, 4vw, 2rem);
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #f1f5f9;
-      text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-    }
-
-    .beta-banner p {
-      font-size: 1rem;
-      color: #94a3b8;
-      max-width: 600px;
-      margin: 0 auto 12px;
-      line-height: 1.8;
-    }
-
-    .beta-banner-details {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin: 24px 0;
-      flex-wrap: wrap;
-    }
-
-    .beta-banner-detail {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #cbd5e1;
-    }
-
-    .beta-banner-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .beta-btn-primary {
-      display: inline-block;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
-      color: #ffffff;
-      padding: 14px 32px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: all 0.3s;
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-    }
-
-    .beta-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-    }
-
-    .beta-btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: #60a5fa;
-      padding: 14px 32px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      border: 1px solid rgba(59, 130, 246, 0.4);
-      transition: all 0.3s;
-    }
-
-    .beta-btn-secondary:hover {
-      border-color: #60a5fa;
-      background: rgba(59, 130, 246, 0.1);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
-    }
-
-    .app-card .btn-group {
-      display: flex;
-      gap: 8px;
-    }
-
-    .app-card .btn-group .btn-detail {
-      flex: 1;
-    }
-
-    /* Coming Soon Overlay */
-    .app-card-disabled {
-      position: relative;
-      pointer-events: none;
-      opacity: 0.65;
-    }
-
-    .app-card-disabled::after {
-      content: '近日公開';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(10, 14, 26, 0.55);
-      border-radius: 16px;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #e2e8f0;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .app-card-disabled .btn-detail,
-    .app-card-disabled .btn-group {
-      visibility: hidden;
-    }
-
-    .beta-disabled {
-      pointer-events: none;
-      opacity: 0.5;
-      filter: grayscale(0.3);
-    }
-
-    .beta-disabled .beta-btn-primary,
-    .beta-disabled .beta-btn-secondary,
-    .beta-disabled .btn-primary,
-    .beta-disabled .btn-secondary {
-      cursor: not-allowed;
-    }
-
-    /* Mobile */
-    @media (max-width: 768px) {
-      nav .nav-links {
-        display: none;
-      }
-
-      .profile-content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .profile-tags {
-        justify-content: center;
-      }
-
-      .legal-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .app-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .modal {
-        padding: 32px 24px;
-        max-height: 90vh;
-      }
-
-      .modal-cta {
-        flex-direction: column;
-      }
-
-      .modal-cta .btn-primary {
-        text-align: center;
-      }
-
-      .app-card .btn-group {
-        flex-direction: column;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麻酔科医Xの挑戦 — A challenging doctor, anesthesiologist X.</title>
+<meta name="description" content="デンマーク・Rigshospitaletで麻酔科Clinical Fellowとして臨床に従事しながら、AIを活用した臨床支援アプリを開発しています。">
+<meta name="keywords" content="麻酔科医, AI, 医療アプリ, デンマーク, Senere, Summary, TOFun">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="麻酔科医Xの挑戦 — A challenging doctor, anesthesiologist X.">
+<meta property="og:description" content="デンマーク・Rigshospitaletで麻酔科Clinical Fellowとして臨床に従事しながら、AIを活用した臨床支援アプリを開発しています。">
+<meta property="og:image" content="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1200&q=80">
+<meta property="og:url" content="https://anesthesiologist-lp.vercel.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dk_anes_doctor">
+<meta name="twitter:title" content="麻酔科医Xの挑戦 — A challenging doctor, anesthesiologist X.">
+<meta name="twitter:description" content="デンマーク・Rigshospitaletで麻酔科Clinical Fellowとして臨床に従事しながら、AIを活用した臨床支援アプリを開発しています。">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1200&q=80">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F0V2NKXPPV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F0V2NKXPPV');
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+<style>
+/* ===================================================
+   DESIGN TOKENS
+=================================================== */
+:root {
+  --bg:           #F5F0E8;
+  --bg-warm:      #EDE8DF;
+  --bg-dark:      #2C2420;
+  --text:         #2C2420;
+  --text-sub:     #7A6E62;
+  --text-light:   #B5A99A;
+  --white:        #FFFFFF;
+  --accent:       #9B7B4F;
+  --accent-light: #C9A96E;
+  --accent-pale:  #EDE0CC;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ===================================================
+   RESET & BASE
+=================================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===================================================
+   SCROLL ANIMATIONS
+=================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ===================================================
+   NAVIGATION
+=================================================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 52px;
+  background: rgba(245, 240, 232, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(44, 36, 32, 0.07);
+  transition: background 0.3s;
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.nav-brand span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 28px;
+  background: var(--bg-dark);
+  color: var(--bg);
+  border-radius: 100px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Hamburger (mobile) */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+
+/* ===================================================
+   HERO — Full-bleed Unsplash photo
+=================================================== */
+.hero {
+  position: relative;
+  height: 90vh;
+  min-height: 600px;
+  max-height: 900px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  margin-top: 72px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1600&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 40%;
+  transform-origin: center;
+  transition: transform 8s ease-out;
+}
+
+.hero-bg.loaded {
+  transform: scale(1.04);
+}
+
+/* Layered gradient: bottom heavy, subtle side vignette */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(44,36,32,0.55) 0%, rgba(44,36,32,0.1) 60%, transparent 100%),
+    linear-gradient(to top, rgba(44,36,32,0.8) 0%, rgba(44,36,32,0.2) 40%, transparent 70%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 72px 80px;
+  max-width: 680px;
+  color: var(--white);
+}
+
+.hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255,255,255,0.6);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6.5vw, 88px);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -2.5px;
+  margin-bottom: 24px;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.18);
+  white-space: nowrap;
+}
+
+.hero-sub {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.85;
+  opacity: 0.88;
+  max-width: 440px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 15px 36px;
+  background: var(--accent-light);
+  color: var(--white);
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+.hero-btn-primary:hover {
+  background: var(--white);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.hero-btn-ghost {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white);
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+.hero-btn-ghost:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+/* ===================================================
+   ORNAMENTAL DIVIDER (Tivoli-inspired)
+=================================================== */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 60px 0 52px;
+}
+
+.ornament-line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-light));
+}
+
+.ornament-line.right {
+  background: linear-gradient(to left, transparent, var(--accent-light));
+}
+
+.ornament-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-light);
+  transform: rotate(45deg);
+  opacity: 0.7;
+}
+
+.ornament-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* ===================================================
+   SECTION WRAPPER
+=================================================== */
+.section-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+/* ===================================================
+   SECTION HEADER
+=================================================== */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 44px;
+  gap: 20px;
+}
+
+.section-head-text .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.section-head-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4.5vw, 50px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: var(--text);
+}
+
+.section-head-text .sub {
+  font-size: 14px;
+  color: var(--text-sub);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* ===================================================
+   APPS GRID
+=================================================== */
+.apps-section {
+  padding-bottom: 88px;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* App photo card — Tivoli "Tæt på Tivoli" style */
+.app-card {
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  color: var(--white);
+  display: block;
+}
+
+.app-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.app-card:hover .app-card-bg {
+  transform: scale(1.06);
+}
+
+/* Gradient overlay */
+.app-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 25%, rgba(30, 22, 18, 0.9) 100%);
+  z-index: 1;
+  transition: opacity 0.4s;
+}
+
+.app-card:hover::after {
+  opacity: 0.85;
+}
+
+.app-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 26px;
+  z-index: 2;
+}
+
+.app-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.app-card p {
+  font-size: 13px;
+  line-height: 1.55;
+  opacity: 0.82;
+}
+
+.app-card-arrow {
+  position: absolute;
+  bottom: 28px;
+  right: 26px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.app-card:hover .app-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.app-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.badge-beta {
+  background: rgba(155, 123, 79, 0.75);
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  color: #fff;
+}
+
+.badge-soon {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+}
+
+/* (carousel dots removed — grid layout used instead) */
+.carousel-dot-placeholder {
+  display: none;
+}
+
+/* ===================================================
+   FEATURE SECTIONS — 2-col alternating
+=================================================== */
+.feature-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.feature-section + .feature-section {
+  border-top: 1px solid rgba(44,36,32,0.06);
+}
+
+.feature-text-side {
+  padding: 88px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.feature-text-side .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-text-side .eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+  display: block;
+}
+
+.feature-text-side h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.feature-text-side p {
+  font-size: 15px;
+  color: var(--text-sub);
+  line-height: 1.9;
+  margin-bottom: 36px;
+  max-width: 420px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.feature-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 34px;
+  border: 1.5px solid rgba(44,36,32,0.18);
+  border-radius: 100px;
+  color: var(--text);
+  width: fit-content;
+  transition: all 0.3s;
+}
+
+.feature-cta-link:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.feature-cta-link .arrow {
+  transition: transform 0.3s;
+}
+
+.feature-cta-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+.feature-image-side {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-warm);
+}
+
+.feature-image-side img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.feature-section:hover .feature-image-side img {
+  transform: scale(1.03);
+}
+
+/* Screenshot frame treatment */
+.feature-image-side .screenshot-frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--bg-warm);
+}
+
+.feature-image-side .screenshot-frame img {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(44,36,32,0.2), 0 4px 16px rgba(44,36,32,0.1);
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.feature-section:hover .screenshot-frame img {
+  transform: translateY(-8px);
+}
+
+/* ===================================================
+   SNS SECTION — Dark
+=================================================== */
+.sns-section {
+  background: var(--bg-dark);
+  padding: 88px 0;
+}
+
+.sns-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+.sns-header {
+  margin-bottom: 52px;
+}
+
+.sns-header .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 14px;
+}
+
+.sns-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.sns-header p {
+  font-size: 15px;
+  color: var(--text-light);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.sns-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.sns-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 30px 18px 26px;
+  text-align: center;
+  color: var(--white);
+  transition: all 0.35s var(--ease-out-expo);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.sns-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), var(--accent-light));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sns-card:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.13);
+  transform: translateY(-6px);
+}
+
+.sns-card:hover::before {
+  opacity: 1;
+}
+
+.sns-card-icon {
+  font-size: 26px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.sns-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.sns-card-desc {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.sns-card-freq {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.07);
+  color: var(--text-light);
+}
+
+.sns-card.active-platform .sns-card-freq {
+  background: rgba(155, 123, 79, 0.25);
+  color: var(--accent-light);
+}
+
+/* ===================================================
+   PROFILE SECTION
+=================================================== */
+.profile-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.profile-image-side {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-warm);
+}
+
+.profile-image-side img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.profile-section:hover .profile-image-side img {
+  transform: scale(1.03);
+}
+
+.profile-content-side {
+  padding: 88px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg);
+  border-left: 1px solid rgba(44,36,32,0.06);
+}
+
+.profile-content-side .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.profile-content-side h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+
+.profile-role {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.profile-bio {
+  font-size: 15px;
+  color: var(--text-sub);
+  line-height: 1.95;
+  margin-bottom: 32px;
+  max-width: 440px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(44,36,32,0.12);
+  color: var(--text-sub);
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.profile-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===================================================
+   CTA FULL-BLEED
+=================================================== */
+.cta-section {
+  position: relative;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1448697138198-9aa6d0d84bf4?w=1600&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 60%;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.cta-section:hover .cta-bg {
+  transform: scale(1.02);
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44,36,32,0.75) 0%, rgba(44,36,32,0.6) 100%);
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  padding: 0 24px;
+}
+
+.cta-content .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 18px;
+}
+
+.cta-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  margin-bottom: 14px;
+  line-height: 1.1;
+}
+
+.cta-content p {
+  font-size: 15px;
+  opacity: 0.8;
+  margin-bottom: 36px;
+  max-width: 480px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 44px;
+  background: var(--accent-light);
+  color: var(--white);
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+.cta-btn:hover {
+  background: var(--white);
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+footer {
+  background: var(--bg-dark);
+  padding: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-light);
+  transition: color 0.25s;
+  letter-spacing: 0.5px;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.footer-copy {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: 0.3px;
+}
+
+/* ===================================================
+   RESPONSIVE: TABLET (max 960px)
+=================================================== */
+@media (max-width: 960px) {
+  nav {
+    padding: 0 28px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .hero-content {
+    padding: 0 36px 64px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .section-wrap {
+    padding: 0 28px;
+  }
+
+  .apps-section {
+    padding-bottom: 64px;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .feature-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .feature-image-side {
+    height: 360px;
+    order: -1;
+  }
+
+  .feature-text-side {
+    padding: 52px 36px;
+  }
+
+  .profile-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .profile-image-side {
+    height: 380px;
+  }
+
+  .profile-content-side {
+    padding: 52px 36px;
+    border-left: none;
+    border-top: 1px solid rgba(44,36,32,0.06);
+  }
+
+  .sns-section {
+    padding: 68px 0;
+  }
+
+  .sns-inner {
+    padding: 0 28px;
+  }
+
+  .sns-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .cta-section {
+    height: 380px;
+  }
+
+  footer {
+    padding: 40px 28px;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .apps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .app-card {
+    height: 360px;
+  }
+}
+
+/* ===================================================
+   RESPONSIVE: MOBILE (max 600px)
+=================================================== */
+@media (max-width: 600px) {
+  .hero {
+    height: 80vh;
+    min-height: 520px;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+
+  .hero-content {
+    padding: 0 24px 52px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-ghost {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .section-wrap {
+    padding: 0 20px;
+  }
+
+  .sns-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .sns-grid .sns-card:last-child {
+    grid-column: span 2;
+  }
+
+  .feature-text-side {
+    padding: 44px 20px;
+  }
+
+  .feature-text-side p {
+    max-width: 100%;
+  }
+
+  .profile-content-side {
+    padding: 44px 20px;
+  }
+
+  .profile-bio {
+    max-width: 100%;
+  }
+
+  .cta-content p {
+    max-width: 100%;
+  }
+
+  .apps-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .app-card {
+    height: 360px;
+  }
+
+  .ornament-line {
+    width: 40px;
+  }
+}
+</style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="logo">Spectra AI</a>
-      <ul class="nav-links">
-        <li><a href="#apps">アプリ</a></li>
-        <li><a href="#beta-test" style="color:var(--color-badge-beta);font-weight:600">βテスト</a></li>
-        <li><a href="#profile">プロフィール</a></li>
-        <li><a href="#sns">SNS</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
-      </ul>
-      <a href="/en" class="lang-switch">EN</a>
+<!-- ================================================
+  NAVIGATION
+================================================ -->
+<nav id="main-nav">
+  <a href="#" class="nav-brand"><span>@dk_anes_doctor</span></a>
+  <ul class="nav-links">
+    <li><a href="#apps">Apps</a></li>
+    <li><a href="#sns">SNS</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="https://forms.gle/2de4mpsCqeEJzLXG9" target="_blank" rel="noopener" class="nav-cta"
+     onclick="gtag('event','click',{event_category:'nav',event_label:'beta_cta'})">βテストに参加</a>
+  <button class="nav-hamburger" aria-label="メニュー" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ================================================
+  HERO — Full-bleed Copenhagen photo
+================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">🇩🇰 Copenhagen, Denmark</div>
+    <h1 class="reveal reveal-delay-1">麻酔科医Xの挑戦</h1>
+    <p class="hero-sub reveal reveal-delay-2">デンマークのRigshospitaletで麻酔科Clinical Fellowとして臨床に挑む日本人医師。AI × 臨床で、現場を変えるアプリを作っています。</p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="https://forms.gle/2de4mpsCqeEJzLXG9" target="_blank" rel="noopener" class="hero-btn-primary"
+         onclick="gtag('event','click',{event_category:'hero',event_label:'beta_primary'})">βテストに参加</a>
+      <a href="#apps" class="hero-btn-ghost">アプリを見る</a>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-label">Anesthesiologist × AI Innovator</div>
-      <h1>"Hey, are you there?"<br><span>その未来は<br>もう現実です。</span></h1>
-      <p>声でAIを操り 臨床を変えるアプリを生む。<br>デンマーク留学中の麻酔科医による<br>AI × アプリ開発 × SNS発信</p>
-      <p style="margin-top: -16px; font-style: italic;">starring<br>Voice-Driven Development.</p>
-      <a href="#ai-system" class="hero-cta">Voice AI Systemとは？</a>
-      <a href="#apps" class="hero-cta" style="background: transparent; border: 1px solid rgba(59, 130, 246, 0.4); color: #60a5fa; box-shadow: none; margin-left: 12px;">臨床の壁を超えるアプリ</a>
+<!-- Ornamental divider -->
+<div class="ornament-divider" aria-hidden="true">
+  <div class="ornament-line"></div>
+  <div class="ornament-dot"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-dot"></div>
+  <div class="ornament-line right"></div>
+</div>
 
-      <!-- Demo Video -->
-      <div class="hero-video">
-        <div class="video-wrapper">
-          <!-- YouTube動画IDを YOUR_VIDEO_ID の部分に差し替えてください -->
-          <iframe src="https://www.youtube-nocookie.com/embed/4xnjZwYB0oM" title="AI Content System Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <p class="video-caption">Voice-Powered AI Development — 声だけでAIを操る開発デモ</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Apps -->
-  <section id="apps">
-    <div class="section-inner">
-      <h2 class="section-title">アプリポートフォリオ</h2>
-      <p class="section-subtitle"><span class="section-subtitle-cross">臨床経験とAIが交差する、新しいWebアプリケーション</span></p>
-
-      <div class="app-grid">
-        <!-- App 1 -->
-        <div class="app-card">
-          <div class="app-card-header">
-            <div class="app-icon">🤖</div>
-            <span class="badge badge-beta">βテスト中</span>
-          </div>
-          <h3>Your AI Senere Assistant</h3>
-          <p>研修医・専攻医向けの麻酔関連AIリファレンスアプリ。薬剤情報、手技ガイド、プロトコルを瞬時に検索・確認できます。</p>
-          <button class="btn-detail" onclick="document.getElementById('modal-senere').classList.add('active')">詳しく見る</button>
-        </div>
-
-        <!-- App 2 -->
-        <div class="app-card app-card-disabled">
-          <div class="app-card-header">
-            <div class="app-icon">🩺</div>
-            <span class="badge badge-dev">βテスト準備中</span>
-          </div>
-          <h3>PreVisit — 術前リモート診察</h3>
-          <p>麻酔科医向けの術前リモート診察アプリ。WebRTCによるセキュアなビデオ通話で、遠隔での術前評価を実現します。</p>
-          <button class="btn-detail" onclick="document.getElementById('modal-previsit').classList.add('active')">詳しく見る</button>
-        </div>
-
-        <!-- App 3 -->
-        <div class="app-card">
-          <div class="app-card-header">
-            <div class="app-icon">😂</div>
-            <span class="badge badge-beta">βテスト中</span>
-          </div>
-          <h3>TOFun — Humorous Anesthesiologist</h3>
-          <p>麻酔科医による麻酔科医のためのジョークアプリ。全102本のジョーク、投票システム、ユーザー投稿機能搭載。当直の息抜きに、麻酔科ならではのユーモアをお届けします。</p>
-          <button class="btn-detail" onclick="document.getElementById('modal-tofun').classList.add('active')">詳しく見る</button>
-        </div>
-
-        <!-- App 4 -->
-        <div class="app-card">
-          <div class="app-card-header">
-            <div class="app-icon">📋</div>
-            <span class="badge badge-beta">βテスト中</span>
-          </div>
-          <h3>Pre-operative Anesthetic Summary App</h3>
-          <p>術前サマリ作成・周術期管理支援アプリ。患者情報の整理から麻酔計画の立案までをサポートします。</p>
-          <button class="btn-detail" onclick="document.getElementById('modal-preop').classList.add('active')">詳しく見る</button>
-        </div>
-
-        <!-- App 5: AneTimer -->
-        <div class="app-card app-card-disabled">
-          <div class="app-card-header">
-            <div class="app-icon">⏱️</div>
-            <span class="badge badge-dev">βテスト準備中</span>
-          </div>
-          <h3>AneTimer — 術中リマインダー</h3>
-          <p>麻酔科医向けの術中タイマー・リマインダーアプリ。抗菌薬再投与、バイタル記録、体位変換などのアラームを簡単に管理できます。</p>
-          <button class="btn-detail" onclick="document.getElementById('modal-anetimer').classList.add('active')">詳しく見る</button>
-        </div>
-
-        <!-- App 6 -->
-        <div class="app-card app-card-disabled">
-          <div class="app-card-header">
-            <div class="app-icon">📞</div>
-            <span class="badge badge-dev">βテスト準備中</span>
-          </div>
-          <h3>ToughCall — AI上級医コンサルト</h3>
-          <p>術中トラブル発生時にAI上級医へ電話コンサルトするシミュレーション。不整脈・血圧低下・気道トラブルなど、あの緊張の電話を安全に練習できます。</p>
-          <button class="btn-detail" onclick="document.getElementById('modal-toughcall').classList.add('active')">詳しく見る</button>
-        </div>
-
+<!-- ================================================
+  APPS — 3-column grid
+================================================ -->
+<section class="apps-section" id="apps">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <div class="section-head-text">
+        <div class="eyebrow">Apps</div>
+        <h2>臨床の壁を超えるアプリ</h2>
+        <p class="sub">麻酔科医の経験 × AI — 現場のためのツール群</p>
       </div>
     </div>
-  </section>
 
-  <!-- AI System Section -->
-  <section id="ai-system" class="ai-section">
-    <div class="ai-section-bg"></div>
-    <div class="section-inner" style="position: relative; z-index: 1;">
-      <h2 class="section-title" style="color: #f1f5f9;">Voice-Powered AI Development</h2>
-      <p class="section-subtitle" style="color: #94a3b8;">声だけで、AIが動く世界</p>
+    <div class="apps-grid reveal reveal-delay-1">
 
-      <div style="max-width: 680px; margin: 0 auto 48px; text-align: center;">
-        <p style="color: #94a3b8; font-size: 1rem; line-height: 1.8;">
-          Claude Codeを音声で完全操作する<br>
-          独自システムを構築。<br>
-          コーディング、アプリ開発、ドキュメント、<br>
-          コンテンツ制作まで——<br>
-          すべてが声だけで完結する、新しい開発体験。
-        </p>
-      </div>
-
-      <div class="ai-feature-grid">
-        <div class="ai-feature-card">
-          <div class="ai-feature-icon">🎙️</div>
-          <h3>音声でAIを操作</h3>
-          <p>キーボード不要。<br>話しかけるだけでAIがコードを書き、<br>ファイルを編集し、システムを構築。</p>
+      <!-- Senare — βテスト中 -->
+      <a class="app-card" href="https://forms.gle/CHnNTuYob4gNGTTE6" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'apps',event_label:'senere'})">
+        <span class="app-badge badge-beta">β テスト中</span>
+        <div class="app-card-bg" style="background-image:url('images/senare.png'); background-color:#4a6fa5;"></div>
+        <div class="app-card-content">
+          <h3>Senare</h3>
+          <p>麻酔科リファレンス — 薬剤・手技・ガイドラインをAIが即座に回答</p>
         </div>
-        <div class="ai-feature-card">
-          <div class="ai-feature-icon">🌐</div>
-          <h3>高い汎用性</h3>
-          <p>研究からアプリ開発、SNS運用まで。<br>あらゆる領域に対応する、<br>万能AI開発環境。</p>
-        </div>
-        <div class="ai-feature-card">
-          <div class="ai-feature-icon">💬</div>
-          <h3>自然言語、自然操作</h3>
-          <p>プログラミング知識不要。<br>日本語で話すだけで、<br>AIが意図を理解して実行する。</p>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 32px;">
-        <span class="hero-cta" style="opacity: 0.5; cursor: default;">noteで詳しく読む（準備中）</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Beta Test Banner -->
-  <section id="beta-test" class="beta-banner">
-    <div class="beta-banner-inner">
-      <div class="beta-banner-label">🧪 βテスト開催中</div>
-      <h2>4つのアプリを無料体験 — βテスター募集中</h2>
-      <p>研修医・専攻医の先生方へ — 麻酔科医が開発した4つのWebアプリを1週間無料でお試しいただけます。<br>フィードバックでアプリの改善にご協力ください。</p>
-
-      <div class="beta-banner-details">
-        <div class="beta-banner-detail">📅 期間：1週間（無料）</div>
-        <div class="beta-banner-detail">📝 アンケート回答（約3〜5分）</div>
-        <div class="beta-banner-detail">💻 ブラウザで即利用可能</div>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:24px 0;text-align:left;">
-        <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:16px;">
-          <h3 style="margin:0 0 8px;font-size:1rem;">🤖 Your AI Senere Assistant</h3>
-          <p style="margin:0 0 8px;font-size:0.85rem;opacity:0.85;">AI上級医コンサルト・薬剤計算・クイックコンサルト</p>
-          <span style="font-size:0.75rem;opacity:0.6;">※パスワード制（要申込）</span>
-        </div>
-        <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:16px;">
-          <h3 style="margin:0 0 8px;font-size:1rem;">😂 TOFun</h3>
-          <p style="margin:0 0 8px;font-size:0.85rem;opacity:0.85;">麻酔科ジョークアプリ（102本＋投票＋投稿機能）</p>
-          <span style="font-size:0.75rem;opacity:0.6;">※誰でも利用可能</span>
-        </div>
-        <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:16px;">
-          <h3 style="margin:0 0 8px;font-size:1rem;">📋 Pre-operative Anesthetic Summary</h3>
-          <p style="margin:0 0 8px;font-size:0.85rem;opacity:0.85;">術前サマリ作成・周術期管理支援アプリ</p>
-          <span style="font-size:0.75rem;opacity:0.6;">※誰でも利用可能</span>
-        </div>
-        <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:16px;opacity:0.6;">
-          <h3 style="margin:0 0 8px;font-size:1rem;">⏱️ AneTimer</h3>
-          <p style="margin:0 0 8px;font-size:0.85rem;opacity:0.85;">術中タイマー・リマインダーアプリ</p>
-          <span style="font-size:0.75rem;opacity:0.6;">※準備中</span>
-        </div>
-        <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:16px;opacity:0.6;">
-          <h3 style="margin:0 0 8px;font-size:1rem;">📞 ToughCall</h3>
-          <p style="margin:0 0 8px;font-size:0.85rem;opacity:0.85;">AI上級医コンサルト・シミュレーター</p>
-          <span style="font-size:0.75rem;opacity:0.6;">※準備中</span>
-        </div>
-      </div>
-
-      <div class="beta-banner-actions">
-        <a href="#apps" class="beta-btn-primary">アプリ一覧を見る</a>
-        <a href="https://forms.gle/2de4mpsCqeEJzLXG9" class="beta-btn-secondary" target="_blank">アンケートに回答する</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Profile -->
-  <section id="profile" class="profile-section">
-    <div class="section-inner">
-      <h2 class="section-title">開発者プロフィール</h2>
-      <p class="section-subtitle">About the Developer</p>
-
-      <div class="profile-content">
-        <div class="profile-avatar-wrap"><img src="profile.JPG" alt="麻酔科医X" class="profile-avatar"></div>
-        <div class="profile-text">
-          <h3>麻酔科医X</h3>
-          <div class="profile-role">MD, PhD — Rigshospitalet Clinical Fellow / AI Innovator</div>
-          <p>日本で麻酔科専門医を取得後、デンマークに渡り麻酔科Clinical Fellowとして臨床に挑戦中。北欧の医療システムの中で日々診療にあたりながら、AIを活用した医療アプリの開発と、AI駆動のコンテンツ制作システムの構築に取り組んでいます。</p>
-          <p>独学でプログラミングとAI開発を学び、「話すだけでSNSコンテンツが自動生成される」独自のAIシステムを構築。臨床を知る医師だからこそ作れるアプリと、AIの可能性を最前線で切り拓いています。</p>
-          <div class="profile-tags">
-            <span class="profile-tag">麻酔科専門医</span>
-            <span class="profile-tag">デンマーク在住</span>
-            <span class="profile-tag">AI開発</span>
-            <span class="profile-tag">Webアプリ開発</span>
-            <span class="profile-tag">AIコンテンツ制作</span>
-            <span class="profile-tag">臨床×テクノロジー</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SNS -->
-  <section id="sns">
-    <div class="section-inner">
-      <h2 class="section-title">SNS</h2>
-      <p class="section-subtitle">最新情報はSNSで発信中</p>
-
-      <div class="sns-links">
-        <a href="https://x.com/dk_anes_doctor" class="sns-btn sns-x" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          X (Twitter)
-        </a>
-        <a href="https://instagram.com/dk_anes_doctor" class="sns-btn sns-instagram" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          Instagram
-        </a>
-        <a href="https://www.youtube.com/@dk_anes_doctor" class="sns-btn sns-youtube" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          YouTube
-        </a>
-        <a href="https://note.com/dk_anes_doctor" class="sns-btn sns-note" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.195 3.64c-.735-.059-3.039-.089-4.719.42a7.346 7.346 0 00-2.202 1.217c-.392.327-.559.522-.763.857-.205.334-.26.703-.323 1.168-.064.465-.017 1.14-.017 1.14s-.395-.382-.852-.63c-.457-.247-1.009-.382-1.009-.382s.521.635.652 1.027c.13.393.136.78.136.78s-.387-.245-.86-.379c-.474-.134-.967-.131-.967-.131s.384.434.609.836c.225.401.361.849.361.849s-.317-.133-.698-.215c-.381-.082-.755-.082-.755-.082s.308.375.539.739c.231.365.383.755.383.755H8.235c-1.009 0-2.394.091-3.593.472C3.444 12.001 2.5 12.69 1.805 13.6v6.6c0 .69.561 1.2 1.2 1.2h18c.639 0 1.2-.51 1.2-1.2V4.8c0-.63-.47-1.1-1.01-1.16zM20.4 19.2H3.6v-4.8c.5-.656 1.2-1.128 2.1-1.38.9-.252 1.974-.324 2.88-.324h9.42c.84 0 1.62.036 2.4.036V19.2z"/></svg>
-          note
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Legal -->
-  <section id="legal" class="legal-section">
-    <div class="section-inner">
-      <div class="legal-grid">
-        <div class="legal-block">
-          <h3>免責事項</h3>
-          <p>本サイトおよび掲載アプリで提供される情報は、一般的な参考情報を目的としたものであり、医学的助言に代わるものではありません。</p>
-          <ul>
-            <li>診断・治療の判断は必ず担当医にご相談ください</li>
-            <li>アプリの使用により生じたいかなる損害についても、開発者は責任を負いません</li>
-            <li>情報の正確性には最善を尽くしていますが、完全性を保証するものではありません</li>
-            <li>本サイトに掲載されるAI生成コンテンツ（テキスト・動画等）は、AIの出力を含むため、内容の正確性を保証するものではありません</li>
-            <li>デモ動画等に表示されるシステムは開発中のものであり、実際の動作と異なる場合があります</li>
-          </ul>
-        </div>
-        <div class="legal-block">
-          <h3>プライバシーポリシー</h3>
-          <p>各アプリにおけるユーザーデータの取り扱いについて：</p>
-          <ul>
-            <li>個人情報は、サービス提供に必要な範囲でのみ収集・利用します</li>
-            <li>第三者への無断提供は行いません</li>
-            <li>データは適切なセキュリティ対策のもとで管理します</li>
-            <li>本サイトではYouTube等の外部サービスを埋め込んでおり、各サービスのプライバシーポリシーが適用されます</li>
-            <li>各アプリの詳細なプライバシーポリシーは、アプリ内に記載しています</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact-section">
-    <div class="section-inner">
-      <h2 class="section-title">お問い合わせ</h2>
-      <p class="section-subtitle">ご質問・ご要望・コラボレーションのご相談はお気軽にどうぞ</p>
-      <a href="mailto:narkose_laegefrajapan@proton.me" class="contact-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        メールで問い合わせる
+        <div class="app-card-arrow">→</div>
       </a>
-    </div>
-  </section>
 
-  <!-- Senere Assistant Detail Modal -->
-  <div id="modal-senere" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="modal">
-      <button class="modal-close" onclick="document.getElementById('modal-senere').classList.remove('active')">&times;</button>
-
-      <div class="modal-header">
-        <div class="app-icon">🤖</div>
-        <div>
-          <h2>Your AI Senere Assistant <span class="badge badge-beta">βテスト中</span></h2>
-          <span style="color:var(--color-text-secondary);font-size:0.85rem">麻酔科AI上級医コンサルト v0.1-beta</span>
+      <!-- PreVisit — 準備中 -->
+      <div class="app-card" style="cursor:default;">
+        <span class="app-badge badge-soon">準備中</span>
+        <div class="app-card-bg" style="background-image:url('https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=600&q=80&auto=format&fit=crop'); background-color:#7d9b76;"></div>
+        <div class="app-card-content">
+          <h3>PreVisit</h3>
+          <p>術前リモート診察 — 問診からリスク評価、サマリ作成まで効率化</p>
         </div>
       </div>
 
-      <p class="modal-intro">
-        Senere（セネレ）はデンマーク語で「後で」の意味。「ちょっと待って、後で聞こう」と思った疑問を、AIがすぐにサポート。研修医・専攻医のための麻酔科AIコンサルトアプリです。
-      </p>
-
-      <div class="modal-feature">
-        <h3>💬 チャット相談</h3>
-        <p>麻酔管理に関するあらゆる質問に、AI上級医が「要点」と「詳細」の構造化された形式で回答。緊急キーワードを検知すると自動で緊急モードに切り替わります。</p>
-      </div>
-
-      <div class="modal-feature">
-        <h3>⚡ クイックコンサルト</h3>
-        <p>よくある緊急シナリオを8つプリセット。ワンタップで即座にプロトコルを確認できます。</p>
-        <ul>
-          <li>🚨 アナフィラキシー</li>
-          <li>🔥 悪性高熱症</li>
-          <li>😮 困難気道</li>
-          <li>💉 局所麻酔薬中毒（LAST）</li>
-          <li>📉 術中低血圧</li>
-          <li>💓 徐脈</li>
-          <li>🤢 PONV（術後悪心嘔吐）</li>
-          <li>💊 術後疼痛管理</li>
-        </ul>
-      </div>
-
-      <div class="modal-feature">
-        <h3>💊 薬剤用量計算機</h3>
-        <p>麻酔でよく使う16薬剤の体重別用量を自動計算。患者情報を入力すれば、投与量がひと目でわかります。</p>
-      </div>
-
-      <div class="modal-feature">
-        <h3>🛡️ 安全への配慮</h3>
-        <p>免責事項・利用同意画面を初回表示時に確認。緊急モードでは「上級医・指導医への連絡も並行して行ってください」と常時表示。AIはあくまで補助ツールとして位置づけています。</p>
-      </div>
-
-      <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px;border-left:3px solid #f59e0b;">
-        <p style="font-size:0.8rem;color:#94a3b8;margin:0;line-height:1.7;">
-          <strong style="color:#f59e0b;">免責事項：</strong>本アプリは臨床業務を補助する目的で提供されており、医学的判断の代替となるものではありません。AIによる回答の正確性・完全性は保証されません。臨床上の最終判断は必ず担当医師が行ってください。本アプリの使用により生じたいかなる損害についても、開発者は一切の責任を負いません。
-          <br><strong style="color:#f59e0b;">プライバシー：</strong>本アプリでは利用回数管理のためにIPアドレスを取得しています。取得した情報はβテスト期間中の利用管理目的のみに使用し、テスト終了後に削除します。第三者への提供は行いません。
-        </p>
-      </div>
-
-      <div class="modal-cta">
-        <a href="https://forms.gle/CHnNTuYob4gNGTTE6" class="btn-primary" target="_blank" onclick="gtag('event','click_senere',{event_category:'app_click',event_label:'Senere Assistant'})">βテストに参加する</a>
-        <a href="https://forms.gle/CHnNTuYob4gNGTTE6" class="btn-secondary" target="_blank">アンケートに回答する</a>
-      </div>
-
-      <div class="modal-footer">
-        <p class="modal-footer-label">他のアプリを見る</p>
-        <div class="modal-nav">
-          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
-          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
-          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
-          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-anetimer').classList.add('active')">⏱️ AneTimer</button>
-          <button onclick="document.getElementById('modal-senere').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
+      <!-- TOFun — βテスト中 -->
+      <a class="app-card" href="https://joke-app-production.up.railway.app/" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'apps',event_label:'tofun'})">
+        <span class="app-badge badge-beta">β テスト中</span>
+        <div class="app-card-bg" style="background-image:url('images/tofun-mobile.png'); background-color:#c4713b;"></div>
+        <div class="app-card-content">
+          <h3>TOFun</h3>
+          <p>麻酔科ジョークAI — 学会発表のアイスブレイクに</p>
         </div>
-        <button class="modal-close-bottom" onclick="document.getElementById('modal-senere').classList.remove('active')">閉じる</button>
+        <div class="app-card-arrow">→</div>
+      </a>
+
+      <!-- Summary — βテスト中 -->
+      <a class="app-card" href="https://preop-chart-dist.vercel.app" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'apps',event_label:'summary'})">
+        <span class="app-badge badge-beta">β テスト中</span>
+        <div class="app-card-bg" style="background-image:url('images/summary-mobile.png'); background-color:#9b7db5;"></div>
+        <div class="app-card-content">
+          <h3>Summary</h3>
+          <p>術前サマリ自動生成 — 問診から麻酔計画まで一括作成</p>
+        </div>
+        <div class="app-card-arrow">→</div>
+      </a>
+
+      <!-- AneTimer — 準備中 -->
+      <div class="app-card" style="cursor:default;">
+        <span class="app-badge badge-soon">準備中</span>
+        <div class="app-card-bg" style="background-image:url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80&auto=format&fit=crop'); background-color:#c48b8b;"></div>
+        <div class="app-card-content">
+          <h3>AneTimer</h3>
+          <p>術中リマインダー — 投薬タイミングを逃さない</p>
+        </div>
       </div>
+
+      <!-- ToughCall — 準備中 -->
+      <div class="app-card" style="cursor:default;">
+        <span class="app-badge badge-soon">準備中</span>
+        <div class="app-card-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80&auto=format&fit=crop'); background-color:#5a7d8c;"></div>
+        <div class="app-card-content">
+          <h3>ToughCall</h3>
+          <p>AI上級医コンサルト — 困った場面の判断をサポート</p>
+        </div>
+      </div>
+
+    </div><!-- /apps-grid -->
+
+  </div><!-- /section-wrap -->
+</section>
+
+<!-- Ornamental divider -->
+<div class="ornament-divider" aria-hidden="true">
+  <div class="ornament-line"></div>
+  <div class="ornament-dot"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-dot"></div>
+  <div class="ornament-line right"></div>
+</div>
+
+<!-- ================================================
+  FEATURE PICK UP 1 — Senere (text left, image right)
+================================================ -->
+<section class="feature-section">
+  <div class="feature-text-side reveal">
+    <div class="eyebrow">Pick Up</div>
+    <h2>Senere — あなたの<br>AI上級医レファレンス</h2>
+    <p>術前評価、薬剤投与量、ガイドライン確認。忙しい臨床の合間に、AIが即座に回答します。すでにβテスターが現場で体験中。</p>
+    <a href="https://forms.gle/CHnNTuYob4gNGTTE6" target="_blank" rel="noopener" class="feature-cta-link"
+       onclick="gtag('event','click',{event_category:'feature',event_label:'senare_beta'})">
+      βテストに参加 <span class="arrow">→</span>
+    </a>
+  </div>
+  <div class="feature-image-side">
+    <div class="screenshot-frame">
+      <img src="images/senere-screenshot.png" alt="Senereアプリのスクリーンショット" loading="lazy">
     </div>
   </div>
+</section>
 
-  <!-- TOFun Detail Modal -->
-  <div id="modal-tofun" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="modal">
-      <button class="modal-close" onclick="document.getElementById('modal-tofun').classList.remove('active')">&times;</button>
+<!-- ================================================
+  FEATURE COMING UP — PreVisit (image left, text right)
+================================================ -->
+<section class="feature-section">
+  <div class="feature-image-side">
+    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80&auto=format&fit=crop" alt="PreVisit — 術前診察イメージ" loading="lazy">
+  </div>
+  <div class="feature-text-side reveal">
+    <div class="eyebrow">Coming Up</div>
+    <h2>PreVisit — 術前診察を<br>リモートで完結</h2>
+    <p>問診票の自動生成からリスク評価、患者サマリの作成まで。術前診察のワークフロー全体をAIがサポートします。開発中 — 続報はXで。</p>
+    <a href="https://x.com/dk_anes_doctor" target="_blank" rel="noopener" class="feature-cta-link"
+       onclick="gtag('event','click',{event_category:'feature',event_label:'previsit_x'})">
+      Xでフォロー <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
 
-      <div class="modal-header">
-        <div class="app-icon">😂</div>
-        <div>
-          <h2>TOFun <span class="badge badge-live">リリース済み</span></h2>
-          <span style="color:var(--color-text-secondary);font-size:0.85rem">Humorous Anesthesiologist v3.0</span>
+<!-- ================================================
+  SNS — Dark section
+================================================ -->
+<section class="sns-section" id="sns">
+  <div class="sns-inner">
+    <div class="sns-header reveal">
+      <div class="eyebrow">Follow</div>
+      <h2>各プラットフォームで発信中</h2>
+      <p>デンマーク医師ライフ、医療デバイス比較、AI開発のリアル<br><span style="font-family:'DM Sans',sans-serif; font-size:14px; opacity:0.7; letter-spacing:0.5px;">すべて @dk_anes_doctor で発信中</span></p>
+    </div>
+
+    <div class="sns-grid">
+
+      <a class="sns-card active-platform reveal" href="https://x.com/dk_anes_doctor" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'sns',event_label:'x'})">
+        <div class="sns-card-icon">𝕏</div>
+        <div class="sns-card-name">X</div>
+        <div class="sns-card-desc">日常のつぶやき<br>医療デバイス比較</div>
+        <span class="sns-card-freq">毎日更新</span>
+      </a>
+
+      <a class="sns-card active-platform reveal reveal-delay-1" href="https://instagram.com/dk_anes_doctor" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'sns',event_label:'instagram'})">
+        <div class="sns-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
         </div>
-      </div>
+        <div class="sns-card-name">Instagram</div>
+        <div class="sns-card-desc">デバイス写真カルーセル<br>デンマーク生活</div>
+        <span class="sns-card-freq">週2〜3回</span>
+      </a>
 
-      <p class="modal-intro">
-        TOFun（トファン）は、<strong>TOF = Train-of-Four = 102</strong> にちなんだ、麻酔科医による麻酔科医のためのジョークアプリです。登録不要・無料でブラウザからすぐに使えます。
-      </p>
-
-      <div class="modal-feature">
-        <h3>🎭 厳選ジョーク102本</h3>
-        <p>麻酔科の日常、手術室あるある、薬剤ネタなど、麻酔科医ならニヤリとするジョークを102本収録。ボタンを押すとキャラクターが吹き出しでジョークを読み上げます。</p>
-      </div>
-
-      <div class="modal-feature">
-        <h3>👍 投票システム</h3>
-        <p>すべてのジョークに3段階で投票できます。</p>
-        <ul>
-          <li><strong>👍 Good</strong> — いいね（+2点）</li>
-          <li><strong>🤩 Great</strong> — 最高！（+3点）</li>
-          <li><strong>😐 Meh</strong> — うーん（-1点）</li>
-        </ul>
-        <p style="margin-top:8px">投票スコアでジョークが自動ランキングされ、人気の高いジョークが残り続けます。</p>
-      </div>
-
-      <div class="modal-feature">
-        <h3>✏️ ユーザー投稿機能</h3>
-        <p>あなたのオリジナルジョークを投稿できます。</p>
-        <ul>
-          <li>テキスト入力（5〜200文字）で簡単投稿</li>
-          <li>投稿後すぐにジョークのローテーションに反映</li>
-          <li>他のユーザーから投票で評価される</li>
-          <li>重複チェック・バリデーション付きで安心</li>
-        </ul>
-      </div>
-
-      <div class="modal-feature">
-        <h3>🏆 キュレーションシステム</h3>
-        <p>ジョークの品質を保つ自動管理の仕組みがあります。</p>
-        <ul>
-          <li>公式ジョーク20本は常時表示を保証</li>
-          <li>残り82枠を公式・ユーザー投稿が投票スコアで競争</li>
-          <li>低評価のジョークは自動的に入れ替わり、常に面白いジョークが残ります</li>
-          <li>ユーザーの投票でアプリが育っていく仕組みです</li>
-        </ul>
-      </div>
-
-      <div class="modal-feature">
-        <h3>🫧 キャラクター演出</h3>
-        <p>TOFunキャラクターが10段階に変化。ジョークを読むたびに表情が変わるので、次のジョークが見たくなる楽しい仕掛けです。</p>
-      </div>
-
-      <div class="modal-cta">
-        <a href="https://joke-app-production.up.railway.app/" class="btn-primary" target="_blank" onclick="gtag('event','click_tofun',{event_category:'app_click',event_label:'TOFun'})">TOFunを開く</a>
-        <a href="https://forms.gle/XjVxTJ3z5tMCk6X78" class="btn-secondary" target="_blank">アンケートに回答する</a>
-      </div>
-
-      <div class="modal-footer">
-        <p class="modal-footer-label">他のアプリを見る</p>
-        <div class="modal-nav">
-          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
-          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
-          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
-          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-anetimer').classList.add('active')">⏱️ AneTimer</button>
-          <button onclick="document.getElementById('modal-tofun').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
+      <a class="sns-card reveal reveal-delay-2" href="https://www.youtube.com/@dk_anes_doctor" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'sns',event_label:'youtube'})">
+        <div class="sns-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+          </svg>
         </div>
-        <button class="modal-close-bottom" onclick="document.getElementById('modal-tofun').classList.remove('active')">閉じる</button>
-      </div>
+        <div class="sns-card-name">YouTube</div>
+        <div class="sns-card-desc">最新知見ショート<br>Claude Code関連</div>
+        <span class="sns-card-freq">不定期</span>
+      </a>
+
+      <a class="sns-card reveal reveal-delay-3" href="#" target="_blank" rel="noopener">
+        <div class="sns-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.81 1.54V6.78a4.85 4.85 0 01-1.04-.09z"/>
+          </svg>
+        </div>
+        <div class="sns-card-name">TikTok</div>
+        <div class="sns-card-desc">テンポ重視の<br>医療ショート</div>
+        <span class="sns-card-freq">Coming Soon</span>
+      </a>
+
+      <a class="sns-card reveal reveal-delay-4" href="https://note.com/dk_anes_doctor" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'sns',event_label:'note'})">
+        <div class="sns-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="3" fill="currentColor" opacity="0.15"/>
+            <path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="sns-card-name">note</div>
+        <div class="sns-card-desc">深掘り記事<br>AI活用エッセイ</div>
+        <span class="sns-card-freq">更新中</span>
+      </a>
+
+    </div><!-- /sns-grid -->
+  </div><!-- /sns-inner -->
+</section>
+
+<!-- ================================================
+  PROFILE
+================================================ -->
+<section class="profile-section" id="about">
+  <div class="profile-image-side">
+    <img src="images/profile.jpg" alt="@dk_anes_doctor プロフィール写真" loading="lazy">
+  </div>
+  <div class="profile-content-side reveal">
+    <div class="eyebrow">About</div>
+    <h2>麻酔科医X</h2>
+    <p style="font-family:'DM Sans',sans-serif; font-size:13px; color:var(--text-sub); margin-top:-8px; margin-bottom:20px; letter-spacing:0.3px;">（@dk_anes_doctor）</p>
+    <div class="profile-role">なんちゃってPhD留学医 — Rigshospitalet, Copenhagen</div>
+    <p class="profile-bio">デンマーク・コペンハーゲンのRigshospitaletで麻酔科Clinical Fellowとして臨床に従事中。PhDを取ったのは事実だけど、"なんちゃって"感が拭えない留学医です。日々の臨床で出会う最新の知見やデバイスを、SNSで気軽に発信中。アプリ開発やコンテンツ制作はAIに全力で頼りながら、"医者がAIを使い倒すとこうなる"を体現しています。</p>
+    <div class="profile-tags">
+      <span class="profile-tag">🏥 麻酔科専門医</span>
+      <span class="profile-tag">🇩🇰 デンマーク在住</span>
+      <span class="profile-tag">🤖 AI × 臨床</span>
+      <span class="profile-tag">🎙️ Voice AI</span>
+      <span class="profile-tag">PhD</span>
     </div>
   </div>
+</section>
 
-  <!-- Modal: Pre-operative Anesthetic Summary -->
-  <div id="modal-preop" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="modal">
-      <button class="modal-close" onclick="document.getElementById('modal-preop').classList.remove('active')">&times;</button>
-
-      <div class="modal-header">
-        <div class="app-icon">📋</div>
-        <div>
-          <h2>Pre-operative Anesthetic Summary <span class="badge badge-beta">βテスト中</span></h2>
-          <span style="color:var(--color-text-secondary);font-size:0.85rem">術前サマリ作成・周術期管理支援アプリ</span>
-        </div>
-      </div>
-
-      <p class="modal-intro">
-        術前の患者情報を整理し、麻酔計画の立案をサポートするWebアプリです。登録不要・無料でブラウザからすぐに使えます。
-      </p>
-
-      <div class="modal-feature">
-        <h3>📝 術前サマリの作成</h3>
-        <p>患者の基本情報、既往歴、内服薬、アレルギー、気道評価などを入力し、見やすいサマリを自動生成します。</p>
-      </div>
-
-      <div class="modal-feature">
-        <h3>⚡ 周術期リスク評価</h3>
-        <p>入力された情報から周術期のリスクを整理し、麻酔計画の立案をサポートします。</p>
-      </div>
-
-      <div class="modal-feature">
-        <h3>📊 一覧性の高いレイアウト</h3>
-        <p>必要な情報がひと目で把握できるチャート形式。手術室でもすぐに確認できるシンプルなデザインです。</p>
-      </div>
-
-      <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px;border-left:3px solid #f59e0b;">
-        <p style="font-size:0.8rem;color:#94a3b8;margin:0;line-height:1.7;">
-          <strong style="color:#f59e0b;">免責事項：</strong>本アプリは臨床業務を補助する目的で提供されており、医学的判断の代替となるものではありません。出力内容の正確性・完全性は保証されません。臨床上の最終判断は必ず担当医師が行ってください。本アプリの使用により生じたいかなる損害についても、開発者は一切の責任を負いません。患者の個人情報は入力しないでください。
-        </p>
-      </div>
-
-      <div class="modal-cta">
-        <a href="https://preop-chart-dist.vercel.app" class="btn-primary" target="_blank" onclick="gtag('event','click_preop_summary',{event_category:'app_click',event_label:'Pre-op Summary'})">アプリを開く</a>
-        <a href="https://forms.gle/V8dwNPpuq7F1EqbX9" class="btn-secondary" target="_blank">アンケートに回答する</a>
-      </div>
-
-      <div class="modal-footer">
-        <p class="modal-footer-label">他のアプリを見る</p>
-        <div class="modal-nav">
-          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
-          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
-          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
-          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-anetimer').classList.add('active')">⏱️ AneTimer</button>
-          <button onclick="document.getElementById('modal-preop').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
-        </div>
-        <button class="modal-close-bottom" onclick="document.getElementById('modal-preop').classList.remove('active')">閉じる</button>
-      </div>
-    </div>
+<!-- ================================================
+  CTA FULL-BLEED
+================================================ -->
+<section class="cta-section">
+  <div class="cta-bg" id="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content reveal">
+    <div class="eyebrow">Join Beta</div>
+    <h2>βテスター募集中</h2>
+    <p>3つのアプリを無料体験 — 1週間のテスト後、アンケートにご回答ください。医療従事者であればどなたでも参加歓迎です。</p>
+    <a href="https://forms.gle/2de4mpsCqeEJzLXG9" target="_blank" rel="noopener" class="cta-btn"
+       onclick="gtag('event','click',{event_category:'cta',event_label:'beta_banner'})">今すぐ参加する →</a>
   </div>
+</section>
 
-  <!-- PreVisit Modal -->
-  <div id="modal-previsit" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="modal">
-      <button class="modal-close" onclick="document.getElementById('modal-previsit').classList.remove('active')">&times;</button>
+<!-- ================================================
+  FOOTER
+================================================ -->
+<footer>
+  <div class="footer-brand">A challenging doctor, anesthesiologist X.</div>
+  <ul class="footer-links">
+    <li><a href="#" onclick="document.getElementById('disclaimer-modal').style.display='flex'; return false;">免責事項</a></li>
+    <li><a href="#" onclick="document.getElementById('privacy-modal').style.display='flex'; return false;">プライバシーポリシー</a></li>
+    <li><a href="mailto:narkose_laegefrajapan@proton.me">お問い合わせ</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 A challenging doctor, anesthesiologist X.</div>
+</footer>
 
-      <div class="modal-header">
-        <div class="app-icon">🩺</div>
-        <div>
-          <h2>PreVisit <span class="badge badge-dev">βテスト準備中</span></h2>
-          <span style="color:var(--color-text-secondary);font-size:0.85rem">術前リモート診察システム</span>
-        </div>
-      </div>
+<!-- ================================================
+  MODALS — Disclaimer / Privacy
+================================================ -->
+<style>
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(44,36,32,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
 
-      <p class="modal-intro">
-        PreVisitは、麻酔科医が術前診察をリモートで行うためのビデオ通話アプリです。WebRTCによるP2P通信で、映像はサーバーに保存されません。
-      </p>
+.modal-box {
+  background: var(--bg);
+  border-radius: 20px;
+  padding: 48px;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
 
-      <div class="modal-feature">
-        <h3>📹 セキュアなビデオ通話</h3>
-        <p>WebRTC（P2P）による直接通信で、映像・音声データはサーバーを経由しません。患者のプライバシーを最大限に保護します。</p>
-      </div>
+.modal-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  color: var(--text);
+}
 
-      <div class="modal-feature">
-        <h3>💬 チャット機能</h3>
-        <p>ビデオ通話と同時にテキストチャットが可能。薬剤名や指示内容をテキストで正確に伝えられます。テンプレート機能で定型的な説明も効率的に。</p>
-      </div>
+.modal-box p {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.85;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
 
-      <div class="modal-feature">
-        <h3>🔗 かんたん接続</h3>
-        <p>医師がルームを作成し、患者にURLを共有するだけ。アプリのインストールや会員登録は不要です。</p>
-      </div>
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(44,36,32,0.12);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--text-sub);
+  transition: all 0.25s;
+}
 
-      <div class="modal-feature">
-        <h3>🗑️ 自動ログ削除</h3>
-        <p>チャットログは診察終了後、設定した時間で自動削除。カルテへの転記用にコピー機能も搭載しています。</p>
-      </div>
+.modal-close:hover {
+  background: var(--bg-dark);
+  color: var(--white);
+}
+</style>
 
-      <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px;border-left:3px solid #f59e0b;">
-        <p style="font-size:0.8rem;color:#94a3b8;margin:0;line-height:1.7;">
-          <strong style="color:#f59e0b;">免責事項：</strong>本アプリは臨床業務を補助する目的で提供されており、医学的判断の代替となるものではありません。映像・音声の品質はネットワーク環境に依存します。本アプリの使用により生じたいかなる損害についても、開発者は一切の責任を負いません。
-        </p>
-      </div>
-
-      <div class="modal-cta">
-        <p style="color:#94a3b8;font-size:0.9rem;">βテスト準備中 — 近日公開予定</p>
-      </div>
-
-      <div class="modal-footer">
-        <p class="modal-footer-label">他のアプリを見る</p>
-        <div class="modal-nav">
-          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
-          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
-          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
-          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-anetimer').classList.add('active')">⏱️ AneTimer</button>
-          <button onclick="document.getElementById('modal-previsit').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
-        </div>
-        <button class="modal-close-bottom" onclick="document.getElementById('modal-previsit').classList.remove('active')">閉じる</button>
-      </div>
-    </div>
+<div class="modal-backdrop" id="disclaimer-modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('disclaimer-modal').style.display='none'" aria-label="閉じる">✕</button>
+    <h3>免責事項</h3>
+    <p>本サイトおよび掲載アプリは、医療情報の提供を目的としたものであり、診断・治療の代替となるものではありません。アプリの使用により生じた損害について、開発者は一切の責任を負いません。βテスト中のアプリには不具合が含まれる可能性があります。医療的判断は必ず資格を有する医療従事者にご相談ください。</p>
   </div>
+</div>
 
-  <!-- AneTimer Modal -->
-  <div id="modal-anetimer" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="modal-content">
-      <button class="modal-close" onclick="document.getElementById('modal-anetimer').classList.remove('active')">&times;</button>
-      <div class="modal-header">
-        <div class="modal-icon">⏱️</div>
-        <div>
-          <h2>AneTimer <span class="badge badge-dev">βテスト準備中</span></h2>
-          <p style="color:#94a3b8;margin:4px 0 0;font-size:0.9rem;">術中タイマー・リマインダーアプリ</p>
-        </div>
-      </div>
-
-      <div class="modal-body">
-        <h3>概要</h3>
-        AneTimer（アネタイマー）は、麻酔科医のための術中リマインダーアプリです。抗菌薬の再投与タイミング、バイタルサイン記録、体位変換リマインダーなど、術中に忘れがちなタスクをアラームで管理できます。登録不要・無料でブラウザからすぐに使えます。
-
-        <h3>主な機能</h3>
-        <ul>
-          <li><strong>カスタムアラーム設定</strong> — 任意のタイミングでリマインダーを追加。抗菌薬再投与、輸液チェックなどに</li>
-          <li><strong>手術開始時刻の管理</strong> — 手術開始からの経過時間を自動計算</li>
-          <li><strong>完了ログ</strong> — 対応済みアラームを記録。術後の振り返りに活用</li>
-          <li><strong>データ永続化</strong> — ローカルストレージで保存。ページをリロードしても消えない</li>
-          <li><strong>直感的なUI</strong> — タップ操作で素早くアラームを追加・管理</li>
-        </ul>
-
-        <h3>こんな場面で</h3>
-        <ul>
-          <li>セファゾリン再投与のタイミングを忘れない</li>
-          <li>長時間手術での体位変換リマインダー</li>
-          <li>定期的なバイタル記録のリマインダー</li>
-          <li>輸血後のフォローアップチェック</li>
-        </ul>
-
-        <p style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:12px;font-size:0.85rem;">
-          <strong style="color:#f59e0b;">免責事項：</strong>本アプリは臨床業務を補助する目的で提供されており、医学的判断の代替となるものではありません。アラームの通知に依存せず、必ず自身の判断で臨床上の確認を行ってください。本アプリの使用により生じたいかなる損害についても、開発者は一切の責任を負いません。
-        </p>
-      </div>
-
-      <div class="modal-cta">
-        <p style="color:#94a3b8;font-size:0.9rem;">βテスト準備中 — 近日公開予定</p>
-      </div>
-
-      <div class="modal-footer">
-        <p class="modal-footer-label">他のアプリを見る</p>
-        <div class="modal-nav">
-          <button onclick="document.getElementById('modal-anetimer').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
-          <button onclick="document.getElementById('modal-anetimer').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
-          <button onclick="document.getElementById('modal-anetimer').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
-          <button onclick="document.getElementById('modal-anetimer').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
-          <button onclick="document.getElementById('modal-anetimer').classList.remove('active');document.getElementById('modal-toughcall').classList.add('active')">📞 ToughCall</button>
-        </div>
-        <button class="modal-close-bottom" onclick="document.getElementById('modal-anetimer').classList.remove('active')">閉じる</button>
-      </div>
-    </div>
+<div class="modal-backdrop" id="privacy-modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('privacy-modal').style.display='none'" aria-label="閉じる">✕</button>
+    <h3>プライバシーポリシー</h3>
+    <p>本サイトではGoogle Analytics（GA4）を使用してアクセス解析を行っています。収集した情報は第三者への提供、販売は行いません。βテスト参加フォームで収集した情報はアプリ改善のみに使用し、適切に管理します。詳細はお問い合わせください。</p>
   </div>
+</div>
 
-  <!-- ToughCall Modal -->
-  <div id="modal-toughcall" class="modal-backdrop" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="modal">
-      <button class="modal-close" onclick="document.getElementById('modal-toughcall').classList.remove('active')">&times;</button>
+<!-- ================================================
+  JAVASCRIPT
+================================================ -->
+<script>
+(function() {
+  'use strict';
 
-      <div class="modal-header">
-        <div class="app-icon">📞</div>
-        <div>
-          <h2>ToughCall <span class="badge badge-dev">βテスト準備中</span></h2>
-          <span style="color:var(--color-text-secondary);font-size:0.85rem">AI上級医コンサルト・シミュレーター v0.1-beta</span>
-        </div>
-      </div>
+  /* ------------------------------------------
+     Scroll reveal — IntersectionObserver
+  ------------------------------------------ */
+  const revealEls = document.querySelectorAll('.reveal');
 
-      <p class="modal-intro">
-        ToughCall（タフコール）は、術中トラブル発生時にAI上級医へ電話コンサルトするシミュレーションアプリです。「あの怖い上級医への電話」を、安全な環境で何度でも練習できます。
-      </p>
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
 
-      <div class="modal-feature">
-        <h3>📞 リアルなコンサルト体験</h3>
-        <p>PHSで上級医に電話するところから始まる、臨場感のあるシミュレーション。状況報告→質問→指示のやり取りを、チャット形式で体験できます。</p>
-      </div>
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    // Fallback: show all immediately
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
 
-      <div class="modal-feature">
-        <h3>🫀 術中トラブルシナリオ</h3>
-        <p>血圧低下・不整脈・気道トラブル・出血・アナフィラキシーなど、麻酔科で遭遇する主要な術中トラブルを網羅。各シナリオで適切な対応を学べます。</p>
-      </div>
+  /* ------------------------------------------
+     Hero parallax-ish + Ken Burns
+  ------------------------------------------ */
+  const heroBg = document.getElementById('hero-bg');
+  if (heroBg) {
+    // Trigger ken burns after paint
+    requestAnimationFrame(() => {
+      setTimeout(() => heroBg.classList.add('loaded'), 100);
+    });
 
-      <div class="modal-feature">
-        <h3>🎯 分岐型学習</h3>
-        <p>あなたの回答に応じて上級医の指示が変化。正しい判断も間違った判断も、安全に経験できます。シナリオ完了後には振り返りポイントも表示。</p>
-      </div>
+    // Subtle parallax on scroll
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroBg.style.transform = 'translateY(' + (y * 0.25) + 'px)';
+      }
+    }, { passive: true });
+  }
 
-      <div class="modal-feature">
-        <h3>📊 学習進捗管理</h3>
-        <p>経験済みシナリオを自動記録。全シナリオの制覇を目指して、繰り返し学習できます。</p>
-      </div>
+  /* ------------------------------------------
+     Nav scroll state
+  ------------------------------------------ */
+  const mainNav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    mainNav.style.background = window.scrollY > 60
+      ? 'rgba(245, 240, 232, 0.96)'
+      : 'rgba(245, 240, 232, 0.88)';
+  }, { passive: true });
 
-      <div style="margin-top:24px;padding:16px;background:rgba(255,255,255,0.05);border-radius:8px;border-left:3px solid #f59e0b;">
-        <p style="font-size:0.8rem;color:#94a3b8;margin:0;line-height:1.7;">
-          <strong style="color:#f59e0b;">免責事項：</strong>本アプリは教育・トレーニング目的のプロトタイプです。医療的な正確性は保証されません。実際の臨床判断は必ず実際の上級医に相談してください。
-        </p>
-      </div>
+  /* ------------------------------------------
+     Mobile hamburger (basic toggle)
+  ------------------------------------------ */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.querySelector('.nav-links');
 
-      <div class="modal-cta">
-        <p style="color:#94a3b8;font-size:0.9rem;">βテスト準備中 — 近日公開予定</p>
-      </div>
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.cssText = isOpen
+        ? ''
+        : 'display:flex; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:rgba(245,240,232,0.98); padding:20px 28px; gap:20px; border-bottom:1px solid rgba(44,36,32,0.07); backdrop-filter:blur(20px);';
+    });
 
-      <div class="modal-footer">
-        <p class="modal-footer-label">他のアプリを見る</p>
-        <div class="modal-nav">
-          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-senere').classList.add('active')">🤖 Senere Assistant</button>
-          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-tofun').classList.add('active')">😂 TOFun</button>
-          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-preop').classList.add('active')">📋 Pre-op Summary</button>
-          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-anetimer').classList.add('active')">⏱️ AneTimer</button>
-          <button onclick="document.getElementById('modal-toughcall').classList.remove('active');document.getElementById('modal-previsit').classList.add('active')">🩺 PreVisit</button>
-        </div>
-        <button class="modal-close-bottom" onclick="document.getElementById('modal-toughcall').classList.remove('active')">閉じる</button>
-      </div>
-    </div>
-  </div>
+    // Close on link click
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => { navLinks.style.cssText = ''; });
+    });
+  }
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 麻酔科医X. All rights reserved.</p>
-  </footer>
+})();
+</script>
 
 </body>
 </html>
