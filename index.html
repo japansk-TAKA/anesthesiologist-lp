@@ -1249,8 +1249,1717 @@ footer {
     <li><a href="#sns">SNS</a></li>
     <li><a href="#about">About</a></li>
   </ul>
-  <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="nav-cta"
-     onclick="gtag('event','click',{event_category:'nav',event_label:'senere_open'})">Senereを試す</a>
+  <button class="nav-hamburger" aria-label="メニュー" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ================================================
+  HERO — Full-bleed Copenhagen photo
+================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow reveal">🇩🇰 Copenhagen, Denmark</div>
+    <h1 class="reveal reveal-delay-1">麻酔科医Xの挑戦</h1>
+    <p class="hero-sub reveal reveal-delay-2">デンマークのRigshospitaletで麻酔科Clinical Fellowとして臨床に挑む日本人医師。AI × 臨床で、現場を変えるアプリを作っています。</p>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="hero-btn-primary"
+         onclick="gtag('event','click',{event_category:'hero',event_label:'senere_open'})">Senereを試す</a>
+      <a href="#apps" class="hero-btn-ghost">アプリを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Ornamental divider -->
+<div class="ornament-divider" aria-hidden="true">
+  <div class="ornament-line"></div>
+  <div class="ornament-dot"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-dot"></div>
+  <div class="ornament-line right"></div>
+</div>
+
+<!-- ================================================
+  APPS — 3-column grid
+================================================ -->
+<section class="apps-section" id="apps">
+  <div class="section-wrap">
+    <div class="section-head reveal">
+      <div class="section-head-text">
+        <div class="eyebrow">Apps</div>
+        <h2>臨床の壁を超えるアプリ</h2>
+        <p class="sub">麻酔科医の経験 × AI — 現場のためのツール群</p>
+      </div>
+    </div>
+
+    <div class="apps-grid reveal reveal-delay-1">
+
+      <!-- Senare — βテスト中 -->
+      <a class="app-card" href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'apps',event_label:'senere'})">
+        <span class="app-badge badge-beta">β テスト中</span>
+        <div class="app-card-bg" style="background-image:url('images/senare.png'); background-color:#4a6fa5;"></div>
+        <div class="app-card-content">
+          <h3>Senare</h3>
+          <p>麻酔科リファレンス — 薬剤・手技・ガイドラインをAIが即座に回答</p>
+        </div>
+        <div class="app-card-arrow">→</div>
+      </a>
+
+      <!-- PreVisit — 準備中 -->
+      <div class="app-card" style="cursor:default;">
+        <span class="app-badge badge-soon">準備中</span>
+        <div class="app-card-bg" style="background-image:url('https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=600&q=80&auto=format&fit=crop'); background-color:#7d9b76;"></div>
+        <div class="app-card-content">
+          <h3>PreVisit</h3>
+          <p>術前リモート診察 — 問診からリスク評価、サマリ作成まで効率化</p>
+        </div>
+      </div>
+
+      <!-- TOFun — βテスト中 -->
+      <a class="app-card" href="https://joke-app-production.up.railway.app/" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'apps',event_label:'tofun'})">
+        <span class="app-badge badge-beta">β テスト中</span>
+        <div class="app-card-bg" style="background-image:url('images/tofun-mobile.png'); background-color:#c4713b;"></div>
+        <div class="app-card-content">
+          <h3>TOFun</h3>
+          <p>麻酔科ジョークAI — 学会発表のアイスブレイクに</p>
+        </div>
+        <div class="app-card-arrow">→</div>
+      </a>
+
+      <!-- Summary — βテスト中 -->
+      <a class="app-card" href="https://preop-chart-dist.vercel.app" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'apps',event_label:'summary'})">
+        <span class="app-badge badge-beta">β テスト中</span>
+        <div class="app-card-bg" style="background-image:url('images/summary-mobile.png'); background-color:#9b7db5;"></div>
+        <div class="app-card-content">
+          <h3>Summary</h3>
+          <p>術前サマリ自動生成 — 問診から麻酔計画まで一括作成</p>
+        </div>
+        <div class="app-card-arrow">→</div>
+      </a>
+
+      <!-- AneTimer — 準備中 -->
+      <div class="app-card" style="cursor:default;">
+        <span class="app-badge badge-soon">準備中</span>
+        <div class="app-card-bg" style="background-image:url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80&auto=format&fit=crop'); background-color:#c48b8b;"></div>
+        <div class="app-card-content">
+          <h3>AneTimer</h3>
+          <p>術中リマインダー — 投薬タイミングを逃さない</p>
+        </div>
+      </div>
+
+      <!-- ToughCall — 準備中 -->
+      <div class="app-card" style="cursor:default;">
+        <span class="app-badge badge-soon">準備中</span>
+        <div class="app-card-bg" style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80&auto=format&fit=crop'); background-color:#5a7d8c;"></div>
+        <div class="app-card-content">
+          <h3>ToughCall</h3>
+          <p>AI上級医コンサルト — 困った場面の判断をサポート</p>
+        </div>
+      </div>
+
+    </div><!-- /apps-grid -->
+
+  </div><!-- /section-wrap -->
+</section>
+
+<!-- Ornamental divider -->
+<div class="ornament-divider" aria-hidden="true">
+  <div class="ornament-line"></div>
+  <div class="ornament-dot"></div>
+  <div class="ornament-diamond"></div>
+  <div class="ornament-dot"></div>
+  <div class="ornament-line right"></div>
+</div>
+
+<!-- ================================================
+  FEATURE PICK UP 1 — Senere (text left, image right)
+================================================ -->
+<section class="feature-section">
+  <div class="feature-text-side reveal">
+    <div class="eyebrow">Pick Up</div>
+    <h2>Senere — あなたの<br>AI上級医レファレンス</h2>
+    <p>術前評価、薬剤投与量、ガイドライン確認。忙しい臨床の合間に、AIが即座に回答します。すでにβテスターが現場で体験中。</p>
+    <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="feature-cta-link"
+       onclick="gtag('event','click',{event_category:'feature',event_label:'senere_open'})">
+      アプリを開く <span class="arrow">→</span>
+    </a>
+  </div>
+  <div class="feature-image-side">
+    <div class="screenshot-frame">
+      <img src="images/senere-screenshot.png" alt="Senereアプリのスクリーンショット" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  FEATURE COMING UP — PreVisit (image left, text right)
+================================================ -->
+<section class="feature-section">
+  <div class="feature-image-side">
+    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80&auto=format&fit=crop" alt="PreVisit — 術前診察イメージ" loading="lazy">
+  </div>
+  <div class="feature-text-side reveal">
+    <div class="eyebrow">Coming Up</div>
+    <h2>PreVisit — 術前診察を<br>リモートで完結</h2>
+    <p>問診票の自動生成からリスク評価、患者サマリの作成まで。術前診察のワークフロー全体をAIがサポートします。開発中 — 続報はXで。</p>
+    <a href="https://x.com/dk_anes_doctor" target="_blank" rel="noopener" class="feature-cta-link"
+       onclick="gtag('event','click',{event_category:'feature',event_label:'previsit_x'})">
+      Xでフォロー <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ================================================
+  SNS — Dark section
+================================================ -->
+<section class="sns-section" id="sns">
+  <div class="sns-inner">
+    <div class="sns-header reveal">
+      <div class="eyebrow">Follow</div>
+      <h2>各プラットフォームで発信中</h2>
+      <p>デンマーク医師ライフ、医療デバイス比較、AI開発のリアル<br><span style="font-family:'DM Sans',sans-serif; font-size:14px; opacity:0.7; letter-spacing:0.5px;">すべて @dk_anes_doctor で発信中</span></p>
+    </div>
+
+    <div class="sns-grid">
+
+      <a class="sns-card active-platform reveal" href="https://x.com/dk_anes_doctor" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'sns',event_label:'x'})">
+        <div class="sns-card-icon">𝕏</div>
+        <div class="sns-card-name">X</div>
+        <div class="sns-card-desc">日常のつぶやき<br>医療デバイス比較</div>
+        <span class="sns-card-freq">毎日更新</span>
+      </a>
+
+      <a class="sns-card active-platform reveal reveal-delay-1" href="https://instagram.com/dk_anes_doctor" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'sns',event_label:'instagram'})">
+        <div class="sns-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <div class="sns-card-name">Instagram</div>
+        <div class="sns-card-desc">デバイス写真カルーセル<br>デンマーク生活</div>
+        <span class="sns-card-freq">週2〜3回</span>
+      </a>
+
+      <a class="sns-card reveal reveal-delay-2" href="https://www.youtube.com/@dk_anes_doctor" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'sns',event_label:'youtube'})">
+        <div class="sns-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <div class="sns-card-name">YouTube</div>
+        <div class="sns-card-desc">最新知見ショート<br>Claude Code関連</div>
+        <span class="sns-card-freq">不定期</span>
+      </a>
+
+      <a class="sns-card reveal reveal-delay-3" href="#" target="_blank" rel="noopener">
+        <div class="sns-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.2 8.2 0 004.81 1.54V6.78a4.85 4.85 0 01-1.04-.09z"/>
+          </svg>
+        </div>
+        <div class="sns-card-name">TikTok</div>
+        <div class="sns-card-desc">テンポ重視の<br>医療ショート</div>
+        <span class="sns-card-freq">Coming Soon</span>
+      </a>
+
+      <a class="sns-card reveal reveal-delay-4" href="https://note.com/dk_anes_doctor" target="_blank" rel="noopener"
+         onclick="gtag('event','click',{event_category:'sns',event_label:'note'})">
+        <div class="sns-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="3" fill="currentColor" opacity="0.15"/>
+            <path d="M7 8h10M7 12h10M7 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="sns-card-name">note</div>
+        <div class="sns-card-desc">深掘り記事<br>AI活用エッセイ</div>
+        <span class="sns-card-freq">更新中</span>
+      </a>
+
+    </div><!-- /sns-grid -->
+  </div><!-- /sns-inner -->
+</section>
+
+<!-- ================================================
+  PROFILE
+================================================ -->
+<section class="profile-section" id="about">
+  <div class="profile-image-side">
+    <img src="images/profile.jpg" alt="@dk_anes_doctor プロフィール写真" loading="lazy">
+  </div>
+  <div class="profile-content-side reveal">
+    <div class="eyebrow">About</div>
+    <h2>麻酔科医X</h2>
+    <p style="font-family:'DM Sans',sans-serif; font-size:13px; color:var(--text-sub); margin-top:-8px; margin-bottom:20px; letter-spacing:0.3px;">（@dk_anes_doctor）</p>
+    <div class="profile-role">なんちゃってPhD留学医 — Rigshospitalet, Copenhagen</div>
+    <p class="profile-bio">デンマーク・コペンハーゲンのRigshospitaletで麻酔科Clinical Fellowとして臨床に従事中。PhDを取ったのは事実だけど、"なんちゃって"感が拭えない留学医です。日々の臨床で出会う最新の知見やデバイスを、SNSで気軽に発信中。アプリ開発やコンテンツ制作はAIに全力で頼りながら、"医者がAIを使い倒すとこうなる"を体現しています。</p>
+    <div class="profile-tags">
+      <span class="profile-tag">🏥 麻酔科専門医</span>
+      <span class="profile-tag">🇩🇰 デンマーク在住</span>
+      <span class="profile-tag">🤖 AI × 臨床</span>
+      <span class="profile-tag">🎙️ Voice AI</span>
+      <span class="profile-tag">PhD</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  CTA FULL-BLEED
+================================================ -->
+<section class="cta-section">
+  <div class="cta-bg" id="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content reveal">
+    <div class="eyebrow">Join Beta</div>
+    <h2>βテスター募集中</h2>
+    <p>3つのアプリを無料体験 — 1週間のテスト後、アンケートにご回答ください。医療従事者であればどなたでも参加歓迎です。</p>
+    <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="cta-btn"
+       onclick="gtag('event','click',{event_category:'cta',event_label:'senere_open'})">Senereを試す →</a>
+  </div>
+</section>
+
+<!-- ================================================
+  FOOTER
+================================================ -->
+<footer>
+  <div class="footer-brand">A challenging doctor, anesthesiologist X.</div>
+  <ul class="footer-links">
+    <li><a href="#" onclick="document.getElementById('disclaimer-modal').style.display='flex'; return false;">免責事項</a></li>
+    <li><a href="#" onclick="document.getElementById('privacy-modal').style.display='flex'; return false;">プライバシーポリシー</a></li>
+    <li><a href="mailto:narkose_laegefrajapan@proton.me">お問い合わせ</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 A challenging doctor, anesthesiologist X.</div>
+</footer>
+
+<!-- ================================================
+  MODALS — Disclaimer / Privacy
+================================================ -->
+<style>
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(44,36,32,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-box {
+  background: var(--bg);
+  border-radius: 20px;
+  padding: 48px;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.modal-box p {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 1.85;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(44,36,32,0.12);
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--text-sub);
+  transition: all 0.25s;
+}
+
+.modal-close:hover {
+  background: var(--bg-dark);
+  color: var(--white);
+}
+</style>
+
+<div class="modal-backdrop" id="disclaimer-modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('disclaimer-modal').style.display='none'" aria-label="閉じる">✕</button>
+    <h3>免責事項</h3>
+    <p>本サイトおよび掲載アプリは、医療情報の提供を目的としたものであり、診断・治療の代替となるものではありません。アプリの使用により生じた損害について、開発者は一切の責任を負いません。βテスト中のアプリには不具合が含まれる可能性があります。医療的判断は必ず資格を有する医療従事者にご相談ください。</p>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="privacy-modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('privacy-modal').style.display='none'" aria-label="閉じる">✕</button>
+    <h3>プライバシーポリシー</h3>
+    <p>本サイトではGoogle Analytics（GA4）を使用してアクセス解析を行っています。収集した情報は第三者への提供、販売は行いません。βテスト参加フォームで収集した情報はアプリ改善のみに使用し、適切に管理します。詳細はお問い合わせください。</p>
+  </div>
+</div>
+
+<!-- ================================================
+  JAVASCRIPT
+================================================ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ------------------------------------------
+     Scroll reveal — IntersectionObserver
+  ------------------------------------------ */
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    // Fallback: show all immediately
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  /* ------------------------------------------
+     Hero parallax-ish + Ken Burns
+  ------------------------------------------ */
+  const heroBg = document.getElementById('hero-bg');
+  if (heroBg) {
+    // Trigger ken burns after paint
+    requestAnimationFrame(() => {
+      setTimeout(() => heroBg.classList.add('loaded'), 100);
+    });
+
+    // Subtle parallax on scroll
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) {
+        heroBg.style.transform = 'translateY(' + (y * 0.25) + 'px)';
+      }
+    }, { passive: true });
+  }
+
+  /* ------------------------------------------
+     Nav scroll state
+  ------------------------------------------ */
+  const mainNav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    mainNav.style.background = window.scrollY > 60
+      ? 'rgba(245, 240, 232, 0.96)'
+      : 'rgba(245, 240, 232, 0.88)';
+  }, { passive: true });
+
+  /* ------------------------------------------
+     Mobile hamburger (basic toggle)
+  ------------------------------------------ */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.querySelector('.nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.cssText = isOpen
+        ? ''
+        : 'display:flex; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:rgba(245,240,232,0.98); padding:20px 28px; gap:20px; border-bottom:1px solid rgba(44,36,32,0.07); backdrop-filter:blur(20px);';
+    });
+
+    // Close on link click
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => { navLinks.style.cssText = ''; });
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>CTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麻酔科医Xの挑戦 — A challenging doctor, anesthesiologist X.</title>
+<meta name="description" content="デンマーク・Rigshospitaletで麻酔科Clinical Fellowとして臨床に従事しながら、AIを活用した臨床支援アプリを開発しています。">
+<meta name="keywords" content="麻酔科医, AI, 医療アプリ, デンマーク, Senere, Summary, TOFun">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="麻酔科医Xの挑戦 — A challenging doctor, anesthesiologist X.">
+<meta property="og:description" content="デンマーク・Rigshospitaletで麻酔科Clinical Fellowとして臨床に従事しながら、AIを活用した臨床支援アプリを開発しています。">
+<meta property="og:image" content="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1200&q=80">
+<meta property="og:url" content="https://anesthesiologist-lp.vercel.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@dk_anes_doctor">
+<meta name="twitter:title" content="麻酔科医Xの挑戦 — A challenging doctor, anesthesiologist X.">
+<meta name="twitter:description" content="デンマーク・Rigshospitaletで麻酔科Clinical Fellowとして臨床に従事しながら、AIを活用した臨床支援アプリを開発しています。">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1200&q=80">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F0V2NKXPPV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F0V2NKXPPV');
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+<style>
+/* ===================================================
+   DESIGN TOKENS
+=================================================== */
+:root {
+  --bg:           #F5F0E8;
+  --bg-warm:      #EDE8DF;
+  --bg-dark:      #2C2420;
+  --text:         #2C2420;
+  --text-sub:     #7A6E62;
+  --text-light:   #B5A99A;
+  --white:        #FFFFFF;
+  --accent:       #9B7B4F;
+  --accent-light: #C9A96E;
+  --accent-pale:  #EDE0CC;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ===================================================
+   RESET & BASE
+=================================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===================================================
+   SCROLL ANIMATIONS
+=================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ===================================================
+   NAVIGATION
+=================================================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 52px;
+  background: rgba(245, 240, 232, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(44, 36, 32, 0.07);
+  transition: background 0.3s;
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.nav-brand span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-sub);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  transition: color 0.25s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.nav-cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 28px;
+  background: var(--bg-dark);
+  color: var(--bg);
+  border-radius: 100px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.nav-cta:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Hamburger (mobile) */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+
+/* ===================================================
+   HERO — Full-bleed Unsplash photo
+=================================================== */
+.hero {
+  position: relative;
+  height: 90vh;
+  min-height: 600px;
+  max-height: 900px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  margin-top: 72px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?w=1600&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 40%;
+  transform-origin: center;
+  transition: transform 8s ease-out;
+}
+
+.hero-bg.loaded {
+  transform: scale(1.04);
+}
+
+/* Layered gradient: bottom heavy, subtle side vignette */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(44,36,32,0.55) 0%, rgba(44,36,32,0.1) 60%, transparent 100%),
+    linear-gradient(to top, rgba(44,36,32,0.8) 0%, rgba(44,36,32,0.2) 40%, transparent 70%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 72px 80px;
+  max-width: 680px;
+  color: var(--white);
+}
+
+.hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255,255,255,0.6);
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 6.5vw, 88px);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -2.5px;
+  margin-bottom: 24px;
+  text-shadow: 0 4px 40px rgba(0,0,0,0.18);
+  white-space: nowrap;
+}
+
+.hero-sub {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.85;
+  opacity: 0.88;
+  max-width: 440px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 15px 36px;
+  background: var(--accent-light);
+  color: var(--white);
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+.hero-btn-primary:hover {
+  background: var(--white);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.hero-btn-ghost {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white);
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+.hero-btn-ghost:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+/* ===================================================
+   ORNAMENTAL DIVIDER (Tivoli-inspired)
+=================================================== */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 60px 0 52px;
+}
+
+.ornament-line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-light));
+}
+
+.ornament-line.right {
+  background: linear-gradient(to left, transparent, var(--accent-light));
+}
+
+.ornament-diamond {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-light);
+  transform: rotate(45deg);
+  opacity: 0.7;
+}
+
+.ornament-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* ===================================================
+   SECTION WRAPPER
+=================================================== */
+.section-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+/* ===================================================
+   SECTION HEADER
+=================================================== */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 44px;
+  gap: 20px;
+}
+
+.section-head-text .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.section-head-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4.5vw, 50px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: var(--text);
+}
+
+.section-head-text .sub {
+  font-size: 14px;
+  color: var(--text-sub);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* ===================================================
+   APPS GRID
+=================================================== */
+.apps-section {
+  padding-bottom: 88px;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* App photo card — Tivoli "Tæt på Tivoli" style */
+.app-card {
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  color: var(--white);
+  display: block;
+}
+
+.app-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.app-card:hover .app-card-bg {
+  transform: scale(1.06);
+}
+
+/* Gradient overlay */
+.app-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 25%, rgba(30, 22, 18, 0.9) 100%);
+  z-index: 1;
+  transition: opacity 0.4s;
+}
+
+.app-card:hover::after {
+  opacity: 0.85;
+}
+
+.app-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 26px;
+  z-index: 2;
+}
+
+.app-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.app-card p {
+  font-size: 13px;
+  line-height: 1.55;
+  opacity: 0.82;
+}
+
+.app-card-arrow {
+  position: absolute;
+  bottom: 28px;
+  right: 26px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.app-card:hover .app-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.app-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.badge-beta {
+  background: rgba(155, 123, 79, 0.75);
+  border: 1px solid rgba(201, 169, 110, 0.4);
+  color: #fff;
+}
+
+.badge-soon {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+}
+
+/* (carousel dots removed — grid layout used instead) */
+.carousel-dot-placeholder {
+  display: none;
+}
+
+/* ===================================================
+   FEATURE SECTIONS — 2-col alternating
+=================================================== */
+.feature-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.feature-section + .feature-section {
+  border-top: 1px solid rgba(44,36,32,0.06);
+}
+
+.feature-text-side {
+  padding: 88px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.feature-text-side .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-text-side .eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--accent);
+  display: block;
+}
+
+.feature-text-side h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  color: var(--text);
+}
+
+.feature-text-side p {
+  font-size: 15px;
+  color: var(--text-sub);
+  line-height: 1.9;
+  margin-bottom: 36px;
+  max-width: 420px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.feature-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 34px;
+  border: 1.5px solid rgba(44,36,32,0.18);
+  border-radius: 100px;
+  color: var(--text);
+  width: fit-content;
+  transition: all 0.3s;
+}
+
+.feature-cta-link:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.feature-cta-link .arrow {
+  transition: transform 0.3s;
+}
+
+.feature-cta-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+.feature-image-side {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-warm);
+}
+
+.feature-image-side img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.feature-section:hover .feature-image-side img {
+  transform: scale(1.03);
+}
+
+/* Screenshot frame treatment */
+.feature-image-side .screenshot-frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--bg-warm);
+}
+
+.feature-image-side .screenshot-frame img {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(44,36,32,0.2), 0 4px 16px rgba(44,36,32,0.1);
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.feature-section:hover .screenshot-frame img {
+  transform: translateY(-8px);
+}
+
+/* ===================================================
+   SNS SECTION — Dark
+=================================================== */
+.sns-section {
+  background: var(--bg-dark);
+  padding: 88px 0;
+}
+
+.sns-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 52px;
+}
+
+.sns-header {
+  margin-bottom: 52px;
+}
+
+.sns-header .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 14px;
+}
+
+.sns-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.sns-header p {
+  font-size: 15px;
+  color: var(--text-light);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.sns-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.sns-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 30px 18px 26px;
+  text-align: center;
+  color: var(--white);
+  transition: all 0.35s var(--ease-out-expo);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.sns-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), var(--accent-light));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.sns-card:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.13);
+  transform: translateY(-6px);
+}
+
+.sns-card:hover::before {
+  opacity: 1;
+}
+
+.sns-card-icon {
+  font-size: 26px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.sns-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.sns-card-desc {
+  font-size: 12px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.sns-card-freq {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.07);
+  color: var(--text-light);
+}
+
+.sns-card.active-platform .sns-card-freq {
+  background: rgba(155, 123, 79, 0.25);
+  color: var(--accent-light);
+}
+
+/* ===================================================
+   PROFILE SECTION
+=================================================== */
+.profile-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.profile-image-side {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-warm);
+}
+
+.profile-image-side img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.profile-section:hover .profile-image-side img {
+  transform: scale(1.03);
+}
+
+.profile-content-side {
+  padding: 88px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg);
+  border-left: 1px solid rgba(44,36,32,0.06);
+}
+
+.profile-content-side .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.profile-content-side h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+
+.profile-role {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.profile-bio {
+  font-size: 15px;
+  color: var(--text-sub);
+  line-height: 1.95;
+  margin-bottom: 32px;
+  max-width: 440px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+}
+
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(44,36,32,0.12);
+  color: var(--text-sub);
+  transition: border-color 0.25s, color 0.25s;
+}
+
+.profile-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===================================================
+   CTA FULL-BLEED
+=================================================== */
+.cta-section {
+  position: relative;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1448697138198-9aa6d0d84bf4?w=1600&q=80&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 60%;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.cta-section:hover .cta-bg {
+  transform: scale(1.02);
+}
+
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44,36,32,0.75) 0%, rgba(44,36,32,0.6) 100%);
+  z-index: 1;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  padding: 0 24px;
+}
+
+.cta-content .eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 18px;
+}
+
+.cta-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  margin-bottom: 14px;
+  line-height: 1.1;
+}
+
+.cta-content p {
+  font-size: 15px;
+  opacity: 0.8;
+  margin-bottom: 36px;
+  max-width: 480px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 44px;
+  background: var(--accent-light);
+  color: var(--white);
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+.cta-btn:hover {
+  background: var(--white);
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+footer {
+  background: var(--bg-dark);
+  padding: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-light);
+  transition: color 0.25s;
+  letter-spacing: 0.5px;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.footer-copy {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: 0.3px;
+}
+
+/* ===================================================
+   RESPONSIVE: TABLET (max 960px)
+=================================================== */
+@media (max-width: 960px) {
+  nav {
+    padding: 0 28px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .hero-content {
+    padding: 0 36px 64px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .section-wrap {
+    padding: 0 28px;
+  }
+
+  .apps-section {
+    padding-bottom: 64px;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 32px;
+  }
+
+  .feature-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .feature-image-side {
+    height: 360px;
+    order: -1;
+  }
+
+  .feature-text-side {
+    padding: 52px 36px;
+  }
+
+  .profile-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .profile-image-side {
+    height: 380px;
+  }
+
+  .profile-content-side {
+    padding: 52px 36px;
+    border-left: none;
+    border-top: 1px solid rgba(44,36,32,0.06);
+  }
+
+  .sns-section {
+    padding: 68px 0;
+  }
+
+  .sns-inner {
+    padding: 0 28px;
+  }
+
+  .sns-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .cta-section {
+    height: 380px;
+  }
+
+  footer {
+    padding: 40px 28px;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .apps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .app-card {
+    height: 360px;
+  }
+}
+
+/* ===================================================
+   RESPONSIVE: MOBILE (max 600px)
+=================================================== */
+@media (max-width: 600px) {
+  .hero {
+    height: 80vh;
+    min-height: 520px;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+
+  .hero-content {
+    padding: 0 24px 52px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-ghost {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .section-wrap {
+    padding: 0 20px;
+  }
+
+  .sns-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .sns-grid .sns-card:last-child {
+    grid-column: span 2;
+  }
+
+  .feature-text-side {
+    padding: 44px 20px;
+  }
+
+  .feature-text-side p {
+    max-width: 100%;
+  }
+
+  .profile-content-side {
+    padding: 44px 20px;
+  }
+
+  .profile-bio {
+    max-width: 100%;
+  }
+
+  .cta-content p {
+    max-width: 100%;
+  }
+
+  .apps-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .app-card {
+    height: 360px;
+  }
+
+  .ornament-line {
+    width: 40px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ================================================
+  NAVIGATION
+================================================ -->
+<nav id="main-nav">
+  <a href="#" class="nav-brand"><span>@dk_anes_doctor</span></a>
+  <ul class="nav-links">
+    <li><a href="#apps">Apps</a></li>
+    <li><a href="#sns">SNS</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
   <button class="nav-hamburger" aria-label="メニュー" id="hamburger">
     <span></span><span></span><span></span>
   </button>
