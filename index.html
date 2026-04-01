@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>麻酔科医Xの挑戦 — A challenging doctor, anesthesiologist X.</title>
-<meta name="description" content="デンマーク・Rigshospitaletで麻酔科Clinical Fellowとして臨床に従事しながら、AIを活用した臨床支援アプリを開発しています。">
+<title>Senare — 麻酔科研修医・専攻医のAI上級医コンサルタント</title>
+<meta name="description" content="敗血症対応・薬剤投与量・ガイドライン確認をAIが即座に回答。研修医・専攻医・特定看護師のための臨床支援アプリ「Senare」。現場で使えるAIレファレンス。">
 <meta name="keywords" content="麻酔科医, AI, 医療アプリ, デンマーク, Senere, Summary, TOFun">
 
 <!-- OGP -->
@@ -538,6 +538,19 @@ nav {
   background: rgba(255,255,255,0.15);
   border: 1px solid rgba(255,255,255,0.2);
   color: rgba(255,255,255,0.9);
+}
+
+.badge-new {
+  background: rgba(220, 80, 60, 0.85);
+  border: 1px solid rgba(255, 120, 100, 0.5);
+  color: #fff;
+  font-weight: 700;
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220,80,60,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(220,80,60,0); }
 }
 
 /* (carousel dots removed — grid layout used instead) */
@@ -1262,8 +1275,8 @@ footer {
 
   <div class="hero-content">
     <div class="hero-eyebrow reveal">🇩🇰 Copenhagen, Denmark</div>
-    <h1 class="reveal reveal-delay-1">麻酔科医Xの挑戦</h1>
-    <p class="hero-sub reveal reveal-delay-2">デンマークのRigshospitaletで麻酔科Clinical Fellowとして臨床に挑む日本人医師。AI × 臨床で、現場を変えるアプリを作っています。</p>
+    <h1 class="reveal reveal-delay-1">麻酔科の「困った」を、<br>AIが即座に解決。</h1>
+    <p class="hero-sub reveal reveal-delay-2">研修医・専攻医・特定看護師の「今すぐ知りたい」に答えるAI。敗血症対応、薬剤投与量、ガイドライン確認 — 現場で使えるレファレンスが手元に。</p>
     <div class="hero-actions reveal reveal-delay-3">
       <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="hero-btn-primary"
          onclick="gtag('event','click',{event_category:'hero',event_label:'senere_open'})">Senereを試す</a>
@@ -1342,10 +1355,10 @@ footer {
         <div class="app-card-arrow">→</div>
       </a>
 
-      <!-- AneTimer — 公開中 -->
+      <!-- AneTimer — NEW公開中 -->
       <a class="app-card" href="https://ane-timer.vercel.app" target="_blank" rel="noopener"
          onclick="gtag('event','click',{event_category:'apps',event_label:'ane-timer'})">
-        <span class="app-badge badge-beta">β テスト中</span>
+        <span class="app-badge badge-new">🆕 NEW 公開中</span>
         <div class="app-card-bg" style="background-image:url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80&auto=format&fit=crop'); background-color:#c48b8b;"></div>
         <div class="app-card-content">
           <h3>AneTimer</h3>
@@ -1383,35 +1396,60 @@ footer {
 ================================================ -->
 <section class="feature-section">
   <div class="feature-text-side reveal">
-    <div class="eyebrow">Pick Up</div>
-    <h2>Senere — あなたの<br>AI上級医レファレンス</h2>
-    <p>術前評価、薬剤投与量、ガイドライン確認。忙しい臨床の合間に、AIが即座に回答します。すでにβテスターが現場で体験中。</p>
-    <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="feature-cta-link"
-       onclick="gtag('event','click',{event_category:'feature',event_label:'senere_open'})">
-      アプリを開く <span class="arrow">→</span>
+    <div class="eyebrow">主力アプリ</div>
+    <h2>Senare — 現場の疑問に<br>AIが即座に答える</h2>
+    <p>敗血症ショックの対応手順は？薬剤の投与量は？ガイドラインの推奨は？— 研修医・専攻医・特定看護師が現場で感じる「今すぐ知りたい」にAIが答えます。</p>
+    <p style="font-size:13px; color:var(--text-sub); margin-top:8px;">対象：麻酔科研修医・専攻医・特定看護師・麻酔看護師</p>
+    <a href="https://your-ai-senare-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="hero-btn-primary" style="display:inline-flex; margin-top:20px;"
+       onclick="gtag('event','click',{event_category:'feature',event_label:'senare_open'})">
+      Senereを試す（無料）
     </a>
   </div>
   <div class="feature-image-side">
     <div class="screenshot-frame">
-      <img src="images/senere-screenshot.png" alt="Senereアプリのスクリーンショット" loading="lazy">
+      <img src="images/senare-screenshot.png" alt="Senereアプリのスクリーンショット" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- ================================================
-  FEATURE COMING UP — PreVisit (image left, text right)
+  DEMO VIDEO - Senare
+================================================ -->
+<section style="padding: 80px 0; background: var(--bg-warm);">
+  <div class="section-wrap" style="max-width:900px; margin:0 auto; padding:0 24px;">
+    <div class="section-head reveal" style="text-align:center; margin-bottom:40px;">
+      <div class="eyebrow">Demo</div>
+      <h2>Senereの使い方（1分でわかる）</h2>
+      <p class="sub">LP → ログイン → 敗血症クイックコンサルト → AI詳細回答まで</p>
+    </div>
+    <div class="reveal" style="position:relative; width:100%; padding-top:62.5%; background:#1a1a1a; border-radius:16px; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.18);">
+      <!-- 動画完成後にここをYouTube iframe埋め込みに差し替え -->
+      <!-- <iframe style="position:absolute;inset:0;width:100%;height:100%;" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+      <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); gap:16px;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+        <span style="font-size:14px; letter-spacing:1px;">デモ動画 準備中</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  FEATURE - AneTimer NEW
 ================================================ -->
 <section class="feature-section">
   <div class="feature-image-side">
-    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80&auto=format&fit=crop" alt="PreVisit — 術前診察イメージ" loading="lazy">
+    <div class="screenshot-frame" style="background:#c48b8b;">
+      <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80&auto=format&fit=crop" alt="AneTimer — 術中タイマー" loading="lazy">
+    </div>
   </div>
   <div class="feature-text-side reveal">
-    <div class="eyebrow">Coming Up</div>
-    <h2>PreVisit — 術前診察を<br>リモートで完結</h2>
-    <p>問診票の自動生成からリスク評価、患者サマリの作成まで。術前診察のワークフロー全体をAIがサポートします。開発中 — 続報はXで。</p>
-    <a href="https://x.com/dk_anes_doctor" target="_blank" rel="noopener" class="feature-cta-link"
-       onclick="gtag('event','click',{event_category:'feature',event_label:'previsit_x'})">
-      Xでフォロー <span class="arrow">→</span>
+    <div class="eyebrow" style="color:#dc503c;">🆕 New Release</div>
+    <h2>AneTimer — 術中の<br>「忘れた！」を防ぐ</h2>
+    <p>抗菌薬の再投与忘れ、筋弛緩の効果切れ、輸液チェックの漏れ。麻酔中に起きがちな「あ、忘れた！」をタイマーと通知で防ぎます。</p>
+    <p style="font-size:13px; color:var(--text-sub); margin-top:8px;">対象：麻酔科研修医・専攻医・麻酔看護師</p>
+    <a href="https://ane-timer.vercel.app" target="_blank" rel="noopener" class="feature-cta-link"
+       onclick="gtag('event','click',{event_category:'feature',event_label:'ane-timer_open'})">
+      無料で使う <span class="arrow">→</span>
     </a>
   </div>
 </section>
@@ -1522,11 +1560,11 @@ footer {
   <div class="cta-bg" id="cta-bg"></div>
   <div class="cta-overlay"></div>
   <div class="cta-content reveal">
-    <div class="eyebrow">Join Beta</div>
-    <h2>βテスター募集中</h2>
-    <p>3つのアプリを無料体験 — 1週間のテスト後、アンケートにご回答ください。医療従事者であればどなたでも参加歓迎です。</p>
+    <div class="eyebrow">Try Senare</div>
+    <h2>まず Senare を試してみてください</h2>
+    <p>研修医・専攻医・特定看護師のための AI 臨床支援。無料で今すぐ使えます。</p>
     <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="cta-btn"
-       onclick="gtag('event','click',{event_category:'cta',event_label:'senere_open'})">Senereを試す →</a>
+       onclick="gtag('event','click',{event_category:'cta',event_label:'senere_open'})">Senereを試す（無料）→</a>
   </div>
 </section>
 
@@ -1716,8 +1754,8 @@ footer {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>麻酔科医Xの挑戦 — A challenging doctor, anesthesiologist X.</title>
-<meta name="description" content="デンマーク・Rigshospitaletで麻酔科Clinical Fellowとして臨床に従事しながら、AIを活用した臨床支援アプリを開発しています。">
+<title>Senare — 麻酔科研修医・専攻医のAI上級医コンサルタント</title>
+<meta name="description" content="敗血症対応・薬剤投与量・ガイドライン確認をAIが即座に回答。研修医・専攻医・特定看護師のための臨床支援アプリ「Senare」。現場で使えるAIレファレンス。">
 <meta name="keywords" content="麻酔科医, AI, 医療アプリ, デンマーク, Senere, Summary, TOFun">
 
 <!-- OGP -->
@@ -2251,6 +2289,19 @@ nav {
   background: rgba(255,255,255,0.15);
   border: 1px solid rgba(255,255,255,0.2);
   color: rgba(255,255,255,0.9);
+}
+
+.badge-new {
+  background: rgba(220, 80, 60, 0.85);
+  border: 1px solid rgba(255, 120, 100, 0.5);
+  color: #fff;
+  font-weight: 700;
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(220,80,60,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(220,80,60,0); }
 }
 
 /* (carousel dots removed — grid layout used instead) */
@@ -2975,8 +3026,8 @@ footer {
 
   <div class="hero-content">
     <div class="hero-eyebrow reveal">🇩🇰 Copenhagen, Denmark</div>
-    <h1 class="reveal reveal-delay-1">麻酔科医Xの挑戦</h1>
-    <p class="hero-sub reveal reveal-delay-2">デンマークのRigshospitaletで麻酔科Clinical Fellowとして臨床に挑む日本人医師。AI × 臨床で、現場を変えるアプリを作っています。</p>
+    <h1 class="reveal reveal-delay-1">麻酔科の「困った」を、<br>AIが即座に解決。</h1>
+    <p class="hero-sub reveal reveal-delay-2">研修医・専攻医・特定看護師の「今すぐ知りたい」に答えるAI。敗血症対応、薬剤投与量、ガイドライン確認 — 現場で使えるレファレンスが手元に。</p>
     <div class="hero-actions reveal reveal-delay-3">
       <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="hero-btn-primary"
          onclick="gtag('event','click',{event_category:'hero',event_label:'senere_open'})">Senereを試す</a>
@@ -3055,10 +3106,10 @@ footer {
         <div class="app-card-arrow">→</div>
       </a>
 
-      <!-- AneTimer — 公開中 -->
+      <!-- AneTimer — NEW公開中 -->
       <a class="app-card" href="https://ane-timer.vercel.app" target="_blank" rel="noopener"
          onclick="gtag('event','click',{event_category:'apps',event_label:'ane-timer'})">
-        <span class="app-badge badge-beta">β テスト中</span>
+        <span class="app-badge badge-new">🆕 NEW 公開中</span>
         <div class="app-card-bg" style="background-image:url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&q=80&auto=format&fit=crop'); background-color:#c48b8b;"></div>
         <div class="app-card-content">
           <h3>AneTimer</h3>
@@ -3096,35 +3147,60 @@ footer {
 ================================================ -->
 <section class="feature-section">
   <div class="feature-text-side reveal">
-    <div class="eyebrow">Pick Up</div>
-    <h2>Senere — あなたの<br>AI上級医レファレンス</h2>
-    <p>術前評価、薬剤投与量、ガイドライン確認。忙しい臨床の合間に、AIが即座に回答します。すでにβテスターが現場で体験中。</p>
-    <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="feature-cta-link"
-       onclick="gtag('event','click',{event_category:'feature',event_label:'senere_open'})">
-      アプリを開く <span class="arrow">→</span>
+    <div class="eyebrow">主力アプリ</div>
+    <h2>Senare — 現場の疑問に<br>AIが即座に答える</h2>
+    <p>敗血症ショックの対応手順は？薬剤の投与量は？ガイドラインの推奨は？— 研修医・専攻医・特定看護師が現場で感じる「今すぐ知りたい」にAIが答えます。</p>
+    <p style="font-size:13px; color:var(--text-sub); margin-top:8px;">対象：麻酔科研修医・専攻医・特定看護師・麻酔看護師</p>
+    <a href="https://your-ai-senare-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="hero-btn-primary" style="display:inline-flex; margin-top:20px;"
+       onclick="gtag('event','click',{event_category:'feature',event_label:'senare_open'})">
+      Senereを試す（無料）
     </a>
   </div>
   <div class="feature-image-side">
     <div class="screenshot-frame">
-      <img src="images/senere-screenshot.png" alt="Senereアプリのスクリーンショット" loading="lazy">
+      <img src="images/senare-screenshot.png" alt="Senereアプリのスクリーンショット" loading="lazy">
     </div>
   </div>
 </section>
 
 <!-- ================================================
-  FEATURE COMING UP — PreVisit (image left, text right)
+  DEMO VIDEO - Senare
+================================================ -->
+<section style="padding: 80px 0; background: var(--bg-warm);">
+  <div class="section-wrap" style="max-width:900px; margin:0 auto; padding:0 24px;">
+    <div class="section-head reveal" style="text-align:center; margin-bottom:40px;">
+      <div class="eyebrow">Demo</div>
+      <h2>Senereの使い方（1分でわかる）</h2>
+      <p class="sub">LP → ログイン → 敗血症クイックコンサルト → AI詳細回答まで</p>
+    </div>
+    <div class="reveal" style="position:relative; width:100%; padding-top:62.5%; background:#1a1a1a; border-radius:16px; overflow:hidden; box-shadow:0 24px 64px rgba(0,0,0,0.18);">
+      <!-- 動画完成後にここをYouTube iframe埋め込みに差し替え -->
+      <!-- <iframe style="position:absolute;inset:0;width:100%;height:100%;" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+      <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); gap:16px;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+        <span style="font-size:14px; letter-spacing:1px;">デモ動画 準備中</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+  FEATURE - AneTimer NEW
 ================================================ -->
 <section class="feature-section">
   <div class="feature-image-side">
-    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80&auto=format&fit=crop" alt="PreVisit — 術前診察イメージ" loading="lazy">
+    <div class="screenshot-frame" style="background:#c48b8b;">
+      <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80&auto=format&fit=crop" alt="AneTimer — 術中タイマー" loading="lazy">
+    </div>
   </div>
   <div class="feature-text-side reveal">
-    <div class="eyebrow">Coming Up</div>
-    <h2>PreVisit — 術前診察を<br>リモートで完結</h2>
-    <p>問診票の自動生成からリスク評価、患者サマリの作成まで。術前診察のワークフロー全体をAIがサポートします。開発中 — 続報はXで。</p>
-    <a href="https://x.com/dk_anes_doctor" target="_blank" rel="noopener" class="feature-cta-link"
-       onclick="gtag('event','click',{event_category:'feature',event_label:'previsit_x'})">
-      Xでフォロー <span class="arrow">→</span>
+    <div class="eyebrow" style="color:#dc503c;">🆕 New Release</div>
+    <h2>AneTimer — 術中の<br>「忘れた！」を防ぐ</h2>
+    <p>抗菌薬の再投与忘れ、筋弛緩の効果切れ、輸液チェックの漏れ。麻酔中に起きがちな「あ、忘れた！」をタイマーと通知で防ぎます。</p>
+    <p style="font-size:13px; color:var(--text-sub); margin-top:8px;">対象：麻酔科研修医・専攻医・麻酔看護師</p>
+    <a href="https://ane-timer.vercel.app" target="_blank" rel="noopener" class="feature-cta-link"
+       onclick="gtag('event','click',{event_category:'feature',event_label:'ane-timer_open'})">
+      無料で使う <span class="arrow">→</span>
     </a>
   </div>
 </section>
@@ -3235,11 +3311,11 @@ footer {
   <div class="cta-bg" id="cta-bg"></div>
   <div class="cta-overlay"></div>
   <div class="cta-content reveal">
-    <div class="eyebrow">Join Beta</div>
-    <h2>βテスター募集中</h2>
-    <p>3つのアプリを無料体験 — 1週間のテスト後、アンケートにご回答ください。医療従事者であればどなたでも参加歓迎です。</p>
+    <div class="eyebrow">Try Senare</div>
+    <h2>まず Senare を試してみてください</h2>
+    <p>研修医・専攻医・特定看護師のための AI 臨床支援。無料で今すぐ使えます。</p>
     <a href="https://your-ai-senere-consultant-production.up.railway.app/" target="_blank" rel="noopener" class="cta-btn"
-       onclick="gtag('event','click',{event_category:'cta',event_label:'senere_open'})">Senereを試す →</a>
+       onclick="gtag('event','click',{event_category:'cta',event_label:'senere_open'})">Senereを試す（無料）→</a>
   </div>
 </section>
 
