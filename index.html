@@ -111,6 +111,33 @@ a {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
+/* prefers-reduced-motion: disable all animations for vestibular users */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .reveal-delay-1,
+  .reveal-delay-2,
+  .reveal-delay-3,
+  .reveal-delay-4 {
+    transition-delay: 0s;
+  }
+  .hero-bg,
+  .app-card-bg,
+  .feature-image-side img,
+  .profile-image-side img {
+    transition: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ===================================================
    NAVIGATION
 =================================================== */
@@ -1712,8 +1739,10 @@ footer {
   /* ------------------------------------------
      Hero parallax-ish + Ken Burns
   ------------------------------------------ */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const heroBg = document.getElementById('hero-bg');
-  if (heroBg) {
+  if (heroBg && !prefersReducedMotion) {
     // Trigger ken burns after paint
     requestAnimationFrame(() => {
       setTimeout(() => heroBg.classList.add('loaded'), 100);
@@ -1726,6 +1755,9 @@ footer {
         heroBg.style.transform = 'translateY(' + (y * 0.25) + 'px)';
       }
     }, { passive: true });
+  } else if (heroBg) {
+    // Reduced motion: just show the image without animation
+    heroBg.classList.add('loaded');
   }
 
   /* ------------------------------------------
