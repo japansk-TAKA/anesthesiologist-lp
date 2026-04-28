@@ -1043,6 +1043,93 @@
         flex-direction: column;
       }
     }
+
+    /* ===== Scandinavian Redesign 2026-04-28 ===== */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .featured-card {
+      --row-weight: 0.5;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      padding: 36px 24px 28px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transform: scale(calc(0.85 + var(--row-weight) * 0.15));
+      opacity: calc(0.72 + var(--row-weight) * 0.28);
+      box-shadow: 0 calc(2px + var(--row-weight) * 18px) calc(8px + var(--row-weight) * 30px) rgba(0,0,0,calc(0.04 + var(--row-weight) * 0.10));
+      z-index: calc(1 + var(--row-weight) * 4);
+      position: relative;
+      transform-origin: center center;
+      transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+      will-change: transform, opacity;
+    }
+    .featured-card:hover {
+      transform: scale(calc(0.89 + var(--row-weight) * 0.15));
+      opacity: 1;
+      z-index: 10;
+    }
+    .featured-icon {
+      width: 132px;
+      height: 132px;
+      margin: 0 auto 18px;
+      border-radius: 28px;
+      display: block;
+    }
+    .cat-label {
+      display: inline-block;
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin: 8px 0 4px;
+    }
+    .featured-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .featured-card p {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin: 0 0 22px;
+      flex: 1;
+      min-height: 44px;
+      line-height: 1.55;
+    }
+    .featured-badge-row {
+      min-height: 24px;
+      margin-bottom: 6px;
+    }
+    .featured-cta {
+      display: inline-block;
+      margin-top: auto;
+      padding: 9px 20px;
+      background: var(--color-text);
+      color: var(--color-white);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: background 0.2s;
+    }
+    .featured-card:hover .featured-cta { background: var(--color-primary); }
+    @media (prefers-reduced-motion: reduce) {
+      .featured-card { --row-weight: 1 !important; transform: none !important; opacity: 1 !important; transition: none !important; }
+    }
+    @media (max-width: 768px) {
+      .featured-grid { grid-template-columns: 1fr; gap: 16px; }
+      .featured-icon { width: 116px; height: 116px; }
+    }
   </style>
 </head>
 <body>
@@ -1087,67 +1174,62 @@
       <h2 class="section-title">App Portfolio</h2>
       <p class="section-subtitle"><span class="section-subtitle-cross">Where clinical experience and AI intersect — a new generation of web applications</span></p>
 
-      <div class="app-grid">
-        <!-- App 1 -->
-        <div class="app-card app-card-disabled">
-          <div class="app-card-header">
-            <div class="app-icon">🤖</div>
-            <span class="badge badge-beta">Beta Testing</span>
-          </div>
-          <h3>Your AI Senere Assistant</h3>
-          <p>An AI-powered anesthesia reference app for residents and fellows. Instantly search and access drug information, procedure guides, and protocols.</p>
-          <div class="btn-group">
-            <a href="#beta-test" class="btn-detail">Join Beta</a>
-            <button class="btn-detail" onclick="document.getElementById('modal-senere').classList.add('active')">Learn More</button>
-          </div>
-        </div>
+      <div class="featured-grid" data-spotlight-grid>
 
-        <!-- App 2 -->
-        <div class="app-card">
-          <div class="app-card-header">
-            <div class="app-icon">🩺</div>
-            <span class="badge badge-dev">Beta Preparation</span>
-          </div>
-          <h3>PreVisit — Remote Preoperative Consultation</h3>
-          <p>A remote preoperative consultation app for anesthesiologists. Secure WebRTC video calls enable efficient preoperative assessments from anywhere.</p>
-          <button class="btn-detail" onclick="document.getElementById('modal-previsit').classList.add('active')">Learn More</button>
-        </div>
+        <a class="featured-card" href="https://your-ai-senere-consultant-production.up.railway.app/?utm_source=lp&utm_medium=card&utm_campaign=anesthesiologist_portfolio&utm_content=senere" target="_blank" rel="noopener">
+          <img src="../images/icons/senere.png" alt="" class="featured-icon">
+          <div class="featured-badge-row"><span class="badge badge-beta">Beta Testing</span></div>
+          <span class="cat-label">Consult</span>
+          <h3>Senere</h3>
+          <p>AI senior consultant for anesthesia trainees — drugs, procedures, guidelines.</p>
+          <span class="featured-cta">Open App →</span>
+        </a>
 
-        <!-- App 3 -->
-        <div class="app-card app-card-disabled">
-          <div class="app-card-header">
-            <div class="app-icon">😂</div>
-            <span class="badge badge-live">Live</span>
-          </div>
-          <h3>TOFun — Humorous Anesthesiologist</h3>
-          <p>A joke app by anesthesiologists, for anesthesiologists. Featuring 102 jokes, a voting system, and user submissions. Take a break during your on-call shift with humor only anesthesiologists would appreciate.</p>
-          <div class="btn-group">
-            <a href="https://joke-app-production.up.railway.app/" class="btn-detail" target="_blank">Open App</a>
-            <button class="btn-detail" onclick="document.getElementById('modal-tofun').classList.add('active')">Learn More</button>
-          </div>
-        </div>
+        <a class="featured-card" href="https://toughcall.vercel.app/?utm_source=lp&utm_medium=card&utm_campaign=anesthesiologist_portfolio&utm_content=toughcall" target="_blank" rel="noopener">
+          <img src="../images/icons/toughcall.png" alt="" class="featured-icon">
+          <div class="featured-badge-row"><span class="badge badge-live">Live</span></div>
+          <span class="cat-label">Decide</span>
+          <h3>ToughCall</h3>
+          <p>Train clinical decision-making for emergency anesthesia scenarios.</p>
+          <span class="featured-cta">Open App →</span>
+        </a>
 
-        <!-- App 4 -->
-        <div class="app-card app-card-disabled">
-          <div class="app-card-header">
-            <div class="app-icon">📋</div>
-            <span class="badge badge-soon">Coming Soon</span>
-          </div>
-          <h3>Pre-operative Anesthetic Summary App</h3>
-          <p>A preoperative summary and perioperative management support app. Assists with organizing patient information and formulating anesthesia plans.</p>
-          <a href="#" class="btn-detail">Coming Soon</a>
-        </div>
+        <a class="featured-card" href="https://summary-rho-tan.vercel.app/?utm_source=lp&utm_medium=card&utm_campaign=anesthesiologist_portfolio&utm_content=summary" target="_blank" rel="noopener">
+          <img src="../images/icons/summary.png" alt="" class="featured-icon">
+          <div class="featured-badge-row"><span class="badge badge-beta">Beta Testing</span></div>
+          <span class="cat-label">Brief</span>
+          <h3>Summary</h3>
+          <p>Auto-generate preoperative summaries from interview to anesthesia plan.</p>
+          <span class="featured-cta">Open App →</span>
+        </a>
 
-        <!-- App 5: AI Content System -->
-        <div class="app-card" style="border-color: rgba(59, 130, 246, 0.4); border-width: 2px; box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);">
-          <div class="app-card-header">
-            <div class="app-icon" style="background: linear-gradient(135deg, #dbeafe, #ede9fe);">🧠</div>
-            <span class="badge badge-live">Active</span>
-          </div>
-          <h3>Voice-Powered AI Dev System</h3>
-          <p>A custom-built system for full voice control of Claude Code. Just speak and it handles coding, app development, and documentation — everything completed by voice alone.</p>
-          <a href="#ai-system" class="btn-detail">Learn More</a>
-        </div>
+        <a class="featured-card" href="https://ane-timer.vercel.app/?utm_source=lp&utm_medium=card&utm_campaign=anesthesiologist_portfolio&utm_content=anetimer" target="_blank" rel="noopener">
+          <img src="../images/icons/anetimer.png" alt="" class="featured-icon">
+          <div class="featured-badge-row"><span class="badge badge-live">Live</span></div>
+          <span class="cat-label">Time</span>
+          <h3>AneTimer</h3>
+          <p>Intraoperative timer — antibiotics, muscle relaxants, fluid checks.</p>
+          <span class="featured-cta">Open App →</span>
+        </a>
+
+        <a class="featured-card" href="https://joke-app-production.up.railway.app/?utm_source=lp&utm_medium=card&utm_campaign=anesthesiologist_portfolio&utm_content=tofun" target="_blank" rel="noopener">
+          <img src="../images/icons/tofun.png" alt="" class="featured-icon">
+          <div class="featured-badge-row"><span class="badge badge-live">Live</span></div>
+          <span class="cat-label">Laugh</span>
+          <h3>TOFun</h3>
+          <p>Anesthesia joke AI — perfect ice-breaker for conference talks.</p>
+          <span class="featured-cta">Open App →</span>
+        </a>
+
+        <a class="featured-card" href="https://japansk-taka.github.io/last-guard/?utm_source=lp&utm_medium=card&utm_campaign=anesthesiologist_portfolio&utm_content=lastguard" target="_blank" rel="noopener">
+          <img src="../images/icons/lastguard.png" alt="" class="featured-icon">
+          <div class="featured-badge-row"><span class="badge badge-live">Live</span></div>
+          <span class="cat-label">Guard</span>
+          <h3>LAST-Guard</h3>
+          <p>Local anesthetic systemic toxicity calculator — multi-drug safety in real time.</p>
+          <span class="featured-cta">Open App →</span>
+        </a>
+
       </div>
     </div>
   </section>
@@ -1481,6 +1563,45 @@
   <footer>
     <p>&copy; 2026 Takahiro Shiraishi. All rights reserved.</p>
   </footer>
+
+<script>
+  /* Row-swap: as the apps section moves through the viewport, weight shifts
+     between rows. Auto-adapts to N rows. */
+  (function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    const section = document.querySelector('#apps');
+    const grid = document.querySelector('[data-spotlight-grid]');
+    if (!section || !grid) return;
+    const cards = Array.from(grid.querySelectorAll('.featured-card'));
+    if (!cards.length) return;
+    let raf = 0;
+    function detectRows() {
+      const buckets = new Map();
+      cards.forEach((c) => { const y = c.offsetTop; if (!buckets.has(y)) buckets.set(y, []); buckets.get(y).push(c); });
+      return [...buckets.entries()].sort((a, b) => a[0] - b[0]).map((e) => e[1]);
+    }
+    function update() {
+      const rows = detectRows(); const N = rows.length; if (!N) { raf = 0; return; }
+      const r = section.getBoundingClientRect();
+      const sectionCenter = r.top + r.height / 2;
+      const range = r.height * 0.55;
+      const raw = 0.5 + (window.innerHeight / 2 - sectionCenter) / range;
+      const progress = Math.max(0, Math.min(1, raw));
+      rows.forEach((rowCards, i) => {
+        const peak = N > 1 ? i / (N - 1) : 0.5;
+        const dist = Math.abs(progress - peak);
+        const weight = Math.max(0, 1 - dist * Math.max(1, N - 1));
+        rowCards.forEach((c) => c.style.setProperty('--row-weight', weight.toFixed(3)));
+      });
+      raf = 0;
+    }
+    function schedule() { if (raf) return; raf = requestAnimationFrame(update); }
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+    update();
+  })();
+</script>
 
 </body>
 </html>
